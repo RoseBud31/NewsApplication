@@ -1,4 +1,4 @@
-package com.example.newsapplicationversion1.controllers;
+package com.example.newsapplicationversion1;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
