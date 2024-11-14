@@ -5,43 +5,60 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1">
-   <children>
-      <AnchorPane prefHeight="500.0" prefWidth="700.0">
-         <children>
-            <AnchorPane prefHeight="500.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <ImageView fitHeight="500.0" fitWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-                     <image>
-                        <Image url="@../../../../../../../Documents/IIT%20Year%202/OOP/loginVersion2.png" />
-                     </image>
-                  </ImageView>
-               </children></AnchorPane>
-            <AnchorPane layoutX="350.0" layoutY="5.0" prefHeight="500.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <Label layoutX="64.0" layoutY="176.0" text="Email" textFill="#363434">
-                     <font>
-                        <Font name="Arial Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <TextField layoutX="64.0" layoutY="192.0" prefHeight="35.0" prefWidth="230.0" />
-                  <TextField layoutX="62.0" layoutY="280.0" prefHeight="35.0" prefWidth="230.0" />
-                  <Label layoutX="62.0" layoutY="264.0" text="Password" textFill="#363434">
-                     <font>
-                        <Font name="Arial Bold" size="14.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="144.0" layoutY="117.0" text="Login" textFill="#c70000">
-                     <font>
-                        <Font size="24.0" />
-                     </font>
-                  </Label>
-                  <Label layoutX="58.0" layoutY="356.0" prefHeight="26.0" prefWidth="230.0" text="Don't have an account? Create Account">
-                     <font>
-                        <Font name="Arial Bold" size="12.0" />
-                     </font></Label>
-               </children></AnchorPane>
-         </children>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0"
+           prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1"
+           fx:controller="com.example.newsapplicationversion1.controllers.LoginController">
+   <AnchorPane fx:id="loginForm" prefHeight="500.0" prefWidth="700.0">
+      <AnchorPane prefHeight="500.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                  AnchorPane.topAnchor="0.0">
+         <ImageView fitHeight="500.0" fitWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0"
+                    AnchorPane.topAnchor="0.0">
+            <Image url="@assets/login_main.png"/>
+         </ImageView>
       </AnchorPane>
-   </children>
+      <AnchorPane accessibleRole="BUTTON" layoutX="350.0" layoutY="5.0" prefHeight="500.0" prefWidth="350.0"
+                  AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <Label layoutX="64.0" layoutY="176.0" text="Email" textFill="#363434">
+            <font>
+               <Font name="Arial Bold" size="14.0"/>
+            </font>
+         </Label>
+         <TextField fx:id="email" layoutX="64.0" layoutY="192.0" prefHeight="35.0" prefWidth="230.0"
+                    styleClass="textfield" stylesheets="@login.css"/>
+         <PasswordField fx:id="password" layoutX="62.0" layoutY="280.0"
+                        prefHeight="35.0" prefWidth="230.0" styleClass="textfield" stylesheets="@login.css"/>
+         <Label layoutX="62.0" layoutY="264.0" text="Password" textFill="#363434">
+            <font>
+               <Font name="Arial Bold" size="14.0"/>
+            </font>
+         </Label>
+         <Label layoutX="144.0" layoutY="117.0" text="Login" textFill="#c70000">
+            <font>
+               <Font size="24.0"/>
+            </font>
+         </Label>
+         <Button fx:id="loginButton" layoutX="63.0" layoutY="334.0" mnemonicParsing="false" onAction="#loginUser"
+                 prefHeight="35.0" prefWidth="230.0" styleClass="login-btn" stylesheets="@login.css"
+                 text="Login"/>
+         <Label layoutX="64.0" layoutY="384.0" prefHeight="26.0" prefWidth="141.0" text="Don't have an account? "
+                textFill="#ae0000">
+            <font>
+               <Font name="Arial Bold" size="12.0"/>
+            </font>
+         </Label>
+         <Button fx:id="createAccountLink" layoutX="197.0" layoutY="384.0" onAction="#createAccountLink"
+                 prefHeight="26.0" prefWidth="102.0" styleClass="link-btn" stylesheets="@login.css"
+                 text="Create Account" textFill="#009bab">
+            <font>
+               <Font name="Arial Bold" size="12.0"/>
+            </font>
+         </Button>
+         <Button fx:id="close" layoutX="324.0" mnemonicParsing="false" onAction="#close" styleClass="close"
+                 stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <font>
+               <Font name="Arial Bold" size="12.0"/>
+            </font>
+         </Button>
+      </AnchorPane>
+   </AnchorPane>
 </StackPane>

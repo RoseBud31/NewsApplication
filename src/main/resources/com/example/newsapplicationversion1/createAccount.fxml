@@ -1,14 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.newsapplicationversion1.CreateAccount"
-            prefHeight="400.0" prefWidth="600.0" >
-
-</AnchorPane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.CreateAccountController">
+    <AnchorPane prefHeight="500.0" prefWidth="700.0">
+        <AnchorPane prefHeight="500.0" prefWidth="350.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <ImageView fitHeight="700.0" fitWidth="450.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Image url="@assets/login_main.png" />
+            </ImageView>
+        </AnchorPane>
+        <AnchorPane layoutX="350.0" layoutY="5.0" prefHeight="700.0" prefWidth="450.0" style="-fx-background-color: #ffffff;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <Label layoutX="92.0" layoutY="81.0" text="First Name" textFill="#363434">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+            </Label>
+            <TextField fx:id="firstName" layoutX="90.0" layoutY="100.0" prefHeight="35.0" prefWidth="269.0" styleClass="textfield" stylesheets="@login.css" />
+            <TextField fx:id="lastName" layoutX="91.0" layoutY="186.0" prefHeight="35.0" prefWidth="270.0" styleClass="textfield" stylesheets="@login.css" />
+            <Label layoutX="92.0" layoutY="167.0" text="Last Name" textFill="#363434">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="146.0" layoutY="32.0" text="Create Account" textFill="#c70000">
+                <font>
+                    <Font size="24.0" />
+                </font>
+            </Label>
+            <Label layoutX="138.0" layoutY="651.0" prefHeight="26.0" prefWidth="139.0" text="Already have account? " textFill="#ae0000">
+                <font>
+                    <Font name="Arial Bold" size="12.0" />
+                </font>
+            </Label>
+            <TextField fx:id="email" layoutX="91.0" layoutY="261.0" prefHeight="35.0" prefWidth="270.0" styleClass="textfield" stylesheets="@login.css" />
+            <Label layoutX="92.0" layoutY="242.0" text="Email" textFill="#363434">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="92.0" layoutY="311.0" text="Password" textFill="#363434">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="92.0" layoutY="387.0" text="Confirm Password" textFill="#363434">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+            </Label>
+            <Label layoutX="92.0" layoutY="460.0" text="Preferred Categories" textFill="#363434">
+                <font>
+                    <Font name="Arial Bold" size="14.0" />
+                </font>
+            </Label>
+            <CheckBox fx:id="business" layoutX="89.0" layoutY="488.0" mnemonicParsing="false" stylesheets="@login.css" text="Business">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+                <opaqueInsets>
+                    <Insets />
+                </opaqueInsets>
+            </CheckBox>
+            <CheckBox fx:id="technology" layoutX="89.0" layoutY="549.0" mnemonicParsing="false" stylesheets="@login.css" text="Technology">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+            </CheckBox>
+            <CheckBox fx:id="sports" layoutX="89.0" layoutY="517.0" mnemonicParsing="false" stylesheets="@login.css" text="Sports">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+            </CheckBox>
+            <CheckBox fx:id="health" layoutX="245.0" layoutY="549.0" mnemonicParsing="false" stylesheets="@login.css" text="Health">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+            </CheckBox>
+            <CheckBox fx:id="science" layoutX="245.0" layoutY="517.0" mnemonicParsing="false" stylesheets="@login.css" text="Science">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+            </CheckBox>
+            <CheckBox fx:id="entertainment" layoutX="245.0" layoutY="488.0" mnemonicParsing="false" stylesheets="@login.css" text="Entertainment">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+            </CheckBox>
+            <CheckBox fx:id="general" layoutX="90.0" layoutY="579.0" mnemonicParsing="false" stylesheets="@login.css" text="General">
+                <font>
+                    <Font name="Arial" size="14.0" />
+                </font>
+            </CheckBox>
+            <PasswordField fx:id="password" layoutX="92.0" layoutY="340.0" prefHeight="35.0" prefWidth="270.0" styleClass="textfield" stylesheets="@login.css" />
+            <PasswordField fx:id="confirmPassword" layoutX="92.0" layoutY="410.0" prefHeight="35.0" prefWidth="270.0" styleClass="textfield" stylesheets="@login.css" />
+            <Button fx:id="createAccountButton" layoutX="89.0" layoutY="616.0" mnemonicParsing="false" onAction="#createClientAccount" prefHeight="35.0" prefWidth="270.0" styleClass="login-btn" stylesheets="@login.css" text="Create Account" />
+            <Button fx:id="loginAccountLink" layoutX="270.0" layoutY="653.0" onAction="#loginAccountLink" styleClass="link-btn" stylesheets="@login.css" text="Login" textFill="#00aec1">
+                <font>
+                    <Font name="Arial Bold" size="12.0" />
+                </font>
+            </Button>
+            <Button fx:id="close" layoutX="425.0" mnemonicParsing="false" onAction="#close" styleClass="close" stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <font>
+                    <Font name="Arial Bold" size="12.0" />
+                </font>
+            </Button>
+        </AnchorPane>
+    </AnchorPane>
+</StackPane>

@@ -1,16 +1,27 @@
 package com.example.newsapplicationversion1.models;
 
-import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.core.JsonParser;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.util.JsonParserDelegate;
+import com.fasterxml.jackson.databind.JsonSerializable;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
+import java.util.List;
 
-public class ArticleFetcher {
-    public static void main (String[] args) throws IOException {
+public class ArticleReader {
+    public static List<Article> retrieveArticles() {
         ObjectMapper mapper = new ObjectMapper();
-        Articles articles = mapper.readValue("src/main/resources/com/example/newsapplicationversion1/articles.json", Articles.class);
-        System.out.println(articles);
+        try {
+            // Read the JSON file and map it to a List of Article objects
+            return mapper.readValue(new File("src/main/java/com/example/newsapplicationversion1/models/articles.json"), new TypeReference<List<Article>>() {});
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
     }
 }

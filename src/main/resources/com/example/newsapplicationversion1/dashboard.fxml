@@ -1,14 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.example.newsapplicationversion1.assets.Dashboard"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/11.0.14-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.DashboardController">
+   <BorderPane prefHeight="700.0" prefWidth="900.0">
+      <left>
+         <AnchorPane prefHeight="686.0" prefWidth="180.0" style="-fx-padding: 2px;" BorderPane.alignment="CENTER">
+            <Button fx:id="home" layoutX="5.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@assets/icons8-home-100.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button layoutX="2.0" layoutY="637.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Logout" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.8000000000000114">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@assets/icons8-logout-100.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="settings" layoutX="5.0" layoutY="198.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Settings" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@assets/icons8-settings-100.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="readingHistory" layoutX="5.0" layoutY="155.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Reading History" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
+               <font>
+                  <Font name="Arial Bold" size="14.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <Image url="@assets/icons8-history-100.png" />
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fx:id="pulseTimes" fitHeight="24.0" fitWidth="163.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
+               <Image url="@assets/logoTransparent.png" />
+            </ImageView>
+         </AnchorPane>
+      </left>
+      <center>
+         <AnchorPane BorderPane.alignment="CENTER">
+            <ScrollPane prefHeight="645.0" prefWidth="741.0" style="-fx-border-width: 0; -fx-background-insets: none;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <TilePane fx:id="newsTiles" hgap="10" vgap="20" prefTileWidth="220.0" style="-fx-border-width: 0; -fx-border-color: #ffffff; -fx-box-shadow: none;" />
+            </ScrollPane>
+            <TextField fx:id="search" layoutX="165.0" layoutY="43.0" prefHeight="26.0" prefWidth="390.0" promptText="Search for anything.." style="-fx-border-radius: 30px; -fx-font-family: Arial; -fx-padding: 5px;" styleClass="search" stylesheets="@login.css">
+               <font>
+                  <Font name="Arial" size="13.0" />
+               </font>
+            </TextField>
+            <Button fx:id="close" layoutX="695.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" styleClass="close" stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <font>
+                  <Font name="Arial Bold" size="12.0" />
+               </font>
+            </Button>
+         </AnchorPane>
+      </center>
+   </BorderPane>
+</StackPane>
