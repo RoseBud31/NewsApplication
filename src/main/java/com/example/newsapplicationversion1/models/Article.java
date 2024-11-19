@@ -2,7 +2,6 @@ package com.example.newsapplicationversion1.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.awt.*;
 import java.util.Date;
 
 public class Article {

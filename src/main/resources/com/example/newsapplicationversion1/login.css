@@ -48,20 +48,6 @@
     -fx-background-radius:4px;
 }
 
-.search{
-    -fx-background-color:transparent;
-    -fx-border-color: #aaaaaa;
-    -fx-border-width:.8px;
-    -fx-border-radius:8px;
-    -fx-font-family:"Tahoma";
-    -fx-font-size:14px;
-    -fx-padding:0px 0px 0px 28px;
-}
-
-.search:focused{
-    -fx-border-width:1.8px;
-}
-
 .table-view{
     -fx-background-color:transparent;
     -fx-padding:0px;

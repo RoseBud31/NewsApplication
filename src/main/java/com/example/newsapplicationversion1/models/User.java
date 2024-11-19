@@ -1,9 +1,10 @@
 package com.example.newsapplicationversion1.models;
 
 import java.util.Date;
+import java.util.List;
 
 public class User {
-    private int userID;
+    private int userId;
     private String firstName;
     private String lastName;
     private String email;
@@ -12,8 +13,8 @@ public class User {
     private Date createdAt;
     private Date lastLogin;
 
-    public User(int userID, String firstName, String lastName, String email, String password, String role) {
-        this.userID = userID;
+    public User(int userId, String firstName, String lastName, String email, String password, String role) {
+        this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
@@ -22,11 +23,11 @@ public class User {
         this.createdAt = new Date();
         this.lastLogin = new Date();
     }
-    public int getUserID() {
-        return userID;
+    public int getUserId() {
+        return userId;
     }
-    public void setUserID(int userID) {
-        this.userID = userID;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
     public String getFirstName() {
         return firstName;
@@ -51,6 +52,12 @@ public class User {
     }
     public void setPassword(String password) {
         this.password = password;
+    }
+    public String getRole() {
+        return role;
+    }
+    public void setRole(String role) {
+        this.role = role;
     }
     public Date getCreatedAt() {
         return createdAt;
