@@ -6,6 +6,50 @@ package com.example.newsapplicationversion1.dao;
 // Retrieve all users
 // Get user by email
 
+import com.example.newsapplicationversion1.data.Database;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 public class UserDAO {
-    public
+    private static Connection connect;
+    private static PreparedStatement prepare;
+    private static ResultSet resultSet;
+
+    public static void createUser(String firstName, String lastName, String email, String password) {
+        String sql = "INSERT INTO USERS (firstName, lastName, email, password, role, createdAt, lastLogin) VALUES(?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, firstName);
+            prepare.setString(2, lastName);
+            prepare.setString(3, email);
+            prepare.setString(4, password);
+            prepare.setString(5, "Client");
+            prepare.setDate(6, new java.sql.Date(System.currentTimeMillis()));
+            prepare.setDate(7, new java.sql.Date(System.currentTimeMillis()));
+            prepare.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static Boolean checkUserExists(String email) {
+        try {
+            String sql = "SELECT * FROM USERS WHERE email = ?";
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, email);
+            resultSet = prepare.executeQuery();
+            if (resultSet.next()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

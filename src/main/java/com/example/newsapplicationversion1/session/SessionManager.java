@@ -18,4 +18,7 @@ public class SessionManager {
         currentUser = null;
     }
 
+    public int getUserId() {
+        return currentUser.getUserId();
+    }
 }

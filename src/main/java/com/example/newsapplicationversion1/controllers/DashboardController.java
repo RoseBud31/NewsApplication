@@ -1,7 +1,7 @@
 package com.example.newsapplicationversion1.controllers;
 
+import com.example.newsapplicationversion1.dao.ArticleDAO;
 import com.example.newsapplicationversion1.models.Article;
-import com.example.newsapplicationversion1.models.ArticleReader;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
@@ -87,6 +87,6 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        populateTilePane(newsTiles, Objects.requireNonNull(ArticleReader.retrieveArticles()));
+        populateTilePane(newsTiles, Objects.requireNonNull(ArticleDAO.getAllArticles()));
     }
 }

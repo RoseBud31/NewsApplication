@@ -60,6 +60,8 @@ public class CreateAccountController implements Initializable {
             checkEmail = connect.prepareStatement(checkSql);
             checkEmail.setString(1, email.getText());
 
+
+
             prepare = connect.prepareStatement(sql);
             prepare.setString(1, firstName.getText());
             prepare.setString(2, lastName.getText());

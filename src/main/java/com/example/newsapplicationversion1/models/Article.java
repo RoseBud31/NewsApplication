@@ -82,8 +82,8 @@ public class Article {
     public void setDescription(String description) {
         this.description = description;
     }
-    public Date getPublishedDate() {
-        return publishedDate;
+    public java.sql.Date getPublishedDate() {
+        return (java.sql.Date) publishedDate;
     }
     public void setPublishedDate(Date publishedDate) {
         this.publishedDate = publishedDate;

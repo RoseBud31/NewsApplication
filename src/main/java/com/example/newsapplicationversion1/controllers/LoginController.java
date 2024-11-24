@@ -41,7 +41,7 @@ public class LoginController implements Initializable {
     private PreparedStatement prepare;
     private ResultSet result;
 
-    // Database Creation
+    // Window
     private double x=0;
     private double y=0;
 
