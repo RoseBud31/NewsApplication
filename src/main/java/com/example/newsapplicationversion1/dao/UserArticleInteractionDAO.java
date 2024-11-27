@@ -12,15 +12,15 @@ public class UserArticleInteractionDAO {
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
 
-    public static void logInteraction(int userId, int articleId, int timeSpent, boolean liked, Date readAt) {
-        String sql = "INSERT INTO READINGHISTORY (userID, articleID, timeSpent, liked, readAt) VALUES (?, ?, ?, ?, ?)";
+    public static void logInteraction(int userId, int articleId, int timeSpent, String interactionType, Date readAt) {
+        String sql = "INSERT INTO READINGHISTORY (userID, articleID, timeSpent, interactionType, readAt) VALUES (?, ?, ?, ?, ?)";
         try{
             connect = Database.connectDb();
             prepare = connect.prepareStatement(sql);
             prepare.setInt(1, userId);
             prepare.setInt(2, articleId);
             prepare.setInt(3, timeSpent);
-            prepare.setBoolean(4, liked);
+            prepare.setString(4, interactionType);
             prepare.setDate(5, readAt);
             prepare.executeUpdate();
 
@@ -37,7 +37,7 @@ public class UserArticleInteractionDAO {
             resultSet = prepare.executeQuery();
             List<UserArticleInteraction> readingHistory = new ArrayList<>();
             while(resultSet.next()){
-                readingHistory.add(new UserArticleInteraction(resultSet.getInt("historyID"), resultSet.getInt("userID"), resultSet.getInt("articleID"), resultSet.getBoolean("liked"), resultSet.getInt("timeSpent"), resultSet.getDate("readAt")));
+                readingHistory.add(new UserArticleInteraction(resultSet.getInt("historyID"), resultSet.getInt("userID"), resultSet.getInt("articleID"), resultSet.getString("interactionType"), resultSet.getInt("timeSpent"), resultSet.getDate("readAt")));
             }
             resultSet.close();
             return readingHistory;

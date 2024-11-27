@@ -6,15 +6,15 @@ public class UserArticleInteraction {
     private int interactionId;
     private int userId;
     private int articleId;
-    private boolean liked;
+    private String interactionType;
     private int timeSpentSeconds;
     private Date dateRead;
 
-    public UserArticleInteraction(int interactionId, int userId, int articleId, boolean liked, int timeSpentSeconds, Date dateRead) {
+    public UserArticleInteraction(int interactionId, int userId, int articleId, String interactionType, int timeSpentSeconds, Date dateRead) {
         this.interactionId = interactionId;
         this.userId = userId;
         this.articleId = articleId;
-        this.liked = liked;
+        this.interactionType = interactionType;
         this.timeSpentSeconds = timeSpentSeconds;
         this.dateRead = dateRead;
     }
@@ -36,11 +36,11 @@ public class UserArticleInteraction {
     public void setArticleId(int articleId) {
         this.articleId = articleId;
     }
-    public boolean isLiked() {
-        return liked;
+    public String interactionType() {
+        return interactionType;
     }
-    public void setLiked(boolean liked) {
-        this.liked = liked;
+    public void setInteractionType(String interactionType) {
+        this.interactionType = interactionType;
     }
     public int getTimeSpentSeconds() {
         return timeSpentSeconds;

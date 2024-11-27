@@ -33,7 +33,7 @@ public class Article {
         this.description = description;
         this.publishedDate = publishedDate;
         this.content = content;
-        this.imageUrl = "/com/example/newsapplicationversion1/images/" + articleId + ".jpg";
+        this.imageUrl = "/com/example/newsapplicationversion1/images/" + articleId%20 + ".jpg";
     }
     public Article() {
         this.articleId = 0;

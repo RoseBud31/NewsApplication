@@ -14,7 +14,7 @@
 <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.DashboardController">
    <BorderPane prefHeight="700.0" prefWidth="900.0">
       <left>
-         <AnchorPane prefHeight="686.0" prefWidth="180.0" style="-fx-padding: 2px;" BorderPane.alignment="CENTER">
+         <AnchorPane prefHeight="700.0" prefWidth="180.0" style="-fx-padding: 2px;" BorderPane.alignment="CENTER">
             <Button fx:id="home" layoutX="5.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
                <font>
                   <Font name="Arial Bold" size="14.0" />
@@ -62,8 +62,8 @@
       </left>
       <center>
          <AnchorPane BorderPane.alignment="CENTER">
-            <ScrollPane fitToWidth="true" prefHeight="645.0" prefWidth="741.0" style="-fx-border-width: 0; -fx-background-insets: none;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-               <TilePane fx:id="newsTiles" hgap="10" prefTileWidth="220.0" style="-fx-border-width: 0; -fx-border-color: #ffffff; -fx-box-shadow: none;" vgap="20" />
+            <ScrollPane fx:id="mainScrollPane" fitToWidth="true" maxHeight="1.7976931348623157E308" prefWidth="720.0" style="-fx-border-width: 0; -fx-background-insets: none;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <TilePane fx:id="newsTiles" hgap="10" layoutX="120.0" layoutY="100.0" style="-fx-border-width: 0; -fx-border-color: #ffffff; -fx-box-shadow: none;" vgap="20" />
             </ScrollPane>
             <TextField fx:id="search" layoutX="165.0" layoutY="43.0" prefHeight="26.0" prefWidth="390.0" promptText="Search for anything.." style="-fx-border-radius: 30px; -fx-font-family: Arial; -fx-padding: 5px;" styleClass="search" stylesheets="@dashboard.css">
                <font>
