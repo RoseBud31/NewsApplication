@@ -1,48 +1,10 @@
 package com.example.newsapplicationversion1.dao;
 
-import com.example.newsapplicationversion1.data.Database;
-import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.Recommendation;
 
-import java.sql.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.sql.Date;
 
-public class RecommendationDAO {
-    private static Connection connect;
-    private static PreparedStatement prepare;
-    private static ResultSet resultSet;
-
-    public static void recordRecommendation(int userId, int articleId, Date recommendedAt) {
-        String sql = "INSERT INTO RECOMMENDEDARTICLES (userID, articleID, recommendedAt) VALUES (?, ?, ?)";
-        try{
-            connect = Database.connectDb();
-            prepare = connect.prepareStatement(sql);
-            prepare.setInt(1, userId);
-            prepare.setInt(2, articleId);
-            prepare.setDate(3, recommendedAt);
-            prepare.executeUpdate();
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-    public static Recommendation getRecommendations(int userId) {
-        String sql = "SELECT * FROM RECOMMENDEDARTICLES WHERE userID = ?";
-
-        try{
-            connect = Database.connectDb();
-            prepare = connect.prepareStatement(sql);
-            resultSet = prepare.executeQuery();
-            List<Article> articles = new ArrayList<>();
-            while (resultSet.next()) {
-                Article article = ArticleDAO.getArticle(resultSet.getInt("articleID"));
-                articles.add(article);
-            }
-            return new Recommendation(userId, articles);
-
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
+public interface RecommendationDAO {
+    void recordRecommendation(int userId, int articleId, Date recommendedAt);
+    Recommendation getRecommendations(int userId);
 }

@@ -1,6 +1,7 @@
 package com.example.newsapplicationversion1.controllers;
 
 import com.example.newsapplicationversion1.dao.ArticleDAO;
+import com.example.newsapplicationversion1.dao.ArticleDAOImpl;
 import com.example.newsapplicationversion1.models.Article;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -185,6 +186,7 @@ public class DashboardController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        populateTilePane(newsTiles, Objects.requireNonNull(ArticleDAO.getAllArticles()));
+        ArticleDAO articleDAO = new ArticleDAOImpl();
+        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
     }
 }
