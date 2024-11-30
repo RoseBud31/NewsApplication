@@ -8,6 +8,7 @@ import com.example.newsapplicationversion1.models.UserArticleInteraction;
 import com.example.newsapplicationversion1.session.SessionManager;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class RecommendationEngine {
     // Checks prefers categories
@@ -49,7 +50,34 @@ public class RecommendationEngine {
             }
         }
 
-        Map<Integer, Integer> articleRanking = new HashMap<Integer, Integer>();
+        Map<String, Double> categoryRanking = new HashMap<>();
+        for (Article article : articlesAvailable) {
+            double score = 0;
+            int timeSpent = userArticleInteractionDAO.getArticleInteractionTime(currentUser.getUserId(), article.getArticleId());
+            if (articlesLiked.contains(article.getArticleId())){
+                score += 10;
+                score += (double) timeSpent /120;
+            }
+            else if (articlesRead.contains(article.getArticleId())){
+                score += 2;
+            }
+            if (categoryRanking.containsKey(article.getCategory())){
+                Double value = categoryRanking.get(article.getCategory());
+                categoryRanking.put(article.getCategory(), value + score);
+            } else{
+                categoryRanking.put(article.getCategory(), score);
+            }
+        }
+        Double maxValue = Collections.max(categoryRanking.values());
+        List<String> maxThreeCategories = categoryRanking.entrySet().stream().sorted(Map.Entry.<String, Double>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).toList();
+        userPreferencesDAO.addUserPreferences(currentUser.getUserId(), maxThreeCategories);
+
+        // Now based on keywords and preferred category suggest articles
+        for (Article article : articlesAvailable){
+            if (!articlesRead.contains(article.getArticleId())){
+                List<String> keywords = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredKeywords();
+            }
+        }
         return null;
     }
 }

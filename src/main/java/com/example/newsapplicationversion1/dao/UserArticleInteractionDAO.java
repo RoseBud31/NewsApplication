@@ -10,4 +10,5 @@ public interface UserArticleInteractionDAO {
     List<UserArticleInteraction> readInteractionsForUser(int userId);
     void setArticleLiked(int userId, int articleId, String userInteractionType);
     String getArticleInteractionType(int userId, int articleId);
+    int getArticleInteractionTime(int userId, int articleId);
 }

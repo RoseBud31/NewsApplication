@@ -82,4 +82,21 @@ public class UserArticleInteractionDAOImpl implements UserArticleInteractionDAO 
             throw new RuntimeException(e);
         }
     }
+    public int getArticleInteractionTime(int userId, int articleId) {
+        String sql = "SELECT timeSpent FROM READINGHISTORY WHERE userID = ? && articleID = ?";
+        try{
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setInt(1, userId);
+            prepare.setInt(2, articleId);
+            resultSet = prepare.executeQuery();
+            if(resultSet.next()){
+                resultSet.getInt("timeSpent");
+            }
+            return 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
