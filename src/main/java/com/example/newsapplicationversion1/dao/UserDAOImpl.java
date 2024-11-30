@@ -7,6 +7,7 @@ package com.example.newsapplicationversion1.dao;
 // Get user by email
 
 import com.example.newsapplicationversion1.data.Database;
+import com.example.newsapplicationversion1.models.User;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -47,6 +48,23 @@ public class UserDAOImpl implements UserDAO {
                 return true;
             } else {
                 return false;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public User getUserByEmail(String email){
+        try {
+            String sql = "SELECT * FROM USERS WHERE email = ?";
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, email);
+            resultSet = prepare.executeQuery();
+            if (resultSet.next()) {
+                User user = new User(resultSet.getInt("userID"), resultSet.getString("firstName"), resultSet.getString("lastName"), resultSet.getString("email"), resultSet.getString("password"), resultSet.getString("role"));
+                return user;
+            } else {
+                return null;
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);

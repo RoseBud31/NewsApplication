@@ -7,9 +7,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class UserPreferencesDAOImpl implements UserPreferencesDAO {
     private static Connection connect;
@@ -53,5 +51,42 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
+    }
+
+    @Override
+    public void updateUserKeywords(int userId, List<String> newKeywords) {
+        String sql = "SELECT keywords FROM USERPREFERENCES WHERE userID = ?";
+        try{
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setInt(1, userId);
+            resultSet = prepare.executeQuery();
+            if (resultSet.next()) {
+                String existingKeywords = resultSet.getString("keywords");
+                List<String> updatedKeywords = mergeKeywords(existingKeywords, newKeywords);
+
+                String sqlUpdate = "UPDATE USERPREFERENCES SET keywords = ? WHERE userID = ?";
+                try{
+                    prepare = connect.prepareStatement(sqlUpdate);
+                    prepare.setString(1, String.join(",", updatedKeywords));
+                    prepare.setInt(2, userId);
+                    prepare.executeUpdate();
+                } catch (SQLException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+    }
+    private List<String> mergeKeywords(String existingKeywords, List<String> newKeywords) {
+        Set<String> keywords = new HashSet<>();
+        if (existingKeywords != null && !existingKeywords.isEmpty()) {
+            keywords.addAll(Arrays.asList(existingKeywords.split(",")));
+        }
+        keywords.addAll(newKeywords);
+        return new ArrayList<>(keywords);
+
     }
 }

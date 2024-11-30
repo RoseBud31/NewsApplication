@@ -3,18 +3,22 @@ package com.example.newsapplicationversion1.session;
 import com.example.newsapplicationversion1.models.User;
 
 public class SessionManager {
-    private static User currentUser;
+    public static User currentUser;
 
-    public static User getCurrentUser() {
+    public SessionManager(User user) {
+        this.currentUser = user;
+    }
+
+    public User getCurrentUser() {
         return currentUser;
     }
-    public static void setCurrentUser(User user) {
+    public void setCurrentUser(User user) {
         currentUser = user;
     }
-    public static boolean isLoggedIn() {
+    public boolean isLoggedIn() {
         return currentUser != null;
     }
-    public static void logout() {
+    public void logout() {
         currentUser = null;
     }
 

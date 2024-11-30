@@ -10,6 +10,7 @@ module com.example.newsapplicationversion1 {
     requires com.fasterxml.jackson.core;
     requires json.simple;
     requires com.fasterxml.jackson.annotation;
+    requires stanford.corenlp;
 
     opens com.example.newsapplicationversion1 to javafx.fxml;
     exports com.example.newsapplicationversion1;

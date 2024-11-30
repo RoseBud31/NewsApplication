@@ -1,6 +1,9 @@
 package com.example.newsapplicationversion1.controllers;
 
+import com.example.newsapplicationversion1.dao.UserDAO;
+import com.example.newsapplicationversion1.dao.UserDAOImpl;
 import com.example.newsapplicationversion1.data.Database;
+import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -24,6 +27,7 @@ import java.util.regex.Pattern;
 import static com.example.newsapplicationversion1.controllers.LoginController.changeScene;
 
 public class CreateAccountController implements Initializable {
+
     public TextField firstName;
     public TextField lastName;
     public TextField email;
@@ -48,44 +52,23 @@ public class CreateAccountController implements Initializable {
     private ResultSet resultSet;
     private PreparedStatement checkEmail;
 
-    public void createClientAccount() throws SQLException {
-
-        String sql = "INSERT INTO USERS (firstName, lastName, email, password, role, createdAt, lastLogin) VALUES(?, ?, ?, ?, ?, ?, ?)";
-        String checkSql = "SELECT * FROM USERS WHERE email=?";
-        connect = Database.connectDb();
-
+    public SessionManager createClientAccount() throws SQLException {
+        Alert alert;
+        UserDAO userDAO = new UserDAOImpl();
         try {
-            Alert alert;
-
-            checkEmail = connect.prepareStatement(checkSql);
-            checkEmail.setString(1, email.getText());
-
-
-
-            prepare = connect.prepareStatement(sql);
-            prepare.setString(1, firstName.getText());
-            prepare.setString(2, lastName.getText());
-            prepare.setString(3, email.getText());
-            prepare.setString(4, password.getText());
-            prepare.setString(5, "Client");
-            prepare.setDate(6, new java.sql.Date(System.currentTimeMillis()));
-            prepare.setDate(7, new java.sql.Date(System.currentTimeMillis()));
-
-            resultSet = checkEmail.executeQuery();
-
-            if (resultSet.next()) {
-                // Then inform client already exists and redirect to login form
-                email.getText();
-
+            if (userDAO.checkUserExists(email.getText())){
                 alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Information Message");
                 alert.setHeaderText(null);
                 alert.setContentText("Email already exists");
                 alert.showAndWait();
-
                 loginAccountLink();
-                return;
             }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        try {
             String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
             //Compile regular expression to get the pattern
             Pattern pattern = Pattern.compile(regex);
@@ -100,16 +83,15 @@ public class CreateAccountController implements Initializable {
             } else {
                 if (matcher.matches()) {
                     if (password.getText().equals(confirmPassword.getText())) {
-
+                        userDAO.createUser(firstName.getText(), lastName.getText(), email.getText(), password.getText());
                         // Then proceed to dashboard form if client
-                        email.getText();
+                        SessionManager  currentUser = new SessionManager(userDAO.getUserByEmail(email.getText()));
 
                         alert = new Alert(Alert.AlertType.INFORMATION);
                         alert.setTitle("Information Message");
                         alert.setHeaderText(null);
                         alert.setContentText("Successful account creation");
                         alert.showAndWait();
-                        prepare.executeUpdate();
 
                         // To hide the createAccount form
                         createAccountButton.getScene().getWindow().hide();
@@ -131,6 +113,7 @@ public class CreateAccountController implements Initializable {
                         });
 
                         changeScene(root, stage, scene, x, y);
+                        return currentUser;
                     }
                     else {
                         // Then error message will appear
@@ -139,6 +122,7 @@ public class CreateAccountController implements Initializable {
                         alert.setHeaderText(null);
                         alert.setContentText("Passwords do not match");
                         alert.showAndWait();
+                        return null;
                     }
 
                 } else {
@@ -148,18 +132,13 @@ public class CreateAccountController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Email is not valid");
                     alert.showAndWait();
+                    return null;
                 }
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());;
-        } finally {
-            try {
-                if (prepare != null) prepare.close();
-                if (connect != null) connect.close();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());;
-            }
         }
+        return null;
     }
 
     public void loginAccountLink() throws IOException {

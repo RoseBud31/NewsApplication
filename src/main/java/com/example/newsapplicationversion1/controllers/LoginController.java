@@ -1,5 +1,9 @@
 package com.example.newsapplicationversion1.controllers;
 
+import com.example.newsapplicationversion1.dao.UserDAO;
+import com.example.newsapplicationversion1.dao.UserDAOImpl;
+import com.example.newsapplicationversion1.models.User;
+import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -45,7 +49,7 @@ public class LoginController implements Initializable {
     private double x=0;
     private double y=0;
 
-    public void loginUser() throws SQLException {
+    public SessionManager loginUser() throws SQLException {
         String sql = "SELECT * FROM USERS WHERE email=? AND password=?";
         connect = Database.connectDb();
         try{
@@ -68,13 +72,9 @@ public class LoginController implements Initializable {
                 if (result.next()) {
                     // Then proceed to dashboard form if client
                     email.getText();
-
-                    alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Information Message");
-                    alert.setHeaderText(null);
-                    alert.setContentText("Successfully logged in");
-                    alert.showAndWait();
-
+                    // you have to create a current user remember to go the dao and fix
+                    UserDAO userDAO = new UserDAOImpl();
+                    SessionManager  currentUser = new SessionManager(userDAO.getUserByEmail(email.getText()));
                     // To hide the login form
                     loginButton.getScene().getWindow().hide();
 
@@ -97,6 +97,7 @@ public class LoginController implements Initializable {
                     stage.initStyle(StageStyle.TRANSPARENT);
                     stage.setScene(scene);
                     stage.show();
+                    return currentUser;
                 } else {
                     // Then error message will appear
                     alert = new Alert(Alert.AlertType.ERROR);
@@ -104,19 +105,14 @@ public class LoginController implements Initializable {
                     alert.setHeaderText(null);
                     alert.setContentText("Wrong email or password");
                     alert.showAndWait();
+                    return null;
                 }
             }
         } catch (Exception e) {
-            System.out.println(e.getMessage());;
-        } finally {
-            try {
-                if (result != null) result.close();
-                if (prepare != null) prepare.close();
-                if (connect != null) connect.close();
-            } catch (SQLException e) {
-                System.out.println(e.getMessage());;
-            }
+            System.out.println(e.getMessage());
+            return null;
         }
+        return null;
     }
     public void createAccountLink() throws IOException {
         // Link the createAccountForm

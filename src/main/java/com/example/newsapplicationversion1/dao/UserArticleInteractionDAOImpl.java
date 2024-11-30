@@ -4,6 +4,7 @@ import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.UserArticleInteraction;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,7 +13,7 @@ public class UserArticleInteractionDAOImpl implements UserArticleInteractionDAO 
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
 
-    public void logInteraction(int userId, int articleId, int timeSpent, String interactionType, Date readAt) {
+    public void logInteraction(int userId, int articleId, int timeSpent, String interactionType, LocalDateTime readAt) {
         String sql = "INSERT INTO READINGHISTORY (userID, articleID, timeSpent, interactionType, readAt) VALUES (?, ?, ?, ?, ?)";
         try{
             connect = Database.connectDb();
@@ -21,7 +22,8 @@ public class UserArticleInteractionDAOImpl implements UserArticleInteractionDAO 
             prepare.setInt(2, articleId);
             prepare.setInt(3, timeSpent);
             prepare.setString(4, interactionType);
-            prepare.setDate(5, readAt);
+            java.sql.Date sqlDate = java.sql.Date.valueOf(readAt.toLocalDate());
+            prepare.setDate(5, sqlDate);
             prepare.executeUpdate();
 
         } catch (SQLException e) {
@@ -47,4 +49,37 @@ public class UserArticleInteractionDAOImpl implements UserArticleInteractionDAO 
         }
     }
 
+    @Override
+    public void setArticleLiked(int userId, int articleId, String interactionType) {
+        String sql = "UPDATE READINGHISTORY SET interactionType = ? WHERE articleID = ? && userID = ?";
+        try{
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setString(1, interactionType);
+            prepare.setInt(2, articleId);
+            prepare.setInt(3, userId);
+            prepare.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public String getArticleInteractionType(int userId, int articleId) {
+        String sql = "SELECT interactionType FROM READINGHISTORY WHERE userID = ? && articleID = ?";
+        try{
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setInt(1, userId);
+            prepare.setInt(2, articleId);
+            resultSet = prepare.executeQuery();
+            if(resultSet.next()){
+                return resultSet.getString("interactionType");
+            }
+            return null;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

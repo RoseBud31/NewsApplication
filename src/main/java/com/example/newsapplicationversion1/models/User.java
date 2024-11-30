@@ -23,6 +23,7 @@ public class User {
         this.createdAt = new Date();
         this.lastLogin = new Date();
     }
+
     public int getUserId() {
         return userId;
     }
