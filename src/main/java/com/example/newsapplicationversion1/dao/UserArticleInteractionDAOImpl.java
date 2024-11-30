@@ -99,4 +99,19 @@ public class UserArticleInteractionDAOImpl implements UserArticleInteractionDAO 
             throw new RuntimeException(e);
         }
     }
+
+    @Override
+    public void updateArticleTime(int userId, int articleId, int timeSpent) {
+        String sql = "UPDATE READINGHISTORY SET timeSpent = ? WHERE articleID = ? && userID = ?";
+        try{
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setInt(1, timeSpent);
+            prepare.setInt(2, articleId);
+            prepare.setInt(3, userId);
+            prepare.executeUpdate();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

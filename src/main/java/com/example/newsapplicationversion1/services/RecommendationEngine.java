@@ -5,6 +5,7 @@ import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.models.UserArticleInteraction;
+import com.example.newsapplicationversion1.models.UserPreferences;
 import com.example.newsapplicationversion1.session.SessionManager;
 
 import java.util.*;
@@ -31,24 +32,16 @@ public class RecommendationEngine {
         // Get the liked articles and the unread articles
         List<UserArticleInteraction> userHistory= userArticleInteractionDAO.readInteractionsForUser(userId);
         // Liked articles
+        List<Integer> articlesRead = new ArrayList<Integer>();
         List<Integer> articlesLiked = new ArrayList<Integer>();
         for (UserArticleInteraction userArticleInteraction : userHistory) {
+            articlesRead.add(userArticleInteraction.getArticleId());
             if (Objects.equals(userArticleInteraction.getInteractionType(), "liked")){
                 articlesLiked.add(userArticleInteraction.getArticleId());
             }
         }
-        // Articles not yet read
-        List<Integer> articlesRead = new ArrayList<Integer>();
-        for (UserArticleInteraction userArticleInteraction : userHistory) {
-            articlesRead.add(userArticleInteraction.getArticleId());
-        }
         List<Article> articlesAvailable = articleDAO.getAllArticles();
-        List<Integer> articlesUnread = new ArrayList<>();
-        for (Article article : articlesAvailable) {
-            if (!articlesRead.contains(article.getArticleId())){
-                articlesUnread.add(article.getArticleId());
-            }
-        }
+
 
         Map<String, Double> categoryRanking = new HashMap<>();
         for (Article article : articlesAvailable) {
@@ -73,11 +66,35 @@ public class RecommendationEngine {
         userPreferencesDAO.addUserPreferences(currentUser.getUserId(), maxThreeCategories);
 
         // Now based on keywords and preferred category suggest articles
-        for (Article article : articlesAvailable){
-            if (!articlesRead.contains(article.getArticleId())){
-                List<String> keywords = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredKeywords();
+        //List<Integer> articlesUnread = new ArrayList<>();
+        //for (Article article : articlesAvailable){
+        //    if (!articlesRead.contains(article.getArticleId())){
+        //        articlesUnread.add(article.getArticleId());
+        //        List<String> keywords = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredKeywords();
+        //    }
+        //}
+        return rankArticles(articlesAvailable, userPreferencesDAO.getUserPreferences(currentUser.getUserId()));
+    }
+    private List<Article> rankArticles(List<Article> articles, UserPreferences userPreferences) {
+        return articles.stream()
+                .sorted(Comparator.comparingDouble(article -> calculateRelevanceScore(article, userPreferences)))
+                .collect(Collectors.toList());
+    }
+
+    private double calculateRelevanceScore(Article article, UserPreferences userPreferences){
+        double relevanceScore = 0;
+        // Match categories
+        if (userPreferences.getPreferredCategories().contains(article.getCategory())){
+            relevanceScore += 3;
+        }
+        // Keyword Similarity
+        StanfordNLP stanfordNLP = new StanfordNLP();
+        List<String> articleKeywords = stanfordNLP.extractKeywords(article.getContent());
+        for (String keyword : articleKeywords) {
+            if (userPreferences.getPreferredKeywords().contains(keyword)){
+                relevanceScore += 0.5;
             }
         }
-        return null;
+        return relevanceScore;
     }
 }

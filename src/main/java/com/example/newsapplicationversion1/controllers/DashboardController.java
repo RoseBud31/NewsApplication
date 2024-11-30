@@ -242,6 +242,10 @@ public class DashboardController implements Initializable {
         userArticleInteractionDAO.setArticleLiked(currentUser.getUserId(), articleId, userInteractionType);
     }
 
+    public void logout(User currentUser){
+
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ArticleDAO articleDAO = new ArticleDAOImpl();
