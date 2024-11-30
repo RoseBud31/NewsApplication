@@ -44,7 +44,15 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
                 if (categoriesString != null && !categoriesString.isEmpty()) {
                     preferredCategories = Arrays.asList(categoriesString.split(","));
                 }
+
+                // Convert comma-separated list value back to list
+                String keywordsString = resultSet.getString("preferredKeywords");
+                List<String> preferredKeywords = new ArrayList<String>();
+                if (keywordsString != null && !keywordsString.isEmpty()) {
+                    preferredKeywords = Arrays.asList(keywordsString.split(","));
+                }
                 userPreferences.setPreferredCategories(preferredCategories);
+                userPreferences.setPreferredKeywords(preferredKeywords);
                 return userPreferences;
             }
             return null;

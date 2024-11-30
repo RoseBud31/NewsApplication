@@ -1,11 +1,10 @@
+
 package com.example.newsapplicationversion1.controllers;
 
-import com.example.newsapplicationversion1.dao.ArticleDAO;
-import com.example.newsapplicationversion1.dao.ArticleDAOImpl;
-import com.example.newsapplicationversion1.dao.UserArticleInteractionDAO;
-import com.example.newsapplicationversion1.dao.UserArticleInteractionDAOImpl;
+import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
+import com.example.newsapplicationversion1.services.StanfordNLP;
 import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -31,7 +30,6 @@ import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
     private Boolean liked;
-    LoginController loginController = new LoginController();
     User currentUser = SessionManager.currentUser;
 
     @FXML
@@ -105,9 +103,13 @@ public class DashboardController implements Initializable {
             tile.setOnMouseClicked(event -> {
                 loadArticle(article);
                 UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
+                UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
+                StanfordNLP stanfordNLP = new StanfordNLP();
                 if (userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()) == null){
                     userArticleInteractionDAO.logInteraction(currentUser.getUserId(), article.getArticleId(), 0, "read", LocalDateTime.now());
-                }
+                };
+                List<String> keywords = stanfordNLP.extractKeywords(article.getContent());
+                userPreferencesDAO.updateUserKeywords(currentUser.getUserId(), keywords);
             });
 
             // Add new tile to the tilepane

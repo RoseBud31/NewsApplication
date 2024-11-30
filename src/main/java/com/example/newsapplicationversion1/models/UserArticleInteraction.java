@@ -36,7 +36,7 @@ public class UserArticleInteraction {
     public void setArticleId(int articleId) {
         this.articleId = articleId;
     }
-    public String interactionType() {
+    public String getInteractionType() {
         return interactionType;
     }
     public void setInteractionType(String interactionType) {
