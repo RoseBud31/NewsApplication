@@ -303,12 +303,12 @@ public class DashboardController implements Initializable {
         }
 
     }
-    public void switchForm(ActionEvent event) {
-        if (event.getSource() == home){
-            // Get the recommended articles for the home page
-
-        }
-    }
+//    public void switchForm(ActionEvent event) {
+//        if (event.getSource() == home){
+//            // Get the recommended articles for the home page
+//
+//        }
+//    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

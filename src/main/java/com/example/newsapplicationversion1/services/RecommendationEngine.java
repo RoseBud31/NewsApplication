@@ -12,13 +12,6 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class RecommendationEngine {
-    // Checks prefers categories
-    // Checks preferred keywords
-    // Higher priority for articles that are liked
-    // Higher priority for articles with longer reading time
-    // Filters out unread articles to suggest
-    // Based on similarity
-
 
     User currentUser = SessionManager.currentUser;
     UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
@@ -26,45 +19,22 @@ public class RecommendationEngine {
     ArticleDAO articleDAO = new ArticleDAOImpl();
 
     public List<Article> recommendArticles(int userId){
-
         // Get the liked articles and the unread articles
         List<UserArticleInteraction> userHistory= userArticleInteractionDAO.readInteractionsForUser(userId);
         // Liked articles
-        List<Integer> articlesRead = new ArrayList<Integer>();
-        List<Integer> articlesLiked = new ArrayList<Integer>();
+        List<Integer> articlesRead = new ArrayList<>();
+        List<Integer> articlesLiked = new ArrayList<>();
         for (UserArticleInteraction userArticleInteraction : userHistory) {
             articlesRead.add(userArticleInteraction.getArticleId());
-            if (Objects.equals(userArticleInteraction.getInteractionType(), "liked")){
+            if ("liked".equals(userArticleInteraction.getInteractionType())){
                 articlesLiked.add(userArticleInteraction.getArticleId());
             }
         }
         List<Article> articlesAvailable = articleDAO.getAllArticles();
 
-
-        Map<String, Double> categoryRanking = new HashMap<>();
-        for (Article article : articlesAvailable) {
-            double score = 0;
-            int timeSpent = userArticleInteractionDAO.getArticleInteractionTime(currentUser.getUserId(), article.getArticleId());
-            if (articlesLiked.contains(article.getArticleId())){
-                score += 10;
-                score += (double) timeSpent /120;
-            }
-            else if (articlesRead.contains(article.getArticleId())){
-                score += 2;
-            }
-            if (categoryRanking.containsKey(article.getCategory())){
-                Double value = categoryRanking.get(article.getCategory());
-                categoryRanking.put(article.getCategory(), value + score);
-            } else{
-                categoryRanking.put(article.getCategory(), score);
-            }
-        }
-        Double maxValue = Collections.max(categoryRanking.values());
-        List<String> maxThreeCategories = categoryRanking.entrySet().stream().sorted(Map.Entry.<String, Double>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).toList();
-        userPreferencesDAO.addUserPreferences(currentUser.getUserId(), maxThreeCategories);
-
         return rankArticles(articlesAvailable, userPreferencesDAO.getUserPreferences(currentUser.getUserId()));
     }
+
     private List<Article> rankArticles(List<Article> articles, UserPreferences userPreferences) {
         return articles.stream()
                 .sorted(Comparator.comparingDouble(article -> calculateRelevanceScore(article, userPreferences)))

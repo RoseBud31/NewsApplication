@@ -2,6 +2,7 @@ package com.example.newsapplicationversion1.dao;
 
 import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.Article;
+import com.example.newsapplicationversion1.services.StanfordNLP;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -14,6 +15,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     private static Connection connect;
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
+    private StanfordNLP stanfordNLP;
 
     public List<Article> getAllArticles(){
         try {
@@ -47,12 +49,13 @@ public class ArticleDAOImpl implements ArticleDAO {
     public void addArticle(Article article) {
         try{
             String sql = "INSERT INTO ARTICLES (source, title, author, category, description, publishedDate, content) VALUES (?, ?, ?, ?, ?, ?, ?)";
+            String category = stanfordNLP.categorizeArticle(article.getContent());
             connect= Database.connectDb();
             prepare= connect.prepareStatement(sql);
             prepare.setString(1, article.getSource());
             prepare.setString(2, article.getTitle());
             prepare.setString(3, article.getAuthor());
-            prepare.setString(4, article.getCategory());
+            prepare.setString(4, category);
             prepare.setString(5, article.getDescription());
             prepare.setDate(6, article.getPublishedDate());
             prepare.setString(7, article.getContent());

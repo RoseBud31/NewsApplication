@@ -63,17 +63,17 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
 
     @Override
     public void updateUserKeywords(int userId, List<String> newKeywords) {
-        String sql = "SELECT keywords FROM USERPREFERENCES WHERE userID = ?";
+        String sql = "SELECT preferredKeywords FROM USERPREFERENCES WHERE userID = ?";
         try{
             connect = Database.connectDb();
             prepare = connect.prepareStatement(sql);
             prepare.setInt(1, userId);
             resultSet = prepare.executeQuery();
             if (resultSet.next()) {
-                String existingKeywords = resultSet.getString("keywords");
+                String existingKeywords = resultSet.getString("preferredKeywords");
                 List<String> updatedKeywords = mergeKeywords(existingKeywords, newKeywords);
 
-                String sqlUpdate = "UPDATE USERPREFERENCES SET keywords = ? WHERE userID = ?";
+                String sqlUpdate = "UPDATE USERPREFERENCES SET preferredKeywords = ? WHERE userID = ?";
                 try{
                     prepare = connect.prepareStatement(sqlUpdate);
                     prepare.setString(1, String.join(",", updatedKeywords));
@@ -95,6 +95,5 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
         }
         keywords.addAll(newKeywords);
         return new ArrayList<>(keywords);
-
     }
 }

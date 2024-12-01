@@ -12,6 +12,7 @@ module com.example.newsapplicationversion1 {
     requires com.fasterxml.jackson.annotation;
     requires stanford.corenlp;
     requires annotations;
+    requires edu.stanford.nlp.corenlp;
 
     opens com.example.newsapplicationversion1 to javafx.fxml;
     exports com.example.newsapplicationversion1;
