@@ -19,15 +19,13 @@ public class RecommendationEngine {
     // Filters out unread articles to suggest
     // Based on similarity
 
+
     User currentUser = SessionManager.currentUser;
     UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
     UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
     ArticleDAO articleDAO = new ArticleDAOImpl();
 
     public List<Article> recommendArticles(int userId){
-        List<String> preferredCategories = userPreferencesDAO.getUserPreferences(userId).getPreferredCategories();
-        List<String> preferredKeywords = userPreferencesDAO.getUserPreferences(userId).getPreferredKeywords();
-        List<Article> recommendedArticles = new ArrayList<Article>();
 
         // Get the liked articles and the unread articles
         List<UserArticleInteraction> userHistory= userArticleInteractionDAO.readInteractionsForUser(userId);
@@ -65,14 +63,6 @@ public class RecommendationEngine {
         List<String> maxThreeCategories = categoryRanking.entrySet().stream().sorted(Map.Entry.<String, Double>comparingByValue().reversed()).limit(3).map(Map.Entry::getKey).toList();
         userPreferencesDAO.addUserPreferences(currentUser.getUserId(), maxThreeCategories);
 
-        // Now based on keywords and preferred category suggest articles
-        //List<Integer> articlesUnread = new ArrayList<>();
-        //for (Article article : articlesAvailable){
-        //    if (!articlesRead.contains(article.getArticleId())){
-        //        articlesUnread.add(article.getArticleId());
-        //        List<String> keywords = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredKeywords();
-        //    }
-        //}
         return rankArticles(articlesAvailable, userPreferencesDAO.getUserPreferences(currentUser.getUserId()));
     }
     private List<Article> rankArticles(List<Article> articles, UserPreferences userPreferences) {

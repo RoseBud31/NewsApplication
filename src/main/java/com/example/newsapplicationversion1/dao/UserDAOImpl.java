@@ -9,10 +9,10 @@ package com.example.newsapplicationversion1.dao;
 import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.User;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
+import java.time.LocalDateTime;
+
+import static java.time.LocalTime.now;
 
 public class UserDAOImpl implements UserDAO {
     private static Connection connect;
@@ -66,6 +66,21 @@ public class UserDAOImpl implements UserDAO {
             } else {
                 return null;
             }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    @Override
+    public void logoutUser(String email) {
+        String sql = "UPDATE USERS SET lastLogin = ? WHERE email = ?";
+        Date lastLogin = new Date(System.currentTimeMillis());
+        try{
+            connect = Database.connectDb();
+            prepare = connect.prepareStatement(sql);
+            prepare.setDate(1, lastLogin);
+            prepare.setString(2, email);
+            prepare.executeUpdate();
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }

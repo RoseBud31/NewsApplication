@@ -25,7 +25,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button layoutX="2.0" layoutY="637.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Logout" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.8000000000000114">
+            <Button fx:id="logout" layoutX="2.0" layoutY="637.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Logout" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.8000000000000114">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>

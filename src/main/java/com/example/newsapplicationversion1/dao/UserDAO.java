@@ -6,4 +6,5 @@ public interface UserDAO {
     void createUser(String firstName, String lastName, String email, String password);
     Boolean checkUserExists(String email);
     User getUserByEmail(String email);
+    void logoutUser(String email);
 }

@@ -7,18 +7,23 @@ import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.services.StanfordNLP;
 import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.net.URL;
 import java.sql.Date;
@@ -26,11 +31,15 @@ import java.sql.SQLException;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class DashboardController implements Initializable {
     private Boolean liked;
     User currentUser = SessionManager.currentUser;
+    UserDAO userDAO = new UserDAOImpl();
+    private double x = 0 ;
+    private double y = 0;
 
     @FXML
     private Button close;
@@ -46,6 +55,8 @@ public class DashboardController implements Initializable {
     private ScrollPane mainScrollPane;
     @FXML
     private AnchorPane mainNewsPane;
+    @FXML
+    private Button logout;
 
     public DashboardController() throws SQLException {
     }
@@ -242,8 +253,61 @@ public class DashboardController implements Initializable {
         userArticleInteractionDAO.setArticleLiked(currentUser.getUserId(), articleId, userInteractionType);
     }
 
-    public void logout(User currentUser){
+    public void logout(){
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to logout?");
 
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+                userDAO.logoutUser(currentUser.getEmail());
+                currentUser = null;
+                //HIDE YOUR DASHBOARD FORM
+                logout.getScene().getWindow().hide();
+
+                //LINK YOUR LOGIN FORM
+                Parent root = FXMLLoader.load(getClass().getResource("/com/example/newsapplicationversion1/login.fxml"));
+                Stage stage = new Stage();
+                Scene scene = new Scene(root);
+
+                root.setOnMousePressed((MouseEvent event) -> {
+                    x = event.getSceneX();
+                    y = event.getSceneY();
+                });
+
+                root.setOnMouseDragged((MouseEvent event) -> {
+                    stage.setX(event.getScreenX() - x);
+                    stage.setY(event.getScreenY() - y);
+
+                    stage.setOpacity(.8);
+                });
+
+                root.setOnMouseReleased((MouseEvent event) -> {
+                    stage.setOpacity(1);
+                });
+
+                stage.initStyle(StageStyle.TRANSPARENT);
+
+                stage.setScene(scene);
+                stage.show();
+
+            } else {
+                return;
+            }
+
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+    public void switchForm(ActionEvent event) {
+        if (event.getSource() == home){
+            // Get the recommended articles for the home page
+
+        }
     }
 
     @Override
