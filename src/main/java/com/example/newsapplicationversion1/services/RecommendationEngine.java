@@ -1,6 +1,5 @@
 package com.example.newsapplicationversion1.services;
 
-import com.example.newsapplicationversion1.controllers.LoginController;
 import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;

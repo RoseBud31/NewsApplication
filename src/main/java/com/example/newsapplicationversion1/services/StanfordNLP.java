@@ -13,6 +13,7 @@ public class StanfordNLP {
     static {
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize, ssplit, pos");
+        props.setProperty("pos.model", "src/main/resources/english-left3words-distsim.tagger");
         pipeline = new StanfordCoreNLP(props);
     }
     private static final Map<String, List<String>> CATEGORY_MAP = Map.of(

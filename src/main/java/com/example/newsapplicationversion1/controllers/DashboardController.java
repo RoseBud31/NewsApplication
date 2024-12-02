@@ -16,12 +16,16 @@ import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
@@ -84,10 +88,13 @@ public class DashboardController implements Initializable {
             Image image;
             try {
                 image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%20 + ".jpg")).toString(), 200, 150, true, true);
-                ImageView imageView = new ImageView(image);
-                imageView.setFitHeight(150);
-                imageView.setFitWidth(200);
-                tile.getChildren().add(imageView);
+                Rectangle rectangle = new Rectangle(0, 0, 200, 150);
+                rectangle.setArcWidth(30.0);   // Corner radius
+                rectangle.setArcHeight(30.0);
+                ImagePattern imagePattern = new ImagePattern(image);
+                rectangle.setFill(imagePattern);
+                rectangle.setEffect(new DropShadow(10, Color.BLACK));  // Shadow
+                tile.getChildren().add(rectangle);
             } catch (Exception e) {
                 System.err.println("Failed to load image: " + e.getMessage());
                 // You could load a default image or set `image` to null as a fallback
@@ -193,13 +200,13 @@ public class DashboardController implements Initializable {
         Image image;
         try {
             image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%20 + ".jpg")).toString(), 600, 450, true, true);
-            ImageView imageView = new ImageView(image);
-            imageView.setFitHeight(450);
-            imageView.setFitWidth(650);
-            imageView.setPreserveRatio(true);
-            imageView.setSmooth(true);
-            imageView.setStyle("-fx-alignment: CENTER");
-            articleDetailsPane.getChildren().add(imageView);
+            Rectangle rectangle = new Rectangle(0, 0, 650, 450);
+            rectangle.setArcWidth(30.0);   // Corner radius
+            rectangle.setArcHeight(30.0);
+            ImagePattern imagePattern = new ImagePattern(image);
+            rectangle.setFill(imagePattern);
+            rectangle.setEffect(new DropShadow(10, Color.BLACK));  // Shadow
+            articleDetailsPane.getChildren().add(rectangle);
         } catch (Exception e) {
             System.err.println("Failed to load image: " + e.getMessage());
             // load a default image or set `image` to null as a fallback
