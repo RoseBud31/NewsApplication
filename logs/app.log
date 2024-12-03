@@ -424,3 +424,63 @@ java.lang.NullPointerException: NullError
 [INFO ] 2024-12-03 16:38:31.288 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
 [INFO ] 2024-12-03 16:38:31.300 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
 [INFO ] 2024-12-03 16:38:32.131 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 18:49:42.044 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:49:42.048 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:49:42.061 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:49:42.067 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:49:42.741 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.7 sec].
+[DEBUG] 2024-12-03 18:51:03.673 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:51:03.677 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:51:03.691 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:51:03.698 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:51:04.360 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 18:56:34.347 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:56:34.350 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:56:34.363 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:56:34.369 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:56:35.016 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 18:58:17.716 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:58:17.720 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:58:17.733 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:58:17.740 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:58:18.353 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:01:30.721 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:01:30.725 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:01:30.737 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:01:30.744 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:01:31.418 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.7 sec].
+[DEBUG] 2024-12-03 19:03:55.352 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:03:55.358 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:03:55.372 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:03:55.380 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:03:56.007 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:06:32.562 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:06:32.566 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:06:32.580 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:06:32.588 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:06:33.226 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:07:11.125 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:07:11.130 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:07:11.142 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:07:11.149 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:07:11.787 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:11:58.633 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:11:58.637 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:11:58.649 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:11:58.655 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:11:59.289 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:12:32.185 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:12:32.190 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:12:32.204 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:12:32.211 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:12:32.824 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:13:31.494 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:13:31.498 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:13:31.513 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:13:31.520 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:13:32.159 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:15:51.825 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:15:51.830 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:15:51.844 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:15:51.851 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:15:52.455 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].

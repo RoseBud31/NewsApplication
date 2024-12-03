@@ -5,7 +5,7 @@ import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.services.RecommendationEngine;
-import com.example.newsapplicationversion1.services.StanfordNLP;
+import com.example.newsapplicationversion1.services.SimpleNLP;
 import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -165,8 +165,8 @@ public class DashboardController implements Initializable {
                 if (userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()) == null){
                     userArticleInteractionDAO.logInteraction(currentUser.getUserId(), article.getArticleId(), 0, "read", LocalDateTime.now());
                 };
-                StanfordNLP stanfordNLP = new StanfordNLP();
-                List<String> keywords = stanfordNLP.extractKeywords(article.getContent());
+                SimpleNLP simpleNLP = new SimpleNLP();
+                List<String> keywords = simpleNLP.extractKeywords(article.getContent());
                 if (Objects.equals(userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()), "liked")){
                     userPreferencesDAO.updateUserKeywords(currentUser.getUserId(), keywords);
                 }

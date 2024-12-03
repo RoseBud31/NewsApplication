@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 
 public class RecommendationEngine {
     private static final Map<String, List<String>> CATEGORY_MAP = Map.of(
-            "Technology", List.of("technology", "artificial intelligence", "machine learning", "neural networks", "big data", "blockchain", "cloud computing", "cybersecurity", "internet of things", "virtual reality", "augmented reality", "robotics", "automation", "software development", "hardware", "quantum computing", "data science", "devops", "saas", "mobile applications", "web development", "microservices", "edge computing", "natural language processing", "data analytics", "fintech", "e-commerce", "digital transformation", "5g technology", "computer vision", "encryption"),
-            "Health", List.of("health", "healthcare", "medicine", "mental health", "fitness", "nutrition", "wellness", "diet", "exercise", "disease prevention", "clinical trials", "healthtech", "medtech", "vaccines", "public health", "chronic illness", "hospital care", "biotechnology", "pharmaceuticals", "telemedicine", "treatment", "medical devices", "health insurance", "health data", "gene therapy", "medical research", "alternative medicine", "health apps", "patient care", "health policy", "surgery"),
+            "Technology", List.of("technology","tech", "artificial intelligence", "machine learning", "neural networks", "big data", "blockchain", "cloud computing", "cybersecurity", "internet of things", "virtual reality", "augmented reality", "robotics", "automation", "software development", "hardware", "quantum computing", "data science", "devops", "saas", "mobile applications", "web development", "microservices", "edge computing", "natural language processing", "data analytics", "fintech", "e-commerce", "digital transformation", "5g technology", "computer vision", "encryption"),
+            "Health", List.of("health", "healthcare", "medicine", "mental health", "fitness", "nutrition", "wellness", "diet", "exercise", "disease prevention", "clinical trials", "healthtech", "medtech", "vaccines", "public health", "chronic illness", "hospital care", "biotechnology", "pharmaceuticals", "telemedicine", "treatment", "medical devices", "health insurance", "health data", "gene therapy", "medical research", "alternative medicine", "health apps", "patient care", "health policy", "surgery", "outbreak", "pandemic", "sick", "disease"),
             "Sports", List.of("sports", "football", "basketball", "soccer", "baseball", "tennis", "hockey", "rugby", "athletics", "swimming", "gymnastics", "boxing", "mixed martial arts", "cricket", "golf", "cycling", "motorsport", "e-sports", "track and field", "sportsmanship", "team sports", "individual sports", "sports injuries", "fitness", "exercise", "sports medicine", "sports equipment", "sports nutrition", "sports psychology", "training", "competition"),
-            "Entertainment", List.of("movies", "music", "television", "gaming", "streaming", "theater", "comedy", "celebrities", "pop culture", "video games", "concerts", "festivals", "podcasts", "live events", "film industry", "music industry", "show business", "broadway", "documentaries", "celebrity news", "red carpet", "award shows", "blockbusters", "indie films", "cinema", "streaming platforms", "social media influencers", "fan culture", "media", "comedy shows"),
+            "Entertainment", List.of("movie", "film", "forest", "storyline", "young", "families", "enchanted", "family", "journeys", "friendship","movies", "music", "television", "gaming", "streaming", "theater", "comedy", "celebrities", "pop culture", "video games", "concerts", "festivals", "podcasts", "live events", "film industry", "music industry", "show business", "broadway", "documentaries", "celebrity news", "red carpet", "award shows", "blockbusters", "indie films", "cinema", "streaming platforms", "social media influencers", "fan culture", "media", "comedy shows"),
             "Business", List.of("entrepreneurship", "startups", "business strategy", "finance", "investment", "marketing", "sales", "leadership", "management", "corporate culture", "business growth", "mergers and acquisitions", "business analytics", "product development", "customer service", "supply chain", "branding", "e-commerce", "business model", "corporate governance", "business operations", "profit margins", "business plans", "market research", "strategic planning", "negotiation", "business networking", "B2B", "B2C", "business trends"),
             "Science", List.of("physics", "chemistry", "biology", "astronomy", "genetics", "climate change", "geology", "ecology", "space exploration", "earth science", "biology research", "scientific discovery", "laboratory experiments", "nanotechnology", "microbiology", "neuroscience", "genomics", "evolution", "medical science", "pharmacology", "neuroscience", "biochemistry", "meteorology", "paleontology", "marine biology", "zoology", "scientific methods", "renewable energy", "biotechnology", "environmental science"),
             "General", List.of("news", "politics", "society", "culture", "lifestyle", "education", "travel", "food", "history", "religion", "philosophy", "current events", "community", "environment", "economy", "law", "human rights", "social issues", "language", "education systems", "literature", "art", "design", "personal development", "psychology", "family", "relationships", "technology trends", "volunteering", "sustainability", "government", "charity")
@@ -25,18 +25,16 @@ public class RecommendationEngine {
     User currentUser = SessionManager.currentUser;
     UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
     UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
-    ArticleDAO articleDAO = new ArticleDAOImpl();
-    StanfordNLP stanfordNLP = new StanfordNLP();
-    List<String> categories = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredCategories();
-    List<UserArticleInteraction> readingHistory= userArticleInteractionDAO.readInteractionsForUser(currentUser.getUserId());
+    SimpleNLP simpleNLP = new SimpleNLP();
 
 
     public String categorizeArticle(String content){
-        List<String> extractedKeywords = stanfordNLP.extractKeywords(content);
+        List<String> extractedKeywords = simpleNLP.extractKeywords(content);
         Map<String, Integer> categoryScores = new HashMap<>();
 
         // Initialize scores for each category
         CATEGORY_MAP.keySet().forEach(category -> categoryScores.put(category, 0));
+        System.out.println("Extracted Keywords: " + extractedKeywords);
 
         // Count matching keywords for each category
         for (String keyword : extractedKeywords){
@@ -53,7 +51,9 @@ public class RecommendationEngine {
     }
 
     public List<Article> recommendArticles(int articleCount){
+        List<UserArticleInteraction> readingHistory= userArticleInteractionDAO.readInteractionsForUser(currentUser.getUserId());
         List<Article> recommendedArticles = new ArrayList<>();
+        ArticleDAO articleDAO = new ArticleDAOImpl();
         for (UserArticleInteraction interaction : readingHistory){
             int articleId = interaction.getArticleId();
             int timeSpent = interaction.getTimeSpentSeconds();
@@ -94,6 +94,7 @@ public class RecommendationEngine {
     }
 
     private Double calculateCategoryScore(int timeSpent, String interactionType, String category) {
+        List<String> categories = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredCategories();
         double categoryScore = categoryScores.get(category);
         if (categories.contains(category)){
             categoryScore = categoryScore+3;

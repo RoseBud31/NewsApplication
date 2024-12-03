@@ -4,7 +4,6 @@ import com.example.newsapplicationversion1.concurrency.ConcurrencyManager;
 import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.services.RecommendationEngine;
-import com.example.newsapplicationversion1.services.StanfordNLP;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     private static Connection connect;
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
-    private RecommendationEngine recommendationEngine;
+    RecommendationEngine recommendationEngine = new RecommendationEngine();
 
     public List<Article> getAllArticles(){
         try {
@@ -62,19 +61,19 @@ public class ArticleDAOImpl implements ArticleDAO {
             throw new RuntimeException(e);
         }
     }
-    public void addArticle(Article article) {
+    public void addArticle(String title, String author, String source, String description, Date publishedDate, String content) {
         try{
             String sql = "INSERT INTO ARTICLES (source, title, author, category, description, publishedDate, content) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            String category = recommendationEngine.categorizeArticle(article.getContent());
+            String category = recommendationEngine.categorizeArticle(content);
             connect= Database.connectDb();
             prepare= connect.prepareStatement(sql);
-            prepare.setString(1, article.getSource());
-            prepare.setString(2, article.getTitle());
-            prepare.setString(3, article.getAuthor());
+            prepare.setString(1, source);
+            prepare.setString(2, title);
+            prepare.setString(3, author);
             prepare.setString(4, category);
-            prepare.setString(5, article.getDescription());
-            prepare.setDate(6, article.getPublishedDate());
-            prepare.setString(7, article.getContent());
+            prepare.setString(5, description);
+            prepare.setDate(6, publishedDate);
+            prepare.setString(7, content);
             prepare.execute();
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -113,5 +112,10 @@ public class ArticleDAOImpl implements ArticleDAO {
     public List<Article> getArticlesByCategory(String category) {
         List<Article> articles1= getAllArticles();
         return articles1.stream().filter(a -> a.getCategory().equals(category)).collect(Collectors.toList());
+    }
+
+    public static void main(String[] args) {
+        ArticleDAO articleDAO = new ArticleDAOImpl();
+        articleDAO.addArticle("Global Markets Surge", "James Monroe","Herald", "Global stock markets have recently been experiencing a robust surge", Date.valueOf("2024-02-02"), "A newly released family movie titled 'The Enchanted Forest' is captivating children and families alike with its magical storyline and beautiful animation. Sophia Grant, a film critic, describes the film as a whimsical adventure that follows a young girl as she journeys through a mystical forest to save her village from an ancient curse.\n\nThe movie’s themes of bravery, teamwork, and the power of friendship resonate with young audiences, and parents appreciate its wholesome content. With breathtaking visuals and a heartwarming storyline, 'The Enchanted Forest' is quickly becoming a must-watch for families looking for engaging, age-appropriate entertainment.\n\nThe film’s success is attributed to its balance of excitement and meaningful messages, making it a perfect addition to family movie nights");
     }
 }
