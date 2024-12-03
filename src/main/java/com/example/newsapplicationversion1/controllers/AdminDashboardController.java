@@ -22,7 +22,9 @@ import java.util.regex.Pattern;
 public class AdminDashboardController implements Initializable {
     @FXML
     private TextField title, author, source, description, datePublished;
+    @FXML
     private TextArea content;
+    @FXML
     private Button addArticleButton;
 
     private double x = 0 ;
@@ -50,18 +52,24 @@ public class AdminDashboardController implements Initializable {
                 alert.setHeaderText(null);
                 alert.setContentText("Successful Article Creation");
                 alert.showAndWait();
+                title.clear(); author.clear(); source.clear(); description.clear(); datePublished.clear(); content.clear();
             } else {
                 // Then error message will appear
                 alert = new Alert(Alert.AlertType.ERROR);
                 alert.setTitle("Error Message");
                 alert.setHeaderText(null);
-                alert.setContentText("Passwords do not match");
+                alert.setContentText("Date in the wrong format");
                 alert.showAndWait();
             }
         }
     }
+    public void close(){
+        System.exit(0);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
 }

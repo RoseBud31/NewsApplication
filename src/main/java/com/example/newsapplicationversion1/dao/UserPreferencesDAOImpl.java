@@ -48,55 +48,12 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
                     preferredCategories = Arrays.asList(categoriesString.split(","));
                 }
 
-                // Convert comma-separated list value back to list
-                String keywordsString = resultSet.getString("preferredKeywords");
-                List<String> preferredKeywords = new ArrayList<String>();
-                if (keywordsString != null && !keywordsString.isEmpty()) {
-                    preferredKeywords = Arrays.asList(keywordsString.split(","));
-                }
                 userPreferences.setPreferredCategories(preferredCategories);
-                userPreferences.setPreferredKeywords(preferredKeywords);
                 return userPreferences;
             }
             return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    @Override
-    public void updateUserKeywords(int userId, List<String> newKeywords) {
-        String sql = "SELECT preferredKeywords FROM USERPREFERENCES WHERE userID = ?";
-        try{
-            connect = Database.connectDb();
-            prepare = connect.prepareStatement(sql);
-            prepare.setInt(1, userId);
-            resultSet = prepare.executeQuery();
-            if (resultSet.next()) {
-                String existingKeywords = resultSet.getString("preferredKeywords");
-                List<String> updatedKeywords = mergeKeywords(existingKeywords, newKeywords);
-
-                String sqlUpdate = "UPDATE USERPREFERENCES SET preferredKeywords = ? WHERE userID = ? && preferredKeywords = ?";
-                try{
-                    prepare = connect.prepareStatement(sqlUpdate);
-                    prepare.setString(1, String.join(",", updatedKeywords));
-                    prepare.setInt(2, userId);
-                    prepare.executeUpdate();
-                } catch (SQLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-
-    }
-    private List<String> mergeKeywords(String existingKeywords, List<String> newKeywords) {
-        Set<String> keywords = new HashSet<>();
-        if (existingKeywords != null && !existingKeywords.isEmpty()) {
-            keywords.addAll(Arrays.asList(existingKeywords.split(",")));
-        }
-        keywords.addAll(newKeywords);
-        return new ArrayList<>(keywords);
     }
 }

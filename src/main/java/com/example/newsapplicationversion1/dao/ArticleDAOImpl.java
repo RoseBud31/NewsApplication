@@ -8,17 +8,18 @@ import com.example.newsapplicationversion1.services.RecommendationEngine;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class ArticleDAOImpl implements ArticleDAO {
     private final ConcurrencyManager concurrencyManager = new ConcurrencyManager();
     private final List<Article> articles = new CopyOnWriteArrayList<Article>(); // Very important for concurrency
-    private final List<Article> recommendedArticles = new CopyOnWriteArrayList<Article>();
+    private final List<Article> recommendedArticles = new ArrayList<>();
     private static Connection connect;
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
     RecommendationEngine recommendationEngine = new RecommendationEngine();
+    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
     public List<Article> getAllArticles(){
         try {
@@ -54,9 +55,13 @@ public class ArticleDAOImpl implements ArticleDAO {
             String sql = "select * from articles where articleID=?";
             connect= Database.connectDb();
             prepare= connect.prepareStatement(sql);
+            prepare.setInt(1, articleID);
             resultSet = prepare.executeQuery();
-            Article article = new Article(resultSet.getInt("articleID"), resultSet.getString("source"), resultSet.getString("title"), resultSet.getString("author"),resultSet.getString("category"),resultSet.getString("description"),resultSet.getDate("publishedDate"), resultSet.getString("content"));
-            return article;
+            if (resultSet.next()) {
+                Article article = new Article(resultSet.getInt("articleID"), resultSet.getString("source"), resultSet.getString("title"), resultSet.getString("author"),resultSet.getString("category"),resultSet.getString("description"),resultSet.getDate("publishedDate"), resultSet.getString("content"));
+                return article;
+            }
+            return null;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -80,34 +85,60 @@ public class ArticleDAOImpl implements ArticleDAO {
             return;
         }
     }
-    public List<Article> getRecommendedArticles(List<Integer> recommendedArticles) {
-        try{
-            String sql = "select * from articles where articleID in recommendedArticles ";
-            connect= Database.connectDb();
-            prepare= connect.prepareStatement(sql);
-            resultSet = prepare.executeQuery();
-            int taskCount = 0;
-            while (resultSet.next()) {
-                final int articleId = resultSet.getInt("articleID");
-                final String source = resultSet.getString("source");
-                final String title = resultSet.getString("title");
-                final String author = resultSet.getString("author");
-                final String category = resultSet.getString("category");
-                final String description = resultSet.getString("description");
-                final Date publishedDate = resultSet.getDate("publishedDate");
-                final String content = resultSet.getString("content");
-                concurrencyManager.submit(() -> {
-                    Article article = new Article(articleId, source, title, author, category, description, publishedDate, content);
-                    articles.add(article);
-                });
-                taskCount++;
+    // to display recommended articles
+    public List<Article> getRecommendedArticles(List<Integer> articleIDs) {
+        ExecutorService executorService = Executors.newFixedThreadPool(10); // Use a thread pool with a fixed number of threads
+        List<Article> recommendedArticles = new CopyOnWriteArrayList<>(); // Thread-safe list
+        List<Future<?>> futures = new ArrayList<>(); // To track the futures of the submitted tasks
+
+        try {
+            connect = Database.connectDb(); // Single connection for all queries
+            for (Integer articleID : articleIDs) {
+                String sql = "SELECT * FROM articles WHERE articleID=?";
+                prepare = connect.prepareStatement(sql);
+                prepare.setInt(1, articleID);
+                resultSet = prepare.executeQuery();
+
+                if (resultSet.next()) {
+                    final int articleId = resultSet.getInt("articleID");
+                    final String source = resultSet.getString("source");
+                    final String title = resultSet.getString("title");
+                    final String author = resultSet.getString("author");
+                    final String category = resultSet.getString("category");
+                    final String description = resultSet.getString("description");
+                    final Date publishedDate = resultSet.getDate("publishedDate");
+                    final String content = resultSet.getString("content");
+
+                    // Submit task to executor service to process the article data asynchronously
+                    Future<?> future = executorService.submit(() -> {
+                        Article article = new Article(articleId, source, title, author, category, description, publishedDate, content);
+                        recommendedArticles.add(article); // Add to the thread-safe list
+                    });
+                    futures.add(future); // Track the future of this task
+                }
             }
-            System.out.println(taskCount);
-            return articles;
-        } catch (SQLException e) {
+
+            // Wait for all tasks to complete
+            for (Future<?> future : futures) {
+                future.get(); // Blocks until the task is complete
+            }
+
+            // Optionally shut down the executor service
+            executorService.shutdown();
+
+        } catch (SQLException | InterruptedException | ExecutionException e) {
             System.out.println(e.getMessage());
             return null;
+        } finally {
+            try {
+                if (prepare != null) prepare.close(); // Close PreparedStatement
+                if (resultSet != null) resultSet.close(); // Close ResultSet
+                if (connect != null) connect.close(); // Close Connection
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
+        return recommendedArticles;
     }
     public List<Article> getArticlesByCategory(String category) {
         List<Article> articles1= getAllArticles();
@@ -115,7 +146,17 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
 
     public static void main(String[] args) {
-        ArticleDAO articleDAO = new ArticleDAOImpl();
-        articleDAO.addArticle("Global Markets Surge", "James Monroe","Herald", "Global stock markets have recently been experiencing a robust surge", Date.valueOf("2024-02-02"), "A newly released family movie titled 'The Enchanted Forest' is captivating children and families alike with its magical storyline and beautiful animation. Sophia Grant, a film critic, describes the film as a whimsical adventure that follows a young girl as she journeys through a mystical forest to save her village from an ancient curse.\n\nThe movie’s themes of bravery, teamwork, and the power of friendship resonate with young audiences, and parents appreciate its wholesome content. With breathtaking visuals and a heartwarming storyline, 'The Enchanted Forest' is quickly becoming a must-watch for families looking for engaging, age-appropriate entertainment.\n\nThe film’s success is attributed to its balance of excitement and meaningful messages, making it a perfect addition to family movie nights");
+        ArticleDAOImpl articleDAOImpl = new ArticleDAOImpl();
+        List<Integer> articleIDs = new ArrayList<>();
+        articleIDs.add(1);
+        articleIDs.add(2);
+        articleIDs.add(3);
+        articleIDs.add(4);
+        articleIDs.add(5);
+        articleIDs.add(6);
+        articleIDs.add(7);
+        System.out.println(articleDAOImpl.getRecommendedArticles(articleIDs));
+
     }
+
 }

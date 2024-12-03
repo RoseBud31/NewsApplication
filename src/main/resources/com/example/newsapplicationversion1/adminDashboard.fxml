@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
-   <AnchorPane maxWidth="-Infinity" prefHeight="660.0" prefWidth="665.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.DashboardController">
+<AnchorPane maxWidth="-Infinity" prefHeight="660.0" prefWidth="665.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.AdminDashboardController">
        <Button fx:id="close" layoutX="695.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" styleClass="close" stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
            <font>
                <Font name="Arial Bold" size="12.0" />
@@ -37,7 +36,7 @@
    <TextField fx:id="author" layoutX="178.0" layoutY="366.0" prefHeight="22.0" prefWidth="350.0" promptText="Lois Lane" styleClass="textfield" stylesheets="@login.css" />
    <Label layoutX="61.0" layoutY="415.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Content" />
    <TextArea fx:id="content" layoutX="179.0" layoutY="415.0" prefHeight="110.0" prefWidth="350.0" styleClass="textfield" stylesheets="@login.css" />
-   <Button fx:id="addArticleButton" layoutX="58.0" layoutY="568.0" mnemonicParsing="false" prefHeight="46.0" prefWidth="470.0" styleClass="login-btn" stylesheets="@login.css" text="Submit">
+   <Button fx:id="addArticleButton" layoutX="58.0" layoutY="568.0" mnemonicParsing="false" onAction="#addArticle" prefHeight="46.0" prefWidth="470.0" styleClass="login-btn" stylesheets="@login.css" text="Submit">
       <cursor>
          <Cursor fx:constant="HAND" />
       </cursor>

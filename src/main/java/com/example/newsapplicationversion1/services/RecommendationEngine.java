@@ -4,7 +4,6 @@ import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.models.UserArticleInteraction;
-import com.example.newsapplicationversion1.models.UserPreferences;
 import com.example.newsapplicationversion1.session.SessionManager;
 
 import java.util.*;
@@ -22,11 +21,16 @@ public class RecommendationEngine {
     );
 
     private Map<String, Double> categoryScores = new HashMap<>();
-    User currentUser = SessionManager.currentUser;
-    UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
-    UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
-    SimpleNLP simpleNLP = new SimpleNLP();
 
+    SimpleNLP simpleNLP = new SimpleNLP();
+    User currentUser;
+
+    public RecommendationEngine(){
+        this.currentUser = SessionManager.currentUser;
+        if (this.currentUser == null) {
+            throw new IllegalStateException("No user is currently logged in. Cannot provide recommendations.");
+        }
+    }
 
     public String categorizeArticle(String content){
         List<String> extractedKeywords = simpleNLP.extractKeywords(content);
@@ -50,61 +54,83 @@ public class RecommendationEngine {
                 .orElse("General");
     }
 
-    public List<Article> recommendArticles(int articleCount){
-        List<UserArticleInteraction> readingHistory= userArticleInteractionDAO.readInteractionsForUser(currentUser.getUserId());
+    public List<Article> recommendArticles(int articleCount, User user) {
+        if (user == null) {
+            throw new IllegalArgumentException("User must be provided for recommendations.");
+        }
+
+        UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
+        List<UserArticleInteraction> readingHistory = userArticleInteractionDAO.readInteractionsForUser(user.getUserId());
         List<Article> recommendedArticles = new ArrayList<>();
         ArticleDAO articleDAO = new ArticleDAOImpl();
-        for (UserArticleInteraction interaction : readingHistory){
+
+        if (readingHistory == null || readingHistory.isEmpty()) {
+            return recommendedArticles;
+        }
+
+        Map<String, Double> categoryScores = new HashMap<>();
+
+        for (UserArticleInteraction interaction : readingHistory) {
             int articleId = interaction.getArticleId();
             int timeSpent = interaction.getTimeSpentSeconds();
             String interactionType = interaction.getInteractionType();
-            String category = articleDAO.getArticle(articleId).getCategory();
-            categoryScores.put(category, calculateCategoryScore(timeSpent, interactionType, category));
-        }
-        // Normalize category scores and determine the number of articles per category
-        double totalScore = categoryScores.values().stream().mapToDouble(Double::doubleValue).sum();
-        Map<String, Integer> articlesPerCategory = new HashMap<>();
 
+            Article article = articleDAO.getArticle(articleId);
+            if (article == null) {
+                continue;
+            }
+
+            String category = article.getCategory();
+            double categoryScore = calculateCategoryScore(timeSpent, interactionType, category, user, categoryScores);
+            categoryScores.put(category, categoryScores.getOrDefault(category, 0.0) + categoryScore);
+        }
+
+        double totalScore = categoryScores.values().stream().mapToDouble(Double::doubleValue).sum();
+        if (totalScore == 0) {
+            return recommendedArticles;
+        }
+
+        Map<String, Integer> articlesPerCategory = new HashMap<>();
         for (Map.Entry<String, Double> entry : categoryScores.entrySet()) {
             String category = entry.getKey();
             double proportion = entry.getValue() / totalScore;
-            int numArticles = (int) Math.ceil(proportion * articleCount); // Calculate proportion
+            int numArticles = (int) Math.ceil(proportion * articleCount);
             articlesPerCategory.put(category, numArticles);
         }
 
-        // Fetch and sort articles per category
         for (Map.Entry<String, Integer> entry : articlesPerCategory.entrySet()) {
             String category = entry.getKey();
             int numArticles = entry.getValue();
 
-            List<Article> articles = articleDAO.getArticlesByCategory(category).stream()
+            List<Article> articles = articleDAO.getArticlesByCategory(category);
+            if (articles == null || articles.isEmpty()) {
+                continue;
+            }
+
+            List<Article> sortedArticles = articles.stream()
                     .sorted(Comparator.comparing(Article::getPublishedDate).reversed())
                     .limit(numArticles)
-                    .toList();
+                    .collect(Collectors.toList());
 
-            recommendedArticles.addAll(articles);
+            recommendedArticles.addAll(sortedArticles);
         }
 
-        // Sort by freshness globally and limit to articleCount
-        return recommendedArticles.stream()
-                .sorted(Comparator.comparing(Article::getPublishedDate).reversed())
-                .limit(articleCount)
-                .collect(Collectors.toList());
-
+        recommendedArticles.forEach(System.out::println);
+        return recommendedArticles;
     }
 
-    private Double calculateCategoryScore(int timeSpent, String interactionType, String category) {
-        List<String> categories = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredCategories();
-        double categoryScore = categoryScores.get(category);
-        if (categories.contains(category)){
-            categoryScore = categoryScore+3;
+    private double calculateCategoryScore(int timeSpent, String interactionType, String category, User user, Map<String, Double> categoryScores) {
+        UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
+        List<String> categories = userPreferencesDAO.getUserPreferences(user.getUserId()).getPreferredCategories();
+        double categoryScore = categoryScores.getOrDefault(category, 0.0);
+
+        if (categories != null && categories.contains(category)) {
+            categoryScore += 3;
         }
-        if (interactionType.equals("liked")){
-            categoryScore = categoryScore+2;
+        if ("liked".equals(interactionType)) {
+            categoryScore += 2;
         }
-        categoryScore = categoryScore + (timeSpent/60)*0.5;
+        categoryScore += (timeSpent / 60) * 0.5;
         return categoryScore;
     }
-
-
 }

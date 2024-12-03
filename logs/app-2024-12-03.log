@@ -1,0 +1,640 @@
+[DEBUG] 2024-12-03 08:27:52.122 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 08:27:52.127 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 08:27:52.127 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 08:28:49.060 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 08:28:49.061 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 08:28:49.072 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 08:28:49.086 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 08:28:49.992 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.9 sec].
+[DEBUG] 2024-12-03 09:32:32.942 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 09:32:32.949 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 09:32:32.950 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 09:34:47.674 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 09:34:47.679 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 09:34:47.679 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 09:46:17.733 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 09:46:17.739 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 09:46:17.739 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 09:56:17.431 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 09:56:17.438 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 09:56:17.438 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 09:57:27.218 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 09:57:27.218 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 09:57:27.230 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 09:57:27.261 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 09:57:28.179 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.9 sec].
+[DEBUG] 2024-12-03 14:34:06.423 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 14:34:06.429 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 14:34:06.429 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 14:39:36.955 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 14:39:36.961 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 14:39:36.961 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 14:39:56.009 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 14:39:56.009 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 14:39:56.021 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 14:39:56.039 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 14:39:56.818 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 14:42:50.570 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 14:42:50.577 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 14:42:50.577 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 14:43:00.762 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 14:43:00.762 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 14:43:00.778 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 14:43:00.791 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 14:43:01.697 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.9 sec].
+[DEBUG] 2024-12-03 14:43:46.784 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 14:43:46.791 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 14:43:46.791 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 14:43:56.051 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 14:43:56.052 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 14:43:56.064 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 14:43:56.076 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 14:43:56.877 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 14:52:07.538 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 14:52:07.543 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 14:52:07.543 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 14:52:18.191 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 14:52:18.191 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 14:52:18.207 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 14:52:18.220 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 14:52:19.034 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 14:53:53.706 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 14:53:53.710 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 14:53:53.711 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 14:54:07.832 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 14:54:07.832 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 14:54:07.845 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 14:54:07.855 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 14:54:08.700 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 15:00:28.888 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:00:28.894 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:00:28.894 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 15:00:38.779 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 15:00:38.779 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 15:00:38.800 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 15:00:38.810 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 15:00:39.628 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 15:05:54.417 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:05:54.421 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:05:54.421 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 15:06:06.845 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 15:06:06.845 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 15:06:06.859 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 15:06:06.876 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 15:06:07.739 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 15:08:45.473 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:08:45.477 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:08:45.477 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 15:09:18.210 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 15:09:18.210 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 15:09:18.220 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 15:09:18.228 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 15:09:19.069 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 15:10:55.104 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:10:55.110 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:10:55.110 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 15:11:11.022 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 15:11:11.022 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 15:11:11.034 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 15:11:11.045 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 15:11:11.884 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 15:44:31.367 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:44:31.375 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:44:31.375 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 15:45:56.886 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 15:45:56.886 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 15:45:56.898 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 15:45:56.916 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 15:45:57.883 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.9 sec].
+[DEBUG] 2024-12-03 15:59:25.699 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:59:25.705 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:59:25.705 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 15:59:49.958 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 15:59:49.964 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 15:59:49.965 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:00:14.208 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 16:00:14.209 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 16:00:14.219 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 16:00:14.229 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 16:00:15.004 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 16:07:42.402 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 16:07:42.408 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 16:07:42.408 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:07:53.994 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 16:07:53.994 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 16:07:54.008 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 16:07:54.019 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 16:07:55.120 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [1.1 sec].
+[DEBUG] 2024-12-03 16:09:54.554 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 16:09:54.558 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 16:09:54.559 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:10:21.387 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 16:10:21.387 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 16:10:21.397 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 16:10:21.408 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 16:10:22.400 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [1.0 sec].
+[DEBUG] 2024-12-03 16:16:42.227 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 16:16:42.233 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 16:16:42.234 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:22:56.811 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 16:22:56.816 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 16:22:56.817 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:23:09.504 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 16:23:09.505 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 16:23:09.516 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 16:23:09.524 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 16:23:10.282 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.7 sec].
+[DEBUG] 2024-12-03 16:34:13.298 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 16:34:13.304 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 16:34:13.304 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:34:23.110 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 16:34:23.111 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 16:34:23.121 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 16:34:23.132 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 16:34:23.893 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.7 sec].
+[DEBUG] 2024-12-03 16:38:17.266 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 16:38:17.274 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 16:38:17.274 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 16:38:31.273 [JavaFX Application Thread] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 16:38:31.274 [JavaFX Application Thread] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 16:38:31.288 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 16:38:31.300 [JavaFX Application Thread] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 16:38:32.131 [JavaFX Application Thread] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.8 sec].
+[DEBUG] 2024-12-03 18:49:42.044 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:49:42.048 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:49:42.061 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:49:42.067 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:49:42.741 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.7 sec].
+[DEBUG] 2024-12-03 18:51:03.673 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:51:03.677 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:51:03.691 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:51:03.698 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:51:04.360 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 18:56:34.347 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:56:34.350 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:56:34.363 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:56:34.369 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:56:35.016 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 18:58:17.716 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 18:58:17.720 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 18:58:17.733 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 18:58:17.740 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 18:58:18.353 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:01:30.721 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:01:30.725 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:01:30.737 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:01:30.744 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:01:31.418 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.7 sec].
+[DEBUG] 2024-12-03 19:03:55.352 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:03:55.358 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:03:55.372 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:03:55.380 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:03:56.007 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:06:32.562 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:06:32.566 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:06:32.580 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:06:32.588 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:06:33.226 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:07:11.125 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:07:11.130 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:07:11.142 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:07:11.149 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:07:11.787 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:11:58.633 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:11:58.637 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:11:58.649 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:11:58.655 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:11:59.289 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:12:32.185 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:12:32.190 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:12:32.204 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:12:32.211 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:12:32.824 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:13:31.494 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:13:31.498 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:13:31.513 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:13:31.520 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:13:32.159 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:15:51.825 [main] StanfordCoreNLP - ssplit is now included as part of the tokenize annotator by default
+[DEBUG] 2024-12-03 19:15:51.830 [main] StanfordCoreNLP - Updating annotators from tokenize, ssplit, pos to tokenize,  pos
+[INFO ] 2024-12-03 19:15:51.844 [main] StanfordCoreNLP - Adding annotator tokenize
+[INFO ] 2024-12-03 19:15:51.851 [main] StanfordCoreNLP - Adding annotator pos
+[INFO ] 2024-12-03 19:15:52.455 [main] MaxentTagger - Loading POS tagger from src/main/resources/english-left3words-distsim.tagger ... done [0.6 sec].
+[DEBUG] 2024-12-03 19:37:33.689 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 19:37:33.693 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 19:37:33.693 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 19:40:04.003 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 19:40:04.009 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 19:40:04.009 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 19:46:57.131 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 19:46:57.135 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 19:46:57.135 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 20:02:39.926 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 20:02:39.931 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 20:02:39.931 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 20:04:46.504 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 20:04:46.508 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 20:04:46.508 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 20:21:14.395 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 20:21:14.399 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 20:21:14.399 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 20:37:51.882 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 20:37:51.887 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 20:37:51.888 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 21:41:30.200 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 21:41:30.206 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 21:41:30.206 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 21:53:01.005 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 21:53:01.009 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 21:53:01.009 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 22:19:01.052 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 22:19:01.057 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 22:19:01.057 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
+[DEBUG] 2024-12-03 22:20:52.564 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-03 22:20:52.568 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-03 22:20:52.568 [JavaFX Application Thread] Main - Error Message Logged !!!
+java.lang.NullPointerException: NullError
+	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
+	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
+	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
+	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
+	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]

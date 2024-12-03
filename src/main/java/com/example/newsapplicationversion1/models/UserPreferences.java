@@ -6,7 +6,6 @@ public class UserPreferences {
     private int preferenceId;
     private int userId;
     private List<String> preferredCategories;
-    private List<String> preferredKeywords;
 
     public int getPreferenceId() {
         return preferenceId;
@@ -26,11 +25,4 @@ public class UserPreferences {
     public void setPreferredCategories(List<String> preferredCategories) {
         this.preferredCategories = preferredCategories;
     }
-    public List<String> getPreferredKeywords() {
-        return preferredKeywords;
-    }
-    public void setPreferredKeywords(List<String> preferredKeywords) {
-        this.preferredKeywords = preferredKeywords;
-    }
-
 }

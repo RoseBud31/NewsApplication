@@ -4,13 +4,12 @@ package com.example.newsapplicationversion1.controllers;
 import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
+import com.example.newsapplicationversion1.models.UserArticleInteraction;
 import com.example.newsapplicationversion1.services.RecommendationEngine;
 import com.example.newsapplicationversion1.services.SimpleNLP;
 import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -21,7 +20,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.TilePane;
@@ -33,15 +31,11 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 
 import java.net.URL;
-import java.sql.Date;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
-import java.util.Objects;
-import java.util.Optional;
-import java.util.ResourceBundle;
+import java.util.*;
 
 
 public class DashboardController implements Initializable {
@@ -50,8 +44,6 @@ public class DashboardController implements Initializable {
     UserDAO userDAO = new UserDAOImpl();
     private double x = 0 ;
     private double y = 0;
-    //RecommendationEngine recommendationEngine = new RecommendationEngine();
-    //RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
     @FXML
     private Button close;
@@ -78,6 +70,7 @@ public class DashboardController implements Initializable {
     UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
     UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
     long timeStarted = new SessionManager(System.currentTimeMillis()).getTimeStarted();
+    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
     public void close(){
         try {
@@ -88,8 +81,7 @@ public class DashboardController implements Initializable {
             Optional<ButtonType> option = alert.showAndWait();
 
             if (option.get().equals(ButtonType.OK)) {
-//                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
-//                recommendationDAO.recordRecommendations(recommendedArticles);
+                recommendArticlesOnInteract();
                 userDAO.logoutUser(currentUser.getEmail());
                 currentUser = null;
                 System.exit(0);
@@ -165,11 +157,7 @@ public class DashboardController implements Initializable {
                 if (userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()) == null){
                     userArticleInteractionDAO.logInteraction(currentUser.getUserId(), article.getArticleId(), 0, "read", LocalDateTime.now());
                 };
-                SimpleNLP simpleNLP = new SimpleNLP();
-                List<String> keywords = simpleNLP.extractKeywords(article.getContent());
-                if (Objects.equals(userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()), "liked")){
-                    userPreferencesDAO.updateUserKeywords(currentUser.getUserId(), keywords);
-                }
+
             });
 
             // Add new tile to the tilepane
@@ -204,18 +192,22 @@ public class DashboardController implements Initializable {
         // Add event handlers to buttons
         home.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
+            recommendArticlesOnInteract();
             onHomeClicked(event);
         });
         readingHistory.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
+            recommendArticlesOnInteract();
             onReadingHistoryClicked(event);
         });
         logout.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
+            recommendArticlesOnInteract();
             logout();
         });
         close.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
+            recommendArticlesOnInteract();
             close();
         });
 
@@ -262,7 +254,8 @@ public class DashboardController implements Initializable {
                 likeButton.setStyle("-fx-text-fill: green;-fx-border-color: green");
             } else {
                 likeButton.setStyle("-fx-text-fill: black;-fx-border-color: black");
-            }
+            };
+            recommendArticlesOnInteract();
         });
 
 
@@ -342,8 +335,7 @@ public class DashboardController implements Initializable {
             Optional<ButtonType> option = alert.showAndWait();
 
             if (option.get().equals(ButtonType.OK)) {
-//                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
-//                recommendationDAO.recordRecommendations(recommendedArticles);
+                recommendArticlesOnInteract();
                 userDAO.logoutUser(currentUser.getEmail());
                 currentUser = null;
                 //HIDE YOUR DASHBOARD FORM
@@ -384,8 +376,21 @@ public class DashboardController implements Initializable {
         }
 
     }
+
+    private void recommendArticlesOnInteract() {
+        RecommendationEngine recommendationEngine = new RecommendationEngine();
+        List<Article> recArticles = recommendationEngine.recommendArticles(30, currentUser);
+        RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
+        recommendationDAO.recordRecommendations(recArticles, currentUser);
+    }
+
     public void onHomeClicked(ActionEvent event) {
-        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        try{
+            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getRecommendedArticles(recArticleIds())));
+        } catch (Exception e) {
+            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        }
+
         home.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
         readingHistory.setStyle("-fx-background-color: transparent;-fx-alignment: CENTER-LEFT");
     }
@@ -395,21 +400,27 @@ public class DashboardController implements Initializable {
         readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
     }
 
-
+    public List<Integer> recArticleIds(){
+        List<Integer> recArticleIds = new ArrayList<>();
+        UserArticleInteractionDAO userArticleInteraction = new UserArticleInteractionDAOImpl();
+        for (UserArticleInteraction interaction : userArticleInteraction.readInteractionsForUser(currentUser.getUserId())) {
+            recArticleIds.add(interaction.getArticleId());
+        }
+        return recArticleIds;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setDateTime(dateTime);
-        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-//        if (recommendationDAO.getRecommendations(currentUser.getUserId()).isEmpty()){
-//            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-//        } else if (recommendationDAO.getRecommendations(currentUser.getUserId()).size()<10) {
-//            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-//        } else {
-//            populateTilePane(newsTiles, Objects.requireNonNull(recommendationDAO.getRecommendations(currentUser.getUserId())));
-//        }
+        try{
+            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getRecommendedArticles(recArticleIds())));
+        } catch (Exception e) {
+            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        }
         logout.setOnAction(event -> {
+            //recommendArticlesOnInteract();
             logout();
+
         });
         close.setOnAction(event -> {
             close();

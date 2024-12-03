@@ -30,24 +30,35 @@ public class UserArticleInteractionDAOImpl implements UserArticleInteractionDAO 
             throw new RuntimeException(e);
         }
     }
-    public List<UserArticleInteraction> readInteractionsForUser(int userId){
+    public List<UserArticleInteraction> readInteractionsForUser(int userId) {
         String sql = "SELECT * FROM READINGHISTORY WHERE userID = ?";
-        try{
-            connect = Database.connectDb();
-            prepare = connect.prepareStatement(sql);
+        List<UserArticleInteraction> readingHistory = new ArrayList<>();
+
+        // Use try-with-resources to ensure proper resource management
+        try (Connection connect = Database.connectDb();
+             PreparedStatement prepare = connect.prepareStatement(sql)) {
+
             prepare.setInt(1, userId);
-            resultSet = prepare.executeQuery();
-            List<UserArticleInteraction> readingHistory = new ArrayList<>();
-            while(resultSet.next()){
-                readingHistory.add(new UserArticleInteraction(resultSet.getInt("historyID"), resultSet.getInt("userID"), resultSet.getInt("articleID"), resultSet.getString("interactionType"), resultSet.getInt("timeSpent"), resultSet.getDate("readAt")));
+            try (ResultSet resultSet = prepare.executeQuery()) {
+                while (resultSet.next()) {
+                    readingHistory.add(new UserArticleInteraction(
+                            resultSet.getInt("historyID"),
+                            resultSet.getInt("userID"),
+                            resultSet.getInt("articleID"),
+                            resultSet.getString("interactionType"),
+                            resultSet.getInt("timeSpent"),
+                            resultSet.getDate("readAt")
+                    ));
+                }
             }
-            resultSet.close();
-            return readingHistory;
 
         } catch (SQLException e) {
-            throw new RuntimeException(e);
+            e.printStackTrace(); // Log the exception or handle it in another way
+            throw new RuntimeException("Error while reading interactions for user", e);
         }
+        return readingHistory;
     }
+
 
     @Override
     public void setArticleLiked(int userId, int articleId, String interactionType) {

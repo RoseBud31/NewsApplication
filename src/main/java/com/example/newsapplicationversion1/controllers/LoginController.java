@@ -77,9 +77,13 @@ public class LoginController implements Initializable {
                     SessionManager  currentUser = new SessionManager(userDAO.getUserByEmail(email.getText()));
                     // To hide the login form
                     loginButton.getScene().getWindow().hide();
-
-                    // Link the dashboard
-                    Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/dashboard.fxml")));
+                    Parent root;
+                    if (Objects.equals(userDAO.getUserByEmail(email.getText()).getRole(), "Admin")){
+                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/adminDashboard.fxml")));
+                    } else {
+                        // Link the dashboard
+                        root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/dashboard.fxml")));
+                    }
 
                     Stage stage = new Stage();
                     Scene scene = new Scene(root);
