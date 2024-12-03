@@ -4,11 +4,14 @@ import com.example.newsapplicationversion1.models.User;
 
 public class SessionManager {
     public static User currentUser;
+    public static int timeStarted;
 
     public SessionManager(User user) {
         this.currentUser = user;
     }
+    public SessionManager(long timeStarted) {this.timeStarted = (int) timeStarted;}
 
+    public long getTimeStarted() {return timeStarted;}
     public User getCurrentUser() {
         return currentUser;
     }

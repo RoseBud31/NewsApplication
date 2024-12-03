@@ -10,6 +10,7 @@ import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -42,14 +43,15 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+
 public class DashboardController implements Initializable {
     private Boolean liked;
     User currentUser = SessionManager.currentUser;
     UserDAO userDAO = new UserDAOImpl();
     private double x = 0 ;
     private double y = 0;
-    RecommendationEngine recommendationEngine = new RecommendationEngine();
-    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
+    //RecommendationEngine recommendationEngine = new RecommendationEngine();
+    //RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
     @FXML
     private Button close;
@@ -75,6 +77,7 @@ public class DashboardController implements Initializable {
     ArticleDAO articleDAO = new ArticleDAOImpl();
     UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
     UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
+    long timeStarted = new SessionManager(System.currentTimeMillis()).getTimeStarted();
 
     public void close(){
         try {
@@ -82,12 +85,11 @@ public class DashboardController implements Initializable {
             alert.setTitle("Confirmation Message");
             alert.setHeaderText(null);
             alert.setContentText("Are you sure you want to exit?");
-
             Optional<ButtonType> option = alert.showAndWait();
 
             if (option.get().equals(ButtonType.OK)) {
-                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
-                recommendationDAO.recordRecommendations(recommendedArticles);
+//                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
+//                recommendationDAO.recordRecommendations(recommendedArticles);
                 userDAO.logoutUser(currentUser.getEmail());
                 currentUser = null;
                 System.exit(0);
@@ -113,6 +115,7 @@ public class DashboardController implements Initializable {
         tilePane.setVgap(10);
         tilePane.setPrefWidth(720);
         tilePane.setPrefColumns(4);
+        tilePane.setStyle("-fx-background-color: #fff");
         for (Article article : articles){
             VBox tile = new VBox();
             tile.setPrefSize(200, 250);
@@ -158,6 +161,7 @@ public class DashboardController implements Initializable {
             tile.setStyle("-fx-background-color: #fff;");
             tile.setOnMouseClicked(event -> {
                 loadArticle(article);
+                timeStarted = System.currentTimeMillis();
                 if (userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()) == null){
                     userArticleInteractionDAO.logInteraction(currentUser.getUserId(), article.getArticleId(), 0, "read", LocalDateTime.now());
                 };
@@ -172,6 +176,14 @@ public class DashboardController implements Initializable {
             tilePane.getChildren().add(tile);
         }
     }
+
+    private void trackTimeAndUpdate(long timeStarted, Article article) {
+        long exitTime = System.currentTimeMillis();
+        int timeSpent = (int) ((exitTime - timeStarted) / 1000); // Time in seconds
+        System.out.println("Time spent on article: " + timeSpent + " seconds");
+        userArticleInteractionDAO.updateArticleTime(currentUser.getUserId(), article.getArticleId(), timeSpent);
+    }
+
     public void loadArticle(Article article){
         newsTiles.getChildren().clear();
         newsTiles.setPrefColumns(1);
@@ -187,6 +199,25 @@ public class DashboardController implements Initializable {
         articleDetailsPane.setPadding(new Insets(10));
         articleDetailsPane.setAlignment(Pos.TOP_LEFT);
         articleDetailsPane.setStyle("-fx-background-color: #fff;");
+
+
+        // Add event handlers to buttons
+        home.setOnAction(event -> {
+            trackTimeAndUpdate(timeStarted, article);
+            onHomeClicked(event);
+        });
+        readingHistory.setOnAction(event -> {
+            trackTimeAndUpdate(timeStarted, article);
+            onReadingHistoryClicked(event);
+        });
+        logout.setOnAction(event -> {
+            trackTimeAndUpdate(timeStarted, article);
+            logout();
+        });
+        close.setOnAction(event -> {
+            trackTimeAndUpdate(timeStarted, article);
+            close();
+        });
 
         // Article title
         Label titleLabel = new Label(article.getTitle());
@@ -214,11 +245,10 @@ public class DashboardController implements Initializable {
 
         // Like button
         Button likeButton = new Button("Like");
-        likeButton.setStyle("-fx-background-color: #fff;-fx-border-color: black;-fx-border-width: 1px;-fx-font-weight: bold; -fx-border-radius: 5px; -fx-font-family: Arial;");
+        likeButton.setStyle("-fx-background-color: #fff;-fx-border-color: black;-fx-border-width: 1px;-fx-font-weight: bold; -fx-border-radius: 5px; -fx-font-family: Arial; -fx-alignment: CENTER-LEFT");
         UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
         String likeStatus = userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId());
         liked = Objects.equals(likeStatus, "liked");
-        likeButton.setAlignment(Pos.CENTER_LEFT);
         // Initial state of like button
         if (liked) {
             likeButton.setStyle("-fx-text-fill: green; -fx-border-color: green");
@@ -270,7 +300,7 @@ public class DashboardController implements Initializable {
         scrollPane.setStyle("-fx-background-color: transparent;"); // Optional styling
 
         mainScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
+        mainScrollPane.setStyle("-fx-background-color: transparent;");
         // Adjust width dynamically
         Platform.runLater(() -> {
             double width = newsTiles.getWidth();
@@ -285,6 +315,7 @@ public class DashboardController implements Initializable {
         System.out.println("articleDetailsPane width: " + articleDetailsPane.getWidth());
 
     }
+
     public void setLiked(boolean liked){
         this.liked = liked;
     }
@@ -311,8 +342,8 @@ public class DashboardController implements Initializable {
             Optional<ButtonType> option = alert.showAndWait();
 
             if (option.get().equals(ButtonType.OK)) {
-                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
-                recommendationDAO.recordRecommendations(recommendedArticles);
+//                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
+//                recommendationDAO.recordRecommendations(recommendedArticles);
                 userDAO.logoutUser(currentUser.getEmail());
                 currentUser = null;
                 //HIDE YOUR DASHBOARD FORM
@@ -353,30 +384,36 @@ public class DashboardController implements Initializable {
         }
 
     }
-    public void switchForm(ActionEvent event) {
-        if (event.getSource() == home){
-            if (recommendationDAO.getRecommendations(currentUser.getUserId()).size()<=10){
-                populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-            } else {
-                populateTilePane(newsTiles, Objects.requireNonNull(recommendationDAO.getRecommendations(currentUser.getUserId())));
-            }
-            home.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);");
-            readingHistory.setStyle("-fx-background-color: transparent;");
-        } else if (event.getSource() == readingHistory) {
-            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-            home.setStyle("-fx-background-color:transparent;");
-            readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);");
-        }
+    public void onHomeClicked(ActionEvent event) {
+        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        home.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
+        readingHistory.setStyle("-fx-background-color: transparent;-fx-alignment: CENTER-LEFT");
     }
+    public void onReadingHistoryClicked(ActionEvent event) {
+        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        home.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
+        readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
+    }
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setDateTime(dateTime);
-        if (recommendationDAO.getRecommendations(currentUser.getUserId()).size()<=10){
-            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-        } else {
-            populateTilePane(newsTiles, Objects.requireNonNull(recommendationDAO.getRecommendations(currentUser.getUserId())));
-        }
+        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+//        if (recommendationDAO.getRecommendations(currentUser.getUserId()).isEmpty()){
+//            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+//        } else if (recommendationDAO.getRecommendations(currentUser.getUserId()).size()<10) {
+//            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+//        } else {
+//            populateTilePane(newsTiles, Objects.requireNonNull(recommendationDAO.getRecommendations(currentUser.getUserId())));
+//        }
+        logout.setOnAction(event -> {
+            logout();
+        });
+        close.setOnAction(event -> {
+            close();
+        });
+
     }
 }
