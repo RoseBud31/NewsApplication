@@ -4,10 +4,12 @@ package com.example.newsapplicationversion1.controllers;
 import com.example.newsapplicationversion1.dao.*;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
+import com.example.newsapplicationversion1.services.RecommendationEngine;
 import com.example.newsapplicationversion1.services.StanfordNLP;
 import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,7 +34,9 @@ import javafx.stage.StageStyle;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -44,6 +48,8 @@ public class DashboardController implements Initializable {
     UserDAO userDAO = new UserDAOImpl();
     private double x = 0 ;
     private double y = 0;
+    RecommendationEngine recommendationEngine = new RecommendationEngine();
+    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
     @FXML
     private Button close;
@@ -61,15 +67,44 @@ public class DashboardController implements Initializable {
     private AnchorPane mainNewsPane;
     @FXML
     private Button logout;
+    @FXML
+    private Label dateTime;
 
     public DashboardController() throws SQLException {
     }
+    ArticleDAO articleDAO = new ArticleDAOImpl();
+    UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
+    UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
 
     public void close(){
-        System.exit(0);
+        try {
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Confirmation Message");
+            alert.setHeaderText(null);
+            alert.setContentText("Are you sure you want to exit?");
+
+            Optional<ButtonType> option = alert.showAndWait();
+
+            if (option.get().equals(ButtonType.OK)) {
+                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
+                recommendationDAO.recordRecommendations(recommendedArticles);
+                userDAO.logoutUser(currentUser.getEmail());
+                currentUser = null;
+                System.exit(0);
+            } else {
+                return;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
-
+    public void setDateTime(Label dateTime){
+        LocalDate now = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEEE, dd MMMM yyyy");
+        String formattedDate = now.format(formatter);
+        dateTime.setText(formattedDate);
+    }
 
     public void populateTilePane(TilePane tilePane, List<Article> articles){
         tilePane.getChildren().clear();
@@ -80,14 +115,16 @@ public class DashboardController implements Initializable {
         tilePane.setPrefColumns(4);
         for (Article article : articles){
             VBox tile = new VBox();
-            tile.setPrefSize(300, 220);
+            tile.setPrefSize(200, 250);
+            tile.setMaxWidth(200);
+            tile.setMaxHeight(250);
             tile.setPadding(new Insets(10));
             tile.setSpacing(5);
-            tile.setStyle("-fx-background-color: #fff; -fx-border-color: #fff; -fx-border-width: 1px; -fx-border-radius: 5px;");
+            tile.setStyle(" -fx-border-width: 1px; -fx-border-radius: 5px;-fx-arc-width: 30px; -fx-arc-height: 30px;-fx-effect: shadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);");
             // Image
             Image image;
             try {
-                image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%20 + ".jpg")).toString(), 200, 150, true, true);
+                image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%35 + ".jpg")).toString(), 200, 150, true, true);
                 Rectangle rectangle = new Rectangle(0, 0, 200, 150);
                 rectangle.setArcWidth(30.0);   // Corner radius
                 rectangle.setArcHeight(30.0);
@@ -104,6 +141,7 @@ public class DashboardController implements Initializable {
             // Title
             Label titleLabel = new Label(article.getTitle());
             titleLabel.setWrapText(true);
+            titleLabel.setMaxWidth(200);
             titleLabel.setStyle("-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14px");
 
             // Description
@@ -117,17 +155,17 @@ public class DashboardController implements Initializable {
 
             // Add all the labels and images to the tile
             tile.getChildren().addAll(titleLabel, dateLabel);
-            tile.setStyle("-fx-background-color: #fff; -fx-pref-width: 300px; -fx-pref-height: 200px");
+            tile.setStyle("-fx-background-color: #fff;");
             tile.setOnMouseClicked(event -> {
                 loadArticle(article);
-                UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
-                UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
-                StanfordNLP stanfordNLP = new StanfordNLP();
                 if (userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()) == null){
                     userArticleInteractionDAO.logInteraction(currentUser.getUserId(), article.getArticleId(), 0, "read", LocalDateTime.now());
                 };
+                StanfordNLP stanfordNLP = new StanfordNLP();
                 List<String> keywords = stanfordNLP.extractKeywords(article.getContent());
-                userPreferencesDAO.updateUserKeywords(currentUser.getUserId(), keywords);
+                if (Objects.equals(userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId()), "liked")){
+                    userPreferencesDAO.updateUserKeywords(currentUser.getUserId(), keywords);
+                }
             });
 
             // Add new tile to the tilepane
@@ -148,6 +186,7 @@ public class DashboardController implements Initializable {
         articleDetailsPane.setPrefWidth(700);
         articleDetailsPane.setPadding(new Insets(10));
         articleDetailsPane.setAlignment(Pos.TOP_LEFT);
+        articleDetailsPane.setStyle("-fx-background-color: #fff;");
 
         // Article title
         Label titleLabel = new Label(article.getTitle());
@@ -175,13 +214,14 @@ public class DashboardController implements Initializable {
 
         // Like button
         Button likeButton = new Button("Like");
-        likeButton.setStyle("-fx-alignment: CENTER-RIGHT;-fx-background-color: #fff;-fx-border-color: black;-fx-border-width: 1px;-fx-font-weight: bold; -fx-border-radius: 5px; -fx-font-family: Arial;");
+        likeButton.setStyle("-fx-background-color: #fff;-fx-border-color: black;-fx-border-width: 1px;-fx-font-weight: bold; -fx-border-radius: 5px; -fx-font-family: Arial;");
         UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
         String likeStatus = userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId());
         liked = Objects.equals(likeStatus, "liked");
+        likeButton.setAlignment(Pos.CENTER_LEFT);
         // Initial state of like button
         if (liked) {
-            likeButton.setStyle("-fx-text-fill: green;");
+            likeButton.setStyle("-fx-text-fill: green; -fx-border-color: green");
         }
         // Single event handler for like button
         likeButton.setOnAction(event -> {
@@ -189,9 +229,9 @@ public class DashboardController implements Initializable {
             setLiked(liked);
             setInteraction(article.getArticleId(), liked);
             if (liked){
-                likeButton.setStyle("-fx-text-fill: green;");
+                likeButton.setStyle("-fx-text-fill: green;-fx-border-color: green");
             } else {
-                likeButton.setStyle("-fx-text-fill: black;");
+                likeButton.setStyle("-fx-text-fill: black;-fx-border-color: black");
             }
         });
 
@@ -199,7 +239,7 @@ public class DashboardController implements Initializable {
         // Image
         Image image;
         try {
-            image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%20 + ".jpg")).toString(), 600, 450, true, true);
+            image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%35 + ".jpg")).toString(), 600, 450, true, true);
             Rectangle rectangle = new Rectangle(0, 0, 650, 450);
             rectangle.setArcWidth(30.0);   // Corner radius
             rectangle.setArcHeight(30.0);
@@ -207,6 +247,7 @@ public class DashboardController implements Initializable {
             rectangle.setFill(imagePattern);
             rectangle.setEffect(new DropShadow(10, Color.BLACK));  // Shadow
             articleDetailsPane.getChildren().add(rectangle);
+            articleDetailsPane.setAlignment(Pos.CENTER);
         } catch (Exception e) {
             System.err.println("Failed to load image: " + e.getMessage());
             // load a default image or set `image` to null as a fallback
@@ -270,6 +311,8 @@ public class DashboardController implements Initializable {
             Optional<ButtonType> option = alert.showAndWait();
 
             if (option.get().equals(ButtonType.OK)) {
+                List<Article> recommendedArticles=recommendationEngine.recommendArticles(40);
+                recommendationDAO.recordRecommendations(recommendedArticles);
                 userDAO.logoutUser(currentUser.getEmail());
                 currentUser = null;
                 //HIDE YOUR DASHBOARD FORM
@@ -310,16 +353,30 @@ public class DashboardController implements Initializable {
         }
 
     }
-//    public void switchForm(ActionEvent event) {
-//        if (event.getSource() == home){
-//            // Get the recommended articles for the home page
-//
-//        }
-//    }
+    public void switchForm(ActionEvent event) {
+        if (event.getSource() == home){
+            if (recommendationDAO.getRecommendations(currentUser.getUserId()).size()<=10){
+                populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+            } else {
+                populateTilePane(newsTiles, Objects.requireNonNull(recommendationDAO.getRecommendations(currentUser.getUserId())));
+            }
+            home.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);");
+            readingHistory.setStyle("-fx-background-color: transparent;");
+        } else if (event.getSource() == readingHistory) {
+            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+            home.setStyle("-fx-background-color:transparent;");
+            readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);");
+        }
+    }
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArticleDAO articleDAO = new ArticleDAOImpl();
-        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        setDateTime(dateTime);
+        if (recommendationDAO.getRecommendations(currentUser.getUserId()).size()<=10){
+            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        } else {
+            populateTilePane(newsTiles, Objects.requireNonNull(recommendationDAO.getRecommendations(currentUser.getUserId())));
+        }
     }
 }

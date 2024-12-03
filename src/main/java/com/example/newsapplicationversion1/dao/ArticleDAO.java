@@ -9,4 +9,5 @@ public interface ArticleDAO {
     Article getArticle(int articleId);
     void addArticle(Article article);
     List<Article> getRecommendedArticles(List<Integer> recommendedArticles);
+    List<Article> getArticlesByCategory(String category);
 }

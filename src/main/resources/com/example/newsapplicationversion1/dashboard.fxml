@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -11,10 +12,10 @@
 <?import javafx.scene.layout.TilePane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.DashboardController">
-   <BorderPane prefHeight="700.0" prefWidth="900.0">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="900.0" style="-fx-background-radius: 5px;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.DashboardController">
+   <BorderPane prefHeight="700.0" prefWidth="900.0" style="-fx-background-radius: 30px;">
       <left>
-         <AnchorPane prefHeight="700.0" prefWidth="180.0" style="-fx-padding: 2px;" BorderPane.alignment="CENTER">
+         <AnchorPane prefHeight="700.0" prefWidth="180.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
             <Button fx:id="home" layoutX="5.0" layoutY="111.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Home" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
                <font>
                   <Font name="Arial Bold" size="14.0" />
@@ -24,6 +25,9 @@
                      <Image url="@assets/icons8-home-100.png" />
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="logout" layoutX="2.0" layoutY="637.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Logout" AnchorPane.leftAnchor="2.0" AnchorPane.rightAnchor="2.8000000000000114">
                <font>
@@ -34,6 +38,9 @@
                      <Image url="@assets/icons8-logout-100.png" />
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="settings" layoutX="5.0" layoutY="198.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Settings" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
                <font>
@@ -44,6 +51,9 @@
                      <Image url="@assets/icons8-settings-100.png" />
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <Button fx:id="readingHistory" layoutX="5.0" layoutY="155.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Reading History" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
                <font>
@@ -54,6 +64,9 @@
                      <Image url="@assets/icons8-history-100.png" />
                   </ImageView>
                </graphic>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
             <ImageView fx:id="pulseTimes" fitHeight="24.0" fitWidth="163.0" layoutX="14.0" layoutY="46.0" pickOnBounds="true" preserveRatio="true">
                <Image url="@assets/logoTransparent.png" />
@@ -61,20 +74,20 @@
          </AnchorPane>
       </left>
       <center>
-         <AnchorPane BorderPane.alignment="CENTER">
-            <ScrollPane fx:id="mainScrollPane" fitToWidth="true" maxHeight="1.7976931348623157E308" prefWidth="720.0" style="-fx-border-width: 0; -fx-background-insets: none;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
-               <TilePane fx:id="newsTiles" hgap="10" layoutX="120.0" layoutY="100.0" style="-fx-border-width: 0; -fx-border-color: #ffffff; -fx-box-shadow: none;" vgap="20" />
+         <AnchorPane style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+            <ScrollPane fx:id="mainScrollPane" fitToWidth="true" maxHeight="1.7976931348623157E308" prefWidth="720.0" style="-fx-border-width: 0; -fx-background-insets: none; -fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="100.0">
+               <TilePane fx:id="newsTiles" hgap="10" layoutX="120.0" layoutY="100.0" style="-fx-border-width: 0; -fx-background-color: #fff; -fx-box-shadow: none;" vgap="20" />
             </ScrollPane>
-            <TextField fx:id="search" layoutX="165.0" layoutY="43.0" prefHeight="26.0" prefWidth="390.0" promptText="Search for anything.." style="-fx-border-radius: 30px; -fx-font-family: Arial; -fx-padding: 5px;" styleClass="search" stylesheets="@dashboard.css">
-               <font>
-                  <Font name="Arial" size="13.0" />
-               </font>
-            </TextField>
             <Button fx:id="close" layoutX="695.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" styleClass="close" stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <font>
                   <Font name="Arial Bold" size="12.0" />
                </font>
             </Button>
+            <Label fx:id="dateTime" alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="46.0" prefWidth="720.0" textAlignment="CENTER">
+               <font>
+                  <Font name="Arial" size="24.0" />
+               </font>
+            </Label>
          </AnchorPane>
       </center>
    </BorderPane>

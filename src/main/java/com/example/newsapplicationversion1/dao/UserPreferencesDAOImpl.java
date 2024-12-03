@@ -1,7 +1,9 @@
 package com.example.newsapplicationversion1.dao;
 
 import com.example.newsapplicationversion1.data.Database;
+import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.models.UserPreferences;
+import com.example.newsapplicationversion1.session.SessionManager;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +15,7 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
     private static Connection connect;
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
+    User currentUser = SessionManager.currentUser;
 
     public void addUserPreferences(int userId, List<String> preferredCategories) {
         String sql = "INSERT INTO USERPREFERENCES (userID, preferredCategories) VALUES (?,?)";
@@ -73,7 +76,7 @@ public class UserPreferencesDAOImpl implements UserPreferencesDAO {
                 String existingKeywords = resultSet.getString("preferredKeywords");
                 List<String> updatedKeywords = mergeKeywords(existingKeywords, newKeywords);
 
-                String sqlUpdate = "UPDATE USERPREFERENCES SET preferredKeywords = ? WHERE userID = ?";
+                String sqlUpdate = "UPDATE USERPREFERENCES SET preferredKeywords = ? WHERE userID = ? && preferredKeywords = ?";
                 try{
                     prepare = connect.prepareStatement(sqlUpdate);
                     prepare.setString(1, String.join(",", updatedKeywords));

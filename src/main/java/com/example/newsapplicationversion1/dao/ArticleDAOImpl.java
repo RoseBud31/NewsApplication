@@ -1,21 +1,25 @@
 package com.example.newsapplicationversion1.dao;
 
+import com.example.newsapplicationversion1.concurrency.ConcurrencyManager;
 import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.Article;
+import com.example.newsapplicationversion1.services.RecommendationEngine;
 import com.example.newsapplicationversion1.services.StanfordNLP;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 
 public class ArticleDAOImpl implements ArticleDAO {
+    private final ConcurrencyManager concurrencyManager = new ConcurrencyManager();
+    private final List<Article> articles = new CopyOnWriteArrayList<Article>(); // Very important for concurrency
+    private final List<Article> recommendedArticles = new CopyOnWriteArrayList<Article>();
     private static Connection connect;
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
-    private StanfordNLP stanfordNLP;
+    private RecommendationEngine recommendationEngine;
 
     public List<Article> getAllArticles(){
         try {
@@ -23,11 +27,23 @@ public class ArticleDAOImpl implements ArticleDAO {
             connect = Database.connectDb();
             prepare = connect.prepareStatement(sql);
             resultSet = prepare.executeQuery();
-            List<Article> articles = new ArrayList<Article>();
+            int taskCount = 0;
             while (resultSet.next()) {
-                Article article = new Article(resultSet.getInt("articleID"), resultSet.getString("source"), resultSet.getString("title"), resultSet.getString("author"),resultSet.getString("category"),resultSet.getString("description"),resultSet.getDate("publishedDate"), resultSet.getString("content"));
-                articles.add(article);
+                final int articleId = resultSet.getInt("articleID");
+                final String source = resultSet.getString("source");
+                final String title = resultSet.getString("title");
+                final String author = resultSet.getString("author");
+                final String category = resultSet.getString("category");
+                final String description = resultSet.getString("description");
+                final Date publishedDate = resultSet.getDate("publishedDate");
+                final String content = resultSet.getString("content");
+                concurrencyManager.submit(() -> {
+                    Article article = new Article(articleId, source, title, author, category, description, publishedDate, content);
+                    articles.add(article);
+                });
+                taskCount++;
             }
+            System.out.println(taskCount);
             return articles;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -49,7 +65,7 @@ public class ArticleDAOImpl implements ArticleDAO {
     public void addArticle(Article article) {
         try{
             String sql = "INSERT INTO ARTICLES (source, title, author, category, description, publishedDate, content) VALUES (?, ?, ?, ?, ?, ?, ?)";
-            String category = stanfordNLP.categorizeArticle(article.getContent());
+            String category = recommendationEngine.categorizeArticle(article.getContent());
             connect= Database.connectDb();
             prepare= connect.prepareStatement(sql);
             prepare.setString(1, article.getSource());
@@ -71,15 +87,31 @@ public class ArticleDAOImpl implements ArticleDAO {
             connect= Database.connectDb();
             prepare= connect.prepareStatement(sql);
             resultSet = prepare.executeQuery();
-            List<Article> articles = new ArrayList<Article>();
+            int taskCount = 0;
             while (resultSet.next()) {
-                Article article = new Article(resultSet.getInt("articleID"), resultSet.getString("source"), resultSet.getString("title"), resultSet.getString("author"),resultSet.getString("category"),resultSet.getString("description"),resultSet.getDate("publishedDate"), resultSet.getString("content"));
-                articles.add(article);
+                final int articleId = resultSet.getInt("articleID");
+                final String source = resultSet.getString("source");
+                final String title = resultSet.getString("title");
+                final String author = resultSet.getString("author");
+                final String category = resultSet.getString("category");
+                final String description = resultSet.getString("description");
+                final Date publishedDate = resultSet.getDate("publishedDate");
+                final String content = resultSet.getString("content");
+                concurrencyManager.submit(() -> {
+                    Article article = new Article(articleId, source, title, author, category, description, publishedDate, content);
+                    articles.add(article);
+                });
+                taskCount++;
             }
+            System.out.println(taskCount);
             return articles;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         }
+    }
+    public List<Article> getArticlesByCategory(String category) {
+        List<Article> articles1= getAllArticles();
+        return articles1.stream().filter(a -> a.getCategory().equals(category)).collect(Collectors.toList());
     }
 }

@@ -7,8 +7,6 @@ public class UserPreferences {
     private int userId;
     private List<String> preferredCategories;
     private List<String> preferredKeywords;
-    private List<Article> readingHistory;
-    private List<Article> recommendedArticles;
 
     public int getPreferenceId() {
         return preferenceId;
@@ -34,16 +32,5 @@ public class UserPreferences {
     public void setPreferredKeywords(List<String> preferredKeywords) {
         this.preferredKeywords = preferredKeywords;
     }
-    public List<Article> getReadingHistory() {
-        return readingHistory;
-    }
-    public void setReadingHistory(List<Article> readingHistory) {
-        this.readingHistory = readingHistory;
-    }
-    public List<Article> getRecommendedArticles() {
-        return recommendedArticles;
-    }
-    public void setRecommendedArticles(List<Article> recommendedArticles) {
-        this.recommendedArticles = recommendedArticles;
-    }
+
 }

@@ -1,10 +1,11 @@
 package com.example.newsapplicationversion1.dao;
 
-import com.example.newsapplicationversion1.models.Recommendation;
+import com.example.newsapplicationversion1.models.Article;
 
-import java.sql.Date;
+import java.util.List;
 
 public interface RecommendationDAO {
-    void recordRecommendation(int userId, int articleId, Date recommendedAt);
-    Recommendation getRecommendations(int userId);
+    void recordRecommendations(List<Article> articles);
+    List<Article> getRecommendations(int userId);
+    boolean checkForDuplicate(int userId, int articleId);
 }
