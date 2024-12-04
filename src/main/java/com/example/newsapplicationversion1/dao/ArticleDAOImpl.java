@@ -12,8 +12,8 @@ import java.util.stream.Collectors;
 
 public class ArticleDAOImpl implements ArticleDAO {
     private final List<Article> articles = new CopyOnWriteArrayList<>();
-    private final ExecutorService executorService = Executors.newFixedThreadPool(10); // Thread pool with 10 threads
-    private final RecommendationEngine recommendationEngine = new RecommendationEngine();
+    public ExecutorService executorService = Executors.newFixedThreadPool(10); // Thread pool with 10 threads
+    public RecommendationEngine recommendationEngine = new RecommendationEngine();
 
     private static Connection connect;
     private static PreparedStatement prepare;

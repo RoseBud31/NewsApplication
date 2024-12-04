@@ -10,7 +10,6 @@ module com.example.newsapplicationversion1 {
     requires json.simple;
     requires com.fasterxml.jackson.annotation;
     requires annotations;
-    requires edu.stanford.nlp.corenlp;
     requires org.apache.logging.log4j;
     requires java.sql;
 

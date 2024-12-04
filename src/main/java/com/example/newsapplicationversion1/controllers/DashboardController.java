@@ -255,7 +255,6 @@ public class DashboardController implements Initializable {
             } else {
                 likeButton.setStyle("-fx-text-fill: black;-fx-border-color: black");
             };
-            recommendArticlesOnInteract();
         });
 
 
