@@ -2,7 +2,8 @@ package com.example.newsapplicationversion1.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
+import java.sql.Date;
+
 
 public class Article {
     @JsonProperty
@@ -42,7 +43,8 @@ public class Article {
         this.author = "";
         this.category = "";
         this.description = "";
-        this.publishedDate = new Date();
+        long millis=System.currentTimeMillis();
+        this.publishedDate = new Date(millis);
         this.content = "";
         this.imageUrl = null;
     }

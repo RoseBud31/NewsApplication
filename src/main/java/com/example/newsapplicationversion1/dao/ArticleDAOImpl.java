@@ -1,6 +1,5 @@
 package com.example.newsapplicationversion1.dao;
 
-import com.example.newsapplicationversion1.concurrency.ConcurrencyManager;
 import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.services.RecommendationEngine;

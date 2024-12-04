@@ -10,6 +10,10 @@ public class UserArticleInteraction {
     private int timeSpentSeconds;
     private Date dateRead;
 
+    public UserArticleInteraction() {
+        this.dateRead = new Date();
+    }
+
     public UserArticleInteraction(int interactionId, int userId, int articleId, String interactionType, int timeSpentSeconds, Date dateRead) {
         this.interactionId = interactionId;
         this.userId = userId;
@@ -22,6 +26,7 @@ public class UserArticleInteraction {
         return interactionId;
     }
     public void setInteractionId(int interactionId) {
+
         this.interactionId = interactionId;
     }
     public int getUserId() {
@@ -46,7 +51,12 @@ public class UserArticleInteraction {
         return timeSpentSeconds;
     }
     public void setTimeSpentSeconds(int timeSpentSeconds) {
-        this.timeSpentSeconds = timeSpentSeconds;
+        // Optional: Add validation for time spent
+        if (timeSpentSeconds >= 0) {
+            this.timeSpentSeconds = timeSpentSeconds;
+        } else {
+            this.timeSpentSeconds = 0;
+        }
     }
     public Date getDateRead() {
         return dateRead;
@@ -54,5 +64,4 @@ public class UserArticleInteraction {
     public void setDateRead(Date dateRead) {
         this.dateRead = dateRead;
     }
-
 }
