@@ -72,16 +72,6 @@
             <artifactId>mysql-connector-java</artifactId>
             <version>8.0.33</version> <!-- Use the latest stable version available -->
         </dependency>
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp</artifactId>
-            <version>4.5.7</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-corenlp-models-current</artifactId>
-            <version>4.5.7</version>
-        </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>

@@ -7,6 +7,9 @@ import com.example.newsapplicationversion1.models.UserArticleInteraction;
 import com.example.newsapplicationversion1.session.SessionManager;
 
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.stream.Collectors;
 
 public class RecommendationEngine {
@@ -19,7 +22,11 @@ public class RecommendationEngine {
             "Science", List.of("physics", "chemistry", "biology", "astronomy", "genetics", "climate change", "geology", "ecology", "space exploration", "earth science", "biology research", "scientific discovery", "laboratory experiments", "nanotechnology", "microbiology", "neuroscience", "genomics", "evolution", "medical science", "pharmacology", "neuroscience", "biochemistry", "meteorology", "paleontology", "marine biology", "zoology", "scientific methods", "renewable energy", "biotechnology", "environmental science"),
             "General", List.of("news", "politics", "society", "culture", "lifestyle", "education", "travel", "food", "history", "religion", "philosophy", "current events", "community", "environment", "economy", "law", "human rights", "social issues", "language", "education systems", "literature", "art", "design", "personal development", "psychology", "family", "relationships", "technology trends", "volunteering", "sustainability", "government", "charity")
     );
-
+    // Concurrency tools
+    private final ExecutorService executorService = Executors.newFixedThreadPool(5);
+    public void shutdown() {
+        executorService.shutdown();
+    }
     private Map<String, Double> categoryScores = new HashMap<>();
 
     SimpleNLP simpleNLP = new SimpleNLP();
@@ -54,69 +61,76 @@ public class RecommendationEngine {
                 .orElse("General");
     }
 
-    public List<Article> recommendArticles(int articleCount, User user) {
-        if (user == null) {
-            throw new IllegalArgumentException("User must be provided for recommendations.");
-        }
+    public Future<List<Article>> recommendArticles(int articleCount, User user) {
+        return executorService.submit(() -> {
+            try {
+                if (user == null) {
+                    throw new IllegalArgumentException("User must be provided for recommendations.");
+                }
 
-        UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
-        List<UserArticleInteraction> readingHistory = userArticleInteractionDAO.readInteractionsForUser(user.getUserId());
-        List<Article> recommendedArticles = new ArrayList<>();
-        ArticleDAO articleDAO = new ArticleDAOImpl();
+                UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
+                List<UserArticleInteraction> readingHistory = userArticleInteractionDAO.readInteractionsForUser(user.getUserId());
+                List<Article> recommendedArticles = new ArrayList<>();
+                ArticleDAO articleDAO = new ArticleDAOImpl();
 
-        if (readingHistory == null || readingHistory.isEmpty()) {
-            return recommendedArticles;
-        }
+                if (readingHistory == null || readingHistory.isEmpty()) {
+                    return recommendedArticles;
+                }
 
-        Map<String, Double> categoryScores = new HashMap<>();
+                Map<String, Double> categoryScores = new HashMap<>();
 
-        for (UserArticleInteraction interaction : readingHistory) {
-            int articleId = interaction.getArticleId();
-            int timeSpent = interaction.getTimeSpentSeconds();
-            String interactionType = interaction.getInteractionType();
+                for (UserArticleInteraction interaction : readingHistory) {
+                    int articleId = interaction.getArticleId();
+                    int timeSpent = interaction.getTimeSpentSeconds();
+                    String interactionType = interaction.getInteractionType();
 
-            Article article = articleDAO.getArticle(articleId);
-            if (article == null) {
-                continue;
+                    Article article = articleDAO.getArticle(articleId);
+                    if (article == null) {
+                        continue;
+                    }
+
+                    String category = article.getCategory();
+                    double categoryScore = calculateCategoryScore(timeSpent, interactionType, category, user, categoryScores);
+                    categoryScores.put(category, categoryScores.getOrDefault(category, 0.0) + categoryScore);
+                }
+
+                double totalScore = categoryScores.values().stream().mapToDouble(Double::doubleValue).sum();
+                if (totalScore == 0) {
+                    return recommendedArticles;
+                }
+
+                Map<String, Integer> articlesPerCategory = new HashMap<>();
+                for (Map.Entry<String, Double> entry : categoryScores.entrySet()) {
+                    String category = entry.getKey();
+                    double proportion = entry.getValue() / totalScore;
+                    int numArticles = (int) Math.ceil(proportion * articleCount);
+                    articlesPerCategory.put(category, numArticles);
+                }
+
+                for (Map.Entry<String, Integer> entry : articlesPerCategory.entrySet()) {
+                    String category = entry.getKey();
+                    int numArticles = entry.getValue();
+
+                    List<Article> articles = articleDAO.getArticlesByCategory(category);
+                    if (articles == null || articles.isEmpty()) {
+                        continue;
+                    }
+
+                    List<Article> sortedArticles = articles.stream()
+                            .sorted(Comparator.comparing(Article::getPublishedDate).reversed())
+                            .limit(numArticles)
+                            .collect(Collectors.toList());
+
+                    recommendedArticles.addAll(sortedArticles);
+                }
+
+                recommendedArticles.forEach(System.out::println);
+                return recommendedArticles;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return Collections.emptyList();
             }
-
-            String category = article.getCategory();
-            double categoryScore = calculateCategoryScore(timeSpent, interactionType, category, user, categoryScores);
-            categoryScores.put(category, categoryScores.getOrDefault(category, 0.0) + categoryScore);
-        }
-
-        double totalScore = categoryScores.values().stream().mapToDouble(Double::doubleValue).sum();
-        if (totalScore == 0) {
-            return recommendedArticles;
-        }
-
-        Map<String, Integer> articlesPerCategory = new HashMap<>();
-        for (Map.Entry<String, Double> entry : categoryScores.entrySet()) {
-            String category = entry.getKey();
-            double proportion = entry.getValue() / totalScore;
-            int numArticles = (int) Math.ceil(proportion * articleCount);
-            articlesPerCategory.put(category, numArticles);
-        }
-
-        for (Map.Entry<String, Integer> entry : articlesPerCategory.entrySet()) {
-            String category = entry.getKey();
-            int numArticles = entry.getValue();
-
-            List<Article> articles = articleDAO.getArticlesByCategory(category);
-            if (articles == null || articles.isEmpty()) {
-                continue;
-            }
-
-            List<Article> sortedArticles = articles.stream()
-                    .sorted(Comparator.comparing(Article::getPublishedDate).reversed())
-                    .limit(numArticles)
-                    .collect(Collectors.toList());
-
-            recommendedArticles.addAll(sortedArticles);
-        }
-
-        recommendedArticles.forEach(System.out::println);
-        return recommendedArticles;
+        });
     }
 
     private double calculateCategoryScore(int timeSpent, String interactionType, String category, User user, Map<String, Double> categoryScores) {

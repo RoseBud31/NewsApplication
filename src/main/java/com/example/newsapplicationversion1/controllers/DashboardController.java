@@ -6,7 +6,6 @@ import com.example.newsapplicationversion1.models.Article;
 import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.models.UserArticleInteraction;
 import com.example.newsapplicationversion1.services.RecommendationEngine;
-import com.example.newsapplicationversion1.services.SimpleNLP;
 import com.example.newsapplicationversion1.session.SessionManager;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -36,6 +35,8 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Future;
 
 
 public class DashboardController implements Initializable {
@@ -64,14 +65,13 @@ public class DashboardController implements Initializable {
     @FXML
     private Label dateTime;
 
-    public DashboardController() throws SQLException {
-    }
+
     ArticleDAO articleDAO = new ArticleDAOImpl();
     UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
-    UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
     long timeStarted = new SessionManager(System.currentTimeMillis()).getTimeStarted();
-    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
+    public DashboardController() throws SQLException {
+    }
     public void close(){
         try {
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -379,52 +379,139 @@ public class DashboardController implements Initializable {
 
     private void recommendArticlesOnInteract() {
         RecommendationEngine recommendationEngine = new RecommendationEngine();
-        List<Article> recArticles = recommendationEngine.recommendArticles(30, currentUser);
-        RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
-        recommendationDAO.recordRecommendations(recArticles, currentUser);
+        Future<List<Article>> recArticles = recommendationEngine.recommendArticles(30, currentUser);
+
+        new Thread(() -> {
+            try {
+                List<Article> articles = recArticles.get();  // Blocking call to fetch results
+
+                // Update the UI on the JavaFX thread
+                Platform.runLater(() -> {
+                    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
+                    recommendationDAO.recordRecommendations(articles, currentUser);
+                    // Optionally update the UI to show the recommended articles
+                    populateTilePane(newsTiles, articles); // Assuming you want to show these articles in the UI
+                });
+
+            } catch (InterruptedException | ExecutionException e) {
+                e.printStackTrace();
+                Platform.runLater(() -> {
+                    // Handle error (e.g., show a message to the user)
+                });
+            }
+        }).start();
     }
 
+
     public void onHomeClicked(ActionEvent event) {
-        try{
-            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getRecommendedArticles(recArticleIds())));
+        try {
+            List<Article> articlesToShow;
+
+            // Fetch history or recommended articles
+            List<Article> historyArticles = articleHistory(); // This will never return null
+            if (historyArticles.isEmpty()) {
+                articlesToShow = articleDAO.getAllArticles();
+            } else {
+                articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
+            }
+
+            // Update UI in a safe way
+            Platform.runLater(() -> {
+                populateTilePane(newsTiles, articlesToShow);
+            });
+
         } catch (Exception e) {
-            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+            // Handle exception and fall back to default articles
+            Platform.runLater(() -> {
+            });
         }
 
+        // Update styles
         home.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
         readingHistory.setStyle("-fx-background-color: transparent;-fx-alignment: CENTER-LEFT");
     }
+
     public void onReadingHistoryClicked(ActionEvent event) {
-        populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
+        List<Article> historyArticles = articleHistory();
+
+        // Update UI in a safe way
+        Platform.runLater(() -> {
+            populateTilePane(newsTiles, historyArticles);
+        });
+
+        // Update styles
         home.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
         readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
     }
 
+
     public List<Integer> recArticleIds(){
-        List<Integer> recArticleIds = new ArrayList<>();
+        RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
+        List<Integer> articlesRecommended = new ArrayList<>();
+        articlesRecommended.addAll(recommendationDAO.getRecommendations(currentUser.getUserId()));
+        return articlesRecommended;
+    }
+    public List<Article> articleHistory() {
+        Set<Article> uniqueArticles = new HashSet<>();  // Using a Set to avoid duplicate articles
+        List<Article> articleHistory = new ArrayList<>();
+
         UserArticleInteractionDAO userArticleInteraction = new UserArticleInteractionDAOImpl();
+
+        // Fetch interactions for the user
         for (UserArticleInteraction interaction : userArticleInteraction.readInteractionsForUser(currentUser.getUserId())) {
-            recArticleIds.add(interaction.getArticleId());
+            Article article = articleDAO.getArticle(interaction.getArticleId());
+
+            if (uniqueArticles.add(article)) {  // This ensures that only unique articles are added
+                articleHistory.add(article);
+            }
         }
-        return recArticleIds;
+
+        return articleHistory;
+    }
+
+
+    public void setUI() {
+        setDateTime(dateTime);
+
+        // Fetch articles asynchronously to avoid blocking UI thread
+        new Thread(() -> {
+            try {
+                List<Article> articlesToShow;
+
+                // Use article history or recommended articles depending on the user's history
+                if (articleHistory() == null) {
+                    articlesToShow = articleDAO.getAllArticles();
+                } else {
+                    articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
+                }
+
+                // Update the UI with the fetched articles (on the JavaFX thread)
+                Platform.runLater(() -> {
+                    populateTilePane(newsTiles, articlesToShow);
+                });
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                Platform.runLater(() -> {
+                    populateTilePane(newsTiles, articleDAO.getAllArticles());
+                });
+            }
+        }).start();
+
+        home.setOnAction(this::onHomeClicked);
+        readingHistory.setOnAction(this::onReadingHistoryClicked);
+        logout.setOnAction(event -> {
+            // Handle logout functionality
+            logout();
+        });
+
+        close.setOnAction(event -> {
+            close();
+        });
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setDateTime(dateTime);
-        try{
-            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getRecommendedArticles(recArticleIds())));
-        } catch (Exception e) {
-            populateTilePane(newsTiles, Objects.requireNonNull(articleDAO.getAllArticles()));
-        }
-        logout.setOnAction(event -> {
-            //recommendArticlesOnInteract();
-            logout();
-
-        });
-        close.setOnAction(event -> {
-            close();
-        });
-
+        Platform.runLater(this::setUI);
     }
 }

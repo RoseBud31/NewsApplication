@@ -6,6 +6,7 @@ import com.example.newsapplicationversion1.models.User;
 import com.example.newsapplicationversion1.session.SessionManager;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class RecommendationDAOImpl implements RecommendationDAO {
@@ -73,6 +74,29 @@ public class RecommendationDAOImpl implements RecommendationDAO {
             throw new RuntimeException(e);
         } finally {
             closeResources();
+        }
+    }
+
+    @Override
+    public List<Integer> getRecommendations(int userId) {
+        List<Integer> recommendations = new ArrayList<>();
+        String sql = "SELECT * FROM RECOMMENDEDARTICLES WHERE userID = ?";
+        try {
+            connect = Database.connectDb();
+            if (connect == null) {
+                throw new SQLException("Failed to connect to the database.");
+            }
+            prepare = connect.prepareStatement(sql);
+            prepare.setInt(1, userId);
+            resultSet = prepare.executeQuery();
+            while (resultSet.next()) {
+                int articleId = resultSet.getInt("articleID");
+                recommendations.add(articleId);
+            }
+            return recommendations;
+        } catch (SQLException e) {
+            System.err.println("Error checking for duplicate: " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 

@@ -8,4 +8,5 @@ import java.util.List;
 public interface RecommendationDAO {
     void recordRecommendations(List<Article> articles, User currentUser);
     boolean checkForDuplicate(int userId, int articleId);
+    List<Integer> getRecommendations(int userId);
 }

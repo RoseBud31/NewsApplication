@@ -12,14 +12,13 @@ import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
 public class ArticleDAOImpl implements ArticleDAO {
-    private final ConcurrencyManager concurrencyManager = new ConcurrencyManager();
-    private final List<Article> articles = new CopyOnWriteArrayList<Article>(); // Very important for concurrency
-    private final List<Article> recommendedArticles = new ArrayList<>();
+    private final List<Article> articles = new CopyOnWriteArrayList<>();
+    private final ExecutorService executorService = Executors.newFixedThreadPool(10); // Thread pool with 10 threads
+    private final RecommendationEngine recommendationEngine = new RecommendationEngine();
+
     private static Connection connect;
     private static PreparedStatement prepare;
     private static ResultSet resultSet;
-    RecommendationEngine recommendationEngine = new RecommendationEngine();
-    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
 
     public List<Article> getAllArticles(){
         try {
@@ -27,6 +26,7 @@ public class ArticleDAOImpl implements ArticleDAO {
             connect = Database.connectDb();
             prepare = connect.prepareStatement(sql);
             resultSet = prepare.executeQuery();
+            List<Future<?>> futures = new ArrayList<>();
             int taskCount = 0;
             while (resultSet.next()) {
                 final int articleId = resultSet.getInt("articleID");
@@ -37,18 +37,21 @@ public class ArticleDAOImpl implements ArticleDAO {
                 final String description = resultSet.getString("description");
                 final Date publishedDate = resultSet.getDate("publishedDate");
                 final String content = resultSet.getString("content");
-                concurrencyManager.submit(() -> {
+
+                futures.add(executorService.submit(() -> {
                     Article article = new Article(articleId, source, title, author, category, description, publishedDate, content);
                     articles.add(article);
-                });
+                }));
                 taskCount++;
             }
+            for (Future<?> future : futures) {
+                future.get(); // Wait for all tasks to complete
+            }
             System.out.println(taskCount);
-            return articles;
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return null;
+        }  catch (SQLException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
         }
+        return articles;
     }
     public Article getArticle(int articleID) {
         try {
@@ -87,59 +90,47 @@ public class ArticleDAOImpl implements ArticleDAO {
     }
     // to display recommended articles
     public List<Article> getRecommendedArticles(List<Integer> articleIDs) {
-        ExecutorService executorService = Executors.newFixedThreadPool(10); // Use a thread pool with a fixed number of threads
-        List<Article> recommendedArticles = new CopyOnWriteArrayList<>(); // Thread-safe list
-        List<Future<?>> futures = new ArrayList<>(); // To track the futures of the submitted tasks
-
-        try {
-            connect = Database.connectDb(); // Single connection for all queries
+        List<Future<Article>> futures = new ArrayList<>();
+        List<Article> recommendedArticles = new CopyOnWriteArrayList<>();
+        String sql = "SELECT * FROM articles WHERE articleID=?";
+        try (Connection connect = Database.connectDb()) {
             for (Integer articleID : articleIDs) {
-                String sql = "SELECT * FROM articles WHERE articleID=?";
-                prepare = connect.prepareStatement(sql);
-                prepare.setInt(1, articleID);
-                resultSet = prepare.executeQuery();
+                futures.add(executorService.submit(() -> {
+                    try (PreparedStatement prepare = connect.prepareStatement(sql)) {
+                        prepare.setInt(1, articleID);
+                        try (ResultSet resultSet = prepare.executeQuery()) {
+                            if (resultSet.next()) {
+                                return new Article(
+                                        resultSet.getInt("articleID"),
+                                        resultSet.getString("source"),
+                                        resultSet.getString("title"),
+                                        resultSet.getString("author"),
+                                        resultSet.getString("category"),
+                                        resultSet.getString("description"),
+                                        resultSet.getDate("publishedDate"),
+                                        resultSet.getString("content")
+                                );
+                            }
+                        }
+                    }
+                    return null;
+                }));
+            }
 
-                if (resultSet.next()) {
-                    final int articleId = resultSet.getInt("articleID");
-                    final String source = resultSet.getString("source");
-                    final String title = resultSet.getString("title");
-                    final String author = resultSet.getString("author");
-                    final String category = resultSet.getString("category");
-                    final String description = resultSet.getString("description");
-                    final Date publishedDate = resultSet.getDate("publishedDate");
-                    final String content = resultSet.getString("content");
-
-                    // Submit task to executor service to process the article data asynchronously
-                    Future<?> future = executorService.submit(() -> {
-                        Article article = new Article(articleId, source, title, author, category, description, publishedDate, content);
-                        recommendedArticles.add(article); // Add to the thread-safe list
-                    });
-                    futures.add(future); // Track the future of this task
+            for (Future<Article> future : futures) {
+                Article article = future.get();
+                if (article != null) {
+                    recommendedArticles.add(article);
                 }
             }
 
-            // Wait for all tasks to complete
-            for (Future<?> future : futures) {
-                future.get(); // Blocks until the task is complete
-            }
-
-            // Optionally shut down the executor service
-            executorService.shutdown();
-
         } catch (SQLException | InterruptedException | ExecutionException e) {
-            System.out.println(e.getMessage());
-            return null;
-        } finally {
-            try {
-                if (prepare != null) prepare.close(); // Close PreparedStatement
-                if (resultSet != null) resultSet.close(); // Close ResultSet
-                if (connect != null) connect.close(); // Close Connection
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
+            e.printStackTrace();
         }
         return recommendedArticles;
     }
+
+
     public List<Article> getArticlesByCategory(String category) {
         List<Article> articles1= getAllArticles();
         return articles1.stream().filter(a -> a.getCategory().equals(category)).collect(Collectors.toList());
