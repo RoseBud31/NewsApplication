@@ -70,15 +70,20 @@ public class RecommendationEngine {
 
                 UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
                 List<UserArticleInteraction> readingHistory = userArticleInteractionDAO.readInteractionsForUser(user.getUserId());
-                List<Article> recommendedArticles = new ArrayList<>();
+                List<Article> recommendedArticles;
                 ArticleDAO articleDAO = new ArticleDAOImpl();
 
                 if (readingHistory == null || readingHistory.isEmpty()) {
-                    return null;
+                    UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
+                    List<String> categories = userPreferencesDAO.getUserPreferences(user.getUserId()).getPreferredCategories();
+                    List<Article> articles = new ArrayList<>();
+                    for (String category : categories){
+                        articles.addAll(articleDAO.getArticlesByCategory(category));
+                    }
+                    return articles;
                 }
 
                 Map<String, Double> categoryScores = new HashMap<>();
-
                 for (UserArticleInteraction interaction : readingHistory) {
                     int articleId = interaction.getArticleId();
                     int timeSpent = interaction.getTimeSpentSeconds();
@@ -90,6 +95,7 @@ public class RecommendationEngine {
                     }
 
                     String category = article.getCategory();
+
                     double categoryScore = calculateCategoryScore(timeSpent, interactionType, category, user, categoryScores);
                     categoryScores.put(category, categoryScores.getOrDefault(category, 0.0) + categoryScore);
                 }
@@ -138,15 +144,18 @@ public class RecommendationEngine {
     private double calculateCategoryScore(int timeSpent, String interactionType, String category, User user, Map<String, Double> categoryScores) {
         UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
         List<String> categories = userPreferencesDAO.getUserPreferences(user.getUserId()).getPreferredCategories();
+        System.out.println(categories);
         double categoryScore = categoryScores.getOrDefault(category, 0.0);
 
-        if (categories != null && categories.contains(category)) {
-            categoryScore += 3;
+        if (categories != null && categories.stream().anyMatch(c -> c.equalsIgnoreCase(category))) {
+            categoryScore += 2;
         }
         if ("liked".equals(interactionType)) {
             categoryScore += 2;
         }
         categoryScore += (timeSpent / 60) * 0.5;
+        System.out.println(category);
+        System.out.println(categoryScore);
         return categoryScore;
     }
 }
