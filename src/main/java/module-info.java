@@ -12,6 +12,7 @@ module com.example.newsapplicationversion1 {
     requires annotations;
     requires org.apache.logging.log4j;
     requires java.sql;
+    requires com.opencsv;
 
     opens com.example.newsapplicationversion1 to javafx.fxml;
     exports com.example.newsapplicationversion1;

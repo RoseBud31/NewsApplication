@@ -106,6 +106,7 @@ public class DashboardController implements Initializable {
         tilePane.setPrefWidth(720);
         tilePane.setPrefColumns(4);
         tilePane.setStyle("-fx-background-color: #fff");
+        mainScrollPane.setStyle("-fx-background-color: #fff");
         for (Article article : articles){
             VBox tile = new VBox();
             tile.setPrefSize(200, 250);
@@ -170,7 +171,7 @@ public class DashboardController implements Initializable {
                 };
 
             });
-
+            mainScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.AS_NEEDED);
             // Add new tile to the tilepane
             tilePane.getChildren().add(tile);
         }
@@ -402,7 +403,7 @@ public class DashboardController implements Initializable {
             // Fetch history or recommended articles
             List<Article> historyArticles = articleDAO.getArticleHistory(currentUser.getUserId()); // This will never return null
             if (historyArticles.isEmpty()) {
-                articlesToShow = articleDAO.getAllArticles();
+                articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
             } else {
                 articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
             }

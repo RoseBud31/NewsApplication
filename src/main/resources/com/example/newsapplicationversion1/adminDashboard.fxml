@@ -53,6 +53,7 @@
                      <Font name="Arial" size="24.0" />
                   </font>
                </Label>
+               <Button fx:id="btnUploadCSV" layoutX="58.0" layoutY="568.0" mnemonicParsing="false" onAction="#handleUploadCSV" prefHeight="46.0" prefWidth="106.0" style="-fx-background-radius: 5px; -fx-border-width: 2px; -fx-border-color: linear-gradient(to bottom, #c34444, #b13131); -fx-border-radius: 5px;" styleClass="insert-btn" stylesheets="@login.css" text="Upload CSV" />
                </AnchorPane>
          </right>
          <left>

@@ -3,6 +3,7 @@ package com.example.newsapplicationversion1.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.sql.Date;
+import java.util.Objects;
 
 
 public class Article {
@@ -35,6 +36,15 @@ public class Article {
         this.publishedDate = publishedDate;
         this.content = content;
         this.imageUrl = "/com/example/newsapplicationversion1/images/" + articleId%20 + ".jpg";
+    }
+    public Article(String source, String title, String author, String category, String description, Date publishedDate, String content) {
+        this.source = source;
+        this.title = title;
+        this.author = author;
+        this.category = category;
+        this.description = description;
+        this.publishedDate = publishedDate;
+        this.content = content;
     }
     public Article() {
         this.articleId = 0;
@@ -106,5 +116,18 @@ public class Article {
     public String toString(){
         return "Article [articleId=" + articleId + ", source=" + source + ", title=" + title + ", author=" + author + ", category=" + category + ", description=" + description + ", publishedDate=" + publishedDate + "]";
     }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Article article = (Article) o;
+        return articleId == article.articleId; // Use articleId for uniqueness
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(articleId);  // Ensure consistent hashing by articleId
+    }
+
 
 }
