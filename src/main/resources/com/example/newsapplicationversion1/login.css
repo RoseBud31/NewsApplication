@@ -97,3 +97,13 @@
     -fx-font-color: #005a73;
     -fx-cursor: hand;
 }
+.left-side{
+    -fx-background-color:linear-gradient(to bottom, #c34444, #b13131);
+    -fx-text-fill:#fff;
+    -fx-font-size:14px;
+    -fx-font-family:"Arial";
+}
+.root {
+    -fx-background-radius: 15;    /* Rounded corners */
+    -fx-border-radius: 15;        /* Rounded border corners */
+}

@@ -2,6 +2,7 @@ package com.example.newsapplicationversion1.dao;
 
 import com.example.newsapplicationversion1.data.Database;
 import com.example.newsapplicationversion1.models.Article;
+import com.example.newsapplicationversion1.models.UserArticleInteraction;
 import com.example.newsapplicationversion1.services.RecommendationEngine;
 
 import java.sql.*;
@@ -59,11 +60,12 @@ public class ArticleDAOImpl implements ArticleDAO {
             prepare= connect.prepareStatement(sql);
             prepare.setInt(1, articleID);
             resultSet = prepare.executeQuery();
+            Article article = null;
             if (resultSet.next()) {
-                Article article = new Article(resultSet.getInt("articleID"), resultSet.getString("source"), resultSet.getString("title"), resultSet.getString("author"),resultSet.getString("category"),resultSet.getString("description"),resultSet.getDate("publishedDate"), resultSet.getString("content"));
+                article = new Article(resultSet.getInt("articleID"), resultSet.getString("source"), resultSet.getString("title"), resultSet.getString("author"),resultSet.getString("category"),resultSet.getString("description"),resultSet.getDate("publishedDate"), resultSet.getString("content"));
                 return article;
             }
-            return null;
+            return article;
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
@@ -133,6 +135,48 @@ public class ArticleDAOImpl implements ArticleDAO {
     public List<Article> getArticlesByCategory(String category) {
         List<Article> articles1= getAllArticles();
         return articles1.stream().filter(a -> a.getCategory().equals(category)).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<Article> getArticleHistory(int userId) {
+        UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
+        List<UserArticleInteraction> articlesRead = userArticleInteractionDAO.readInteractionsForUser(userId);
+        List<Article> articleHistory = new ArrayList<>();
+        for (UserArticleInteraction interaction : articlesRead) {
+            articleHistory.add(getArticle(interaction.getArticleId()));
+        }
+        return articleHistory;
+    }
+
+    @Override
+    public void addArticlesBulk(List<Article> articles) {
+        try{
+            for (Article article : articles) {
+                String source = article.getSource();
+                String title = article.getTitle();
+                String author = article.getAuthor();
+                String description = article.getDescription();
+                Date publishedDate = article.getPublishedDate();
+                String content = article.getContent();
+
+                String sql = "INSERT INTO ARTICLES (source, title, author, category, description, publishedDate, content) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                String category = recommendationEngine.categorizeArticle(content);
+                connect= Database.connectDb();
+                prepare= connect.prepareStatement(sql);
+                prepare.setString(1, source);
+                prepare.setString(2, title);
+                prepare.setString(3, author);
+                prepare.setString(4, category);
+                prepare.setString(5, description);
+                prepare.setDate(6, publishedDate);
+                prepare.setString(7, content);
+                prepare.execute();
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return;
+        }
     }
 
     public static void main(String[] args) {

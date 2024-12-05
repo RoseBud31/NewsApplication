@@ -74,7 +74,7 @@ public class RecommendationEngine {
                 ArticleDAO articleDAO = new ArticleDAOImpl();
 
                 if (readingHistory == null || readingHistory.isEmpty()) {
-                    return recommendedArticles;
+                    return null;
                 }
 
                 Map<String, Double> categoryScores = new HashMap<>();
@@ -93,10 +93,10 @@ public class RecommendationEngine {
                     double categoryScore = calculateCategoryScore(timeSpent, interactionType, category, user, categoryScores);
                     categoryScores.put(category, categoryScores.getOrDefault(category, 0.0) + categoryScore);
                 }
-
+                System.out.println(categoryScores);
                 double totalScore = categoryScores.values().stream().mapToDouble(Double::doubleValue).sum();
                 if (totalScore == 0) {
-                    return recommendedArticles;
+                    return null;
                 }
 
                 Map<String, Integer> articlesPerCategory = new HashMap<>();
@@ -107,6 +107,8 @@ public class RecommendationEngine {
                     articlesPerCategory.put(category, numArticles);
                 }
 
+                Set<Article> uniqueArticles = new HashSet<>();  // Ensures no duplicates
+
                 for (Map.Entry<String, Integer> entry : articlesPerCategory.entrySet()) {
                     String category = entry.getKey();
                     int numArticles = entry.getValue();
@@ -116,15 +118,15 @@ public class RecommendationEngine {
                         continue;
                     }
 
-                    List<Article> sortedArticles = articles.stream()
+                    articles.stream()
                             .sorted(Comparator.comparing(Article::getPublishedDate).reversed())
                             .limit(numArticles)
-                            .collect(Collectors.toList());
-
-                    recommendedArticles.addAll(sortedArticles);
+                            .forEach(uniqueArticles::add);  // Add to the Set to avoid duplicates
                 }
 
-                recommendedArticles.forEach(System.out::println);
+                // Convert Set to List if needed
+                recommendedArticles = new ArrayList<>(uniqueArticles);
+
                 return recommendedArticles;
             } catch (Exception e) {
                 e.printStackTrace();

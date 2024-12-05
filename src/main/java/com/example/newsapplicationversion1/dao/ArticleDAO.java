@@ -11,4 +11,6 @@ public interface ArticleDAO {
     void addArticle(String title, String author, String source, String description, Date publishedDate, String content);
     List<Article> getRecommendedArticles(List<Integer> recommendedArticles);
     List<Article> getArticlesByCategory(String category);
+    List<Article> getArticleHistory(int userId);
+    void addArticlesBulk(List<Article> articles);
 }

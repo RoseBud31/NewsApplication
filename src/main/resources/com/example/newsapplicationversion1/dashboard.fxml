@@ -42,13 +42,13 @@
                   <Cursor fx:constant="HAND" />
                </cursor>
             </Button>
-            <Button fx:id="settings" layoutX="5.0" layoutY="198.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Settings" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
+            <Button fx:id="explore" layoutX="5.0" layoutY="198.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Explore" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.400000000000006">
                <font>
                   <Font name="Arial Bold" size="14.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
-                     <Image url="@assets/icons8-settings-100.png" />
+                     <Image url="@assets/application.png" />
                   </ImageView>
                </graphic>
                <cursor>

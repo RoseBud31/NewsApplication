@@ -5,40 +5,97 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxWidth="-Infinity" prefHeight="660.0" prefWidth="665.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.AdminDashboardController">
-       <Button fx:id="close" layoutX="695.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" styleClass="close" stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-           <font>
-               <Font name="Arial Bold" size="12.0" />
-           </font>
-       </Button>
-       <Label fx:id="dateTime" alignment="CENTER" layoutX="-1.0" layoutY="36.0" prefHeight="46.0" prefWidth="720.0" textAlignment="CENTER">
-           <font>
-               <Font name="Arial" size="24.0" />
-           </font>
-       </Label>
-   <Label alignment="CENTER" layoutX="57.0" layoutY="82.0" prefHeight="38.0" prefWidth="470.0" text="Add Article">
-      <font>
-         <Font name="Arial Bold" size="24.0" />
-      </font>
-   </Label>
-   <Label layoutX="61.0" layoutY="176.0" prefHeight="16.0" prefWidth="101.0" styleClass="form-labels" stylesheets="@login.css" text="Title" />
-   <TextField fx:id="title" layoutX="178.0" layoutY="172.0" prefHeight="24.0" prefWidth="350.0" promptText="Crown Jewels Stolen" styleClass="textfield" stylesheets="@login.css" />
-   <Label layoutX="61.0" layoutY="226.0" prefHeight="16.0" prefWidth="102.0" styleClass="form-labels" stylesheets="@login.css" text="Source" />
-   <TextField fx:id="source" layoutX="179.0" layoutY="222.0" prefHeight="24.0" prefWidth="350.0" promptText="BBC" styleClass="textfield" stylesheets="@login.css" />
-   <Label layoutX="61.0" layoutY="273.0" prefHeight="16.0" prefWidth="104.0" styleClass="form-labels" stylesheets="@login.css" text="Description" />
-   <TextField fx:id="description" layoutX="178.0" layoutY="269.0" prefHeight="24.0" prefWidth="350.0" promptText="The queens crown jewels have been stolen,a reward of a million pounds offered" styleClass="textfield" stylesheets="@login.css" />
-   <Label layoutX="61.0" layoutY="322.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Date Published" />
-   <TextField fx:id="datePublished" layoutX="178.0" layoutY="318.0" prefHeight="22.0" prefWidth="350.0" promptText="2024-11-01" styleClass="textfield" stylesheets="@login.css" />
-   <Label layoutX="61.0" layoutY="370.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Author" />
-   <TextField fx:id="author" layoutX="178.0" layoutY="366.0" prefHeight="22.0" prefWidth="350.0" promptText="Lois Lane" styleClass="textfield" stylesheets="@login.css" />
-   <Label layoutX="61.0" layoutY="415.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Content" />
-   <TextArea fx:id="content" layoutX="179.0" layoutY="415.0" prefHeight="110.0" prefWidth="350.0" styleClass="textfield" stylesheets="@login.css" />
-   <Button fx:id="addArticleButton" layoutX="58.0" layoutY="568.0" mnemonicParsing="false" onAction="#addArticle" prefHeight="46.0" prefWidth="470.0" styleClass="login-btn" stylesheets="@login.css" text="Submit">
-      <cursor>
-         <Cursor fx:constant="HAND" />
-      </cursor>
-   </Button>
-   </AnchorPane>
+
+<StackPane style="-fx-background-radius: 6px;" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.newsapplicationversion1.controllers.AdminDashboardController">
+   <children>
+      <BorderPane style="-fx-background-radius: 6px;">
+         <right>
+            <AnchorPane maxWidth="-Infinity" prefHeight="660.0" prefWidth="600.0" style="-fx-background-color: #fff;" BorderPane.alignment="CENTER">
+                   <Button fx:id="close" layoutX="695.0" layoutY="1.0" mnemonicParsing="false" onAction="#close" styleClass="close" stylesheets="@login.css" text="x" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                       <font>
+                           <Font name="Arial Bold" size="12.0" />
+                       </font>
+                   </Button>
+               <Label alignment="CENTER" layoutX="65.0" layoutY="94.0" prefHeight="38.0" prefWidth="470.0" text="Add Article">
+                  <font>
+                     <Font name="Arial Bold" size="24.0" />
+                  </font>
+               </Label>
+               <Label layoutX="61.0" layoutY="176.0" prefHeight="16.0" prefWidth="101.0" styleClass="form-labels" stylesheets="@login.css" text="Title" />
+               <TextField fx:id="title" layoutX="178.0" layoutY="172.0" prefHeight="24.0" prefWidth="350.0" promptText="Crown Jewels Stolen" styleClass="textfield" stylesheets="@login.css" />
+               <Label layoutX="61.0" layoutY="226.0" prefHeight="16.0" prefWidth="102.0" styleClass="form-labels" stylesheets="@login.css" text="Source" />
+               <TextField fx:id="source" layoutX="179.0" layoutY="222.0" prefHeight="24.0" prefWidth="350.0" promptText="BBC" styleClass="textfield" stylesheets="@login.css" />
+               <Label layoutX="61.0" layoutY="273.0" prefHeight="16.0" prefWidth="104.0" styleClass="form-labels" stylesheets="@login.css" text="Description" />
+               <TextField fx:id="description" layoutX="178.0" layoutY="269.0" prefHeight="24.0" prefWidth="350.0" promptText="The queens crown jewels have been stolen,a reward of a million pounds offered" styleClass="textfield" stylesheets="@login.css" />
+               <Label layoutX="61.0" layoutY="322.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Date Published" />
+               <TextField fx:id="datePublished" layoutX="178.0" layoutY="318.0" prefHeight="22.0" prefWidth="350.0" promptText="2024-11-01" styleClass="textfield" stylesheets="@login.css" />
+               <Label layoutX="61.0" layoutY="370.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Author" />
+               <TextField fx:id="author" layoutX="178.0" layoutY="366.0" prefHeight="22.0" prefWidth="350.0" promptText="Lois Lane" styleClass="textfield" stylesheets="@login.css" />
+               <Label layoutX="61.0" layoutY="415.0" prefHeight="16.0" prefWidth="106.0" styleClass="form-labels" stylesheets="@login.css" text="Content" />
+               <TextArea fx:id="content" layoutX="179.0" layoutY="415.0" prefHeight="110.0" prefWidth="350.0" styleClass="textfield" stylesheets="@login.css" />
+               <Button fx:id="addArticleButton" layoutX="418.0" layoutY="568.0" mnemonicParsing="false" onAction="#addArticle" prefHeight="46.0" prefWidth="110.0" styleClass="login-btn" stylesheets="@login.css" text="Submit">
+                  <cursor>
+                     <Cursor fx:constant="HAND" />
+                  </cursor>
+                  <font>
+                     <Font name="Arial Bold" size="14.0" />
+                  </font>
+               </Button>
+               <Label fx:id="dateTime" alignment="CENTER" layoutY="23.0" prefHeight="46.0" prefWidth="600.0" textAlignment="CENTER">
+                  <font>
+                     <Font name="Arial" size="24.0" />
+                  </font>
+               </Label>
+               </AnchorPane>
+         </right>
+         <left>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0" styleClass="left-side" stylesheets="@login.css" BorderPane.alignment="CENTER">
+               <children>
+                  <Button fx:id="home" layoutX="14.0" layoutY="97.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" stylesheets="@dashboard.css" text="Home">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/icons8-home-100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <ImageView fx:id="pulseTimes" fitHeight="41.0" fitWidth="167.0" layoutX="17.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@assets/logoTransparent.png" />
+                     </image>
+                  </ImageView>
+                  <Button fx:id="logout" layoutX="14.0" layoutY="586.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="146.0" style="-fx-background-color: none; -fx-border-width: 0; -fx-alignment: CENTER_LEFT;" text="Logout">
+                     <font>
+                        <Font name="Arial Bold" size="14.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fitHeight="22.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@assets/icons8-logout-100.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </left>
+      </BorderPane>
+   </children>
+</StackPane>

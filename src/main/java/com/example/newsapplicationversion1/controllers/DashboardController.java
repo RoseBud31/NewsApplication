@@ -20,9 +20,7 @@ import javafx.scene.control.*;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.TilePane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Rectangle;
@@ -35,8 +33,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
+import java.util.concurrent.*;
 
 
 public class DashboardController implements Initializable {
@@ -45,6 +42,10 @@ public class DashboardController implements Initializable {
     UserDAO userDAO = new UserDAOImpl();
     private double x = 0 ;
     private double y = 0;
+    ArticleDAO articleDAO = new ArticleDAOImpl();
+    UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
+    long timeStarted = new SessionManager(System.currentTimeMillis()).getTimeStarted();
+    private final ExecutorService executorService = Executors.newCachedThreadPool();
 
     @FXML
     private Button close;
@@ -53,7 +54,7 @@ public class DashboardController implements Initializable {
     @FXML
     private Button readingHistory;
     @FXML
-    private Button settings;
+    private Button explore;
     @FXML
     private TilePane newsTiles;
     @FXML
@@ -66,9 +67,6 @@ public class DashboardController implements Initializable {
     private Label dateTime;
 
 
-    ArticleDAO articleDAO = new ArticleDAOImpl();
-    UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
-    long timeStarted = new SessionManager(System.currentTimeMillis()).getTimeStarted();
 
     public DashboardController() throws SQLException {
     }
@@ -115,14 +113,14 @@ public class DashboardController implements Initializable {
             tile.setMaxHeight(250);
             tile.setPadding(new Insets(10));
             tile.setSpacing(5);
-            tile.setStyle(" -fx-border-width: 1px; -fx-border-radius: 5px;-fx-arc-width: 30px; -fx-arc-height: 30px;-fx-effect: shadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);");
+            tile.setStyle(" -fx-border-width: 1px; -fx-border-radius: 5px;-fx-arc-width: 30px; -fx-arc-height: 30px;-fx-effect: shadow(three-pass-box, rgba(0,0,0,0.8), 10, 0, 0, 0);-fx-cursor: hand");
             // Image
             Image image;
             try {
                 image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%35 + ".jpg")).toString(), 200, 150, true, true);
                 Rectangle rectangle = new Rectangle(0, 0, 200, 150);
-                rectangle.setArcWidth(30.0);   // Corner radius
-                rectangle.setArcHeight(30.0);
+                rectangle.setArcWidth(15.0);   // Corner radius
+                rectangle.setArcHeight(15.0);
                 ImagePattern imagePattern = new ImagePattern(image);
                 rectangle.setFill(imagePattern);
                 rectangle.setEffect(new DropShadow(10, Color.BLACK));  // Shadow
@@ -139,17 +137,30 @@ public class DashboardController implements Initializable {
             titleLabel.setMaxWidth(200);
             titleLabel.setStyle("-fx-text-fill: black; -fx-font-weight: bold; -fx-font-size: 14px");
 
+            // Tooltip for title
+            Tooltip tooltip = new Tooltip(article.getTitle());
+            Tooltip.install(titleLabel, tooltip);
+
             // Description
-            // Label descriptionLabel = new Label(article.getDescription());
-            // descriptionLabel.setWrapText(true);
-            // descriptionLabel.setStyle("-fx-font-size: 12px; -fx-alignment: CENTER-LEFT");
+            Label categoryLabel = new Label(article.getCategory().toUpperCase());
+            categoryLabel.setWrapText(true);
+            categoryLabel.setStyle("-fx-font-size: 12px; -fx-alignment: CENTER-LEFT");
 
             // Date
             Label dateLabel = new Label(article.getPublishedDate().toString());
             dateLabel.setStyle("fx-font-size: 12px; -fx-alignment: CENTER-RIGHT");
 
+            HBox infoLabel = new HBox();
+            infoLabel.getChildren().addAll(categoryLabel, dateLabel);
+            infoLabel.setSpacing(80); // Optional: Adds spacing between the labels
+            infoLabel.setMaxWidth(200);
+            infoLabel.setAlignment(Pos.CENTER_LEFT);
+            // Ensures the category label pushes date label to the right
+            HBox.setHgrow(categoryLabel, Priority.ALWAYS);
+
+
             // Add all the labels and images to the tile
-            tile.getChildren().addAll(titleLabel, dateLabel);
+            tile.getChildren().addAll(titleLabel, infoLabel);
             tile.setStyle("-fx-background-color: #fff;");
             tile.setOnMouseClicked(event -> {
                 loadArticle(article);
@@ -168,7 +179,7 @@ public class DashboardController implements Initializable {
     private void trackTimeAndUpdate(long timeStarted, Article article) {
         long exitTime = System.currentTimeMillis();
         int timeSpent = (int) ((exitTime - timeStarted) / 1000); // Time in seconds
-        System.out.println("Time spent on article: " + timeSpent + " seconds");
+        //System.out.println("Time spent on article: " + timeSpent + " seconds");
         userArticleInteractionDAO.updateArticleTime(currentUser.getUserId(), article.getArticleId(), timeSpent);
     }
 
@@ -192,13 +203,15 @@ public class DashboardController implements Initializable {
         // Add event handlers to buttons
         home.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
-            recommendArticlesOnInteract();
             onHomeClicked(event);
         });
         readingHistory.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
-            recommendArticlesOnInteract();
             onReadingHistoryClicked(event);
+        });
+        explore.setOnAction(event -> {
+            trackTimeAndUpdate(timeStarted, article);
+            onExploreClicked(event);
         });
         logout.setOnAction(event -> {
             trackTimeAndUpdate(timeStarted, article);
@@ -237,13 +250,14 @@ public class DashboardController implements Initializable {
 
         // Like button
         Button likeButton = new Button("Like");
+        likeButton.setAlignment(Pos.CENTER_LEFT);
         likeButton.setStyle("-fx-background-color: #fff;-fx-border-color: black;-fx-border-width: 1px;-fx-font-weight: bold; -fx-border-radius: 5px; -fx-font-family: Arial; -fx-alignment: CENTER-LEFT");
         UserArticleInteractionDAO userArticleInteractionDAO = new UserArticleInteractionDAOImpl();
         String likeStatus = userArticleInteractionDAO.getArticleInteractionType(currentUser.getUserId(), article.getArticleId());
         liked = Objects.equals(likeStatus, "liked");
         // Initial state of like button
         if (liked) {
-            likeButton.setStyle("-fx-text-fill: green; -fx-border-color: green");
+            likeButton.setStyle("-fx-text-fill: green; -fx-border-color: green;-fx-background-color: #fff;-fx-border-width: 1px;-fx-font-weight: bold;-fx-border-radius: 5px; -fx-font-family: Arial");
         }
         // Single event handler for like button
         likeButton.setOnAction(event -> {
@@ -251,9 +265,9 @@ public class DashboardController implements Initializable {
             setLiked(liked);
             setInteraction(article.getArticleId(), liked);
             if (liked){
-                likeButton.setStyle("-fx-text-fill: green;-fx-border-color: green");
+                likeButton.setStyle("-fx-text-fill: green; -fx-border-color: green;-fx-background-color: #fff;-fx-border-width: 1px;-fx-font-weight: bold;-fx-border-radius: 5px; -fx-font-family: Arial");
             } else {
-                likeButton.setStyle("-fx-text-fill: black;-fx-border-color: black");
+                likeButton.setStyle("-fx-background-color: #fff;-fx-border-color: black;-fx-border-width: 1px;-fx-font-weight: bold; -fx-border-radius: 5px; -fx-font-family: Arial; -fx-alignment: CENTER-LEFT");
             };
         });
 
@@ -263,8 +277,8 @@ public class DashboardController implements Initializable {
         try {
             image = new Image(Objects.requireNonNull(getClass().getResource("/com/example/newsapplicationversion1/images/" + ((int) article.getArticleId())%35 + ".jpg")).toString(), 600, 450, true, true);
             Rectangle rectangle = new Rectangle(0, 0, 650, 450);
-            rectangle.setArcWidth(30.0);   // Corner radius
-            rectangle.setArcHeight(30.0);
+            rectangle.setArcWidth(15.0);   // Corner radius
+            rectangle.setArcHeight(15.0);
             ImagePattern imagePattern = new ImagePattern(image);
             rectangle.setFill(imagePattern);
             rectangle.setEffect(new DropShadow(10, Color.BLACK));  // Shadow
@@ -293,19 +307,11 @@ public class DashboardController implements Initializable {
 
         mainScrollPane.setVbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
         mainScrollPane.setStyle("-fx-background-color: transparent;");
-        // Adjust width dynamically
-        Platform.runLater(() -> {
-            double width = newsTiles.getWidth();
-            scrollPane.setPrefWidth(width);
-            articleDetailsPane.setPrefWidth(width - 40); // Leave padding for scroll bar
-            System.out.println("Updated widths -> newsTiles: " + width + ", scrollPane: " + scrollPane.getPrefWidth() + ", articleDetailsPane: "+ articleDetailsPane.getPrefWidth());
-        });
+
+        scrollPane.prefWidthProperty().bind(newsTiles.widthProperty().subtract(0));
 
         newsTiles.getChildren().add(scrollPane);
-        System.out.println("newsTiles width: " + newsTiles.getWidth());
-        System.out.println("scrollPane width: " + scrollPane.getWidth());
-        System.out.println("articleDetailsPane width: " + articleDetailsPane.getWidth());
-
+//
     }
 
     public void setLiked(boolean liked){
@@ -380,34 +386,21 @@ public class DashboardController implements Initializable {
         RecommendationEngine recommendationEngine = new RecommendationEngine();
         Future<List<Article>> recArticles = recommendationEngine.recommendArticles(30, currentUser);
 
-        new Thread(() -> {
-            try {
-                List<Article> articles = recArticles.get();  // Blocking call to fetch results
-
-                // Update the UI on the JavaFX thread
-                Platform.runLater(() -> {
-                    RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
-                    recommendationDAO.recordRecommendations(articles, currentUser);
-                    // Optionally update the UI to show the recommended articles
-                    populateTilePane(newsTiles, articles); // Assuming you want to show these articles in the UI
-                });
-
-            } catch (InterruptedException | ExecutionException e) {
-                e.printStackTrace();
-                Platform.runLater(() -> {
-                    // Handle error (e.g., show a message to the user)
-                });
-            }
-        }).start();
+        try {
+            List<Article> articles = recArticles.get();  // Blocking call to fetch results
+            RecommendationDAO recommendationDAO = new RecommendationDAOImpl();
+            recommendationDAO.recordRecommendations(articles, currentUser);
+        } catch (InterruptedException | ExecutionException e) {
+            e.printStackTrace();
+        }
     }
-
 
     public void onHomeClicked(ActionEvent event) {
         try {
             List<Article> articlesToShow;
 
             // Fetch history or recommended articles
-            List<Article> historyArticles = articleHistory(); // This will never return null
+            List<Article> historyArticles = articleDAO.getArticleHistory(currentUser.getUserId()); // This will never return null
             if (historyArticles.isEmpty()) {
                 articlesToShow = articleDAO.getAllArticles();
             } else {
@@ -416,6 +409,7 @@ public class DashboardController implements Initializable {
 
             // Update UI in a safe way
             Platform.runLater(() -> {
+                newsTiles.getChildren().clear();
                 populateTilePane(newsTiles, articlesToShow);
             });
 
@@ -428,19 +422,34 @@ public class DashboardController implements Initializable {
         // Update styles
         home.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
         readingHistory.setStyle("-fx-background-color: transparent;-fx-alignment: CENTER-LEFT");
+        explore.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
     }
 
     public void onReadingHistoryClicked(ActionEvent event) {
-        List<Article> historyArticles = articleHistory();
+        List<Article> historyArticles = articleDAO.getArticleHistory(currentUser.getUserId());
 
         // Update UI in a safe way
         Platform.runLater(() -> {
+            newsTiles.getChildren().clear();
             populateTilePane(newsTiles, historyArticles);
         });
 
         // Update styles
         home.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
+        explore.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
         readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
+    }
+    public void onExploreClicked(ActionEvent event) {
+        List<Article> allArticles = articleDAO.getAllArticles();
+        // Update UI in a safe way
+        Platform.runLater(() -> {
+            newsTiles.getChildren().clear();
+            populateTilePane(newsTiles, allArticles);
+        });
+        // Update styles
+        home.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
+        readingHistory.setStyle("-fx-background-color: transparent; -fx-alignment: CENTER-LEFT");
+        explore.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
     }
 
 
@@ -450,55 +459,40 @@ public class DashboardController implements Initializable {
         articlesRecommended.addAll(recommendationDAO.getRecommendations(currentUser.getUserId()));
         return articlesRecommended;
     }
-    public List<Article> articleHistory() {
-        Set<Article> uniqueArticles = new HashSet<>();  // Using a Set to avoid duplicate articles
-        List<Article> articleHistory = new ArrayList<>();
 
-        UserArticleInteractionDAO userArticleInteraction = new UserArticleInteractionDAOImpl();
-
-        // Fetch interactions for the user
-        for (UserArticleInteraction interaction : userArticleInteraction.readInteractionsForUser(currentUser.getUserId())) {
-            Article article = articleDAO.getArticle(interaction.getArticleId());
-
-            if (uniqueArticles.add(article)) {  // This ensures that only unique articles are added
-                articleHistory.add(article);
-            }
-        }
-
-        return articleHistory;
-    }
 
 
     public void setUI() {
         setDateTime(dateTime);
 
-        // Fetch articles asynchronously to avoid blocking UI thread
-        new Thread(() -> {
+        executorService.submit(() -> {
             try {
                 List<Article> articlesToShow;
 
-                // Use article history or recommended articles depending on the user's history
-                if (articleHistory() == null) {
-                    articlesToShow = articleDAO.getAllArticles();
+                // Fetch history and recommended articles in parallel if necessary
+                if (articleDAO.getArticleHistory(currentUser.getUserId()).isEmpty()) {
+                    articlesToShow = articleDAO.getAllArticles(); // No history, fetch all articles
                 } else {
                     articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
                 }
 
-                // Update the UI with the fetched articles (on the JavaFX thread)
+                // Update the UI on the JavaFX thread
                 Platform.runLater(() -> {
+                    newsTiles.getChildren().clear();
                     populateTilePane(newsTiles, articlesToShow);
                 });
-
             } catch (Exception e) {
                 e.printStackTrace();
                 Platform.runLater(() -> {
+                    newsTiles.getChildren().clear();;
                     populateTilePane(newsTiles, articleDAO.getAllArticles());
                 });
             }
-        }).start();
+        });
 
         home.setOnAction(this::onHomeClicked);
         readingHistory.setOnAction(this::onReadingHistoryClicked);
+        explore.setOnAction(this::onExploreClicked);
         logout.setOnAction(event -> {
             // Handle logout functionality
             logout();

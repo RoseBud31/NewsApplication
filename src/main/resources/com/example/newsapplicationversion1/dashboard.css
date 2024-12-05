@@ -6,3 +6,11 @@
     -fx-background-color: #fff;
     -fx-border-width: 0;
 }
+.menu-items-admin{
+    -fx-font-size: 14px;
+    -fx-font-family: Arial;
+    -fx-text-fill: #fff;
+    -fx-font-weight: bold;
+    -fx-background-color: transparent;
+    -fx-border-width: 0;
+}
