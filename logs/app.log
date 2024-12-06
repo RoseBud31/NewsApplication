@@ -1,6 +1,6 @@
-[DEBUG] 2024-12-05 08:46:31.377 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 08:46:31.380 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 08:46:31.380 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 00:40:27.728 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 00:40:27.731 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 00:40:27.731 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -12,9 +12,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 09:41:17.295 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 09:41:17.298 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 09:41:17.298 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 07:13:56.122 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 07:13:56.126 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 07:13:56.126 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -26,9 +26,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 09:44:07.325 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 09:44:07.329 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 09:44:07.329 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 07:27:00.428 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 07:27:00.432 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 07:27:00.432 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -40,9 +40,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 09:47:11.192 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 09:47:11.196 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 09:47:11.196 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 07:28:32.840 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 07:28:32.843 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 07:28:32.843 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -54,9 +54,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 09:58:38.683 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 09:58:38.686 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 09:58:38.687 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 07:46:01.057 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 07:46:01.061 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 07:46:01.061 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -68,9 +68,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 09:59:12.978 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 09:59:12.981 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 09:59:12.981 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 08:54:27.522 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 08:54:27.524 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 08:54:27.524 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -82,9 +82,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 09:59:45.574 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 09:59:45.577 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 09:59:45.577 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 09:22:41.083 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 09:22:41.085 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 09:22:41.085 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -96,9 +96,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:01:41.954 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:01:41.957 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:01:41.957 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 09:26:35.278 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 09:26:35.280 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 09:26:35.280 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -110,9 +110,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:02:19.843 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:02:19.847 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:02:19.847 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 09:38:20.450 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 09:38:20.452 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 09:38:20.452 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -124,9 +124,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:02:56.597 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:02:56.600 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:02:56.600 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 10:05:18.518 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 10:05:18.520 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 10:05:18.520 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -138,9 +138,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:08:00.236 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:08:00.238 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:08:00.238 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 10:11:23.486 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 10:11:23.489 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 10:11:23.489 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
@@ -152,541 +152,9 @@ java.lang.NullPointerException: NullError
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
 	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
 	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:09:12.130 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:09:12.132 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:09:12.133 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:16:07.066 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:16:07.068 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:16:07.068 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:18:57.545 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:18:57.548 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:18:57.548 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:23:24.322 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:23:24.325 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:23:24.325 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:26:18.989 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:26:18.992 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:26:18.992 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:27:50.920 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:27:50.923 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:27:50.923 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:36:56.300 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:36:56.303 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:36:56.304 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:38:45.672 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:38:45.673 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:38:45.673 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:39:36.528 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:39:36.530 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:39:36.530 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:43:20.370 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:43:20.372 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:43:20.372 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 10:53:45.548 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 10:53:45.552 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 10:53:45.552 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 11:42:44.985 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 11:42:44.988 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 11:42:44.989 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 11:58:12.833 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 11:58:12.835 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 11:58:12.836 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 12:25:02.042 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 12:25:02.045 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 12:25:02.045 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 14:53:25.629 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 14:53:25.633 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 14:53:25.633 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 15:05:03.826 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 15:05:03.829 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 15:05:03.830 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 15:06:09.735 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 15:06:09.737 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 15:06:09.738 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 16:33:32.434 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 16:33:32.436 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 16:33:32.436 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 16:35:22.693 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 16:35:22.695 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 16:35:22.695 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 16:43:15.776 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 16:43:15.778 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 16:43:15.778 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 16:53:20.177 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 16:53:20.179 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 16:53:20.179 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 17:46:13.262 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 17:46:13.267 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 17:46:13.267 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 17:49:04.686 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 17:49:04.692 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 17:49:04.692 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 18:47:58.969 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 18:47:58.973 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 18:47:58.973 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 18:55:43.045 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 18:55:43.050 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 18:55:43.050 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 19:00:48.952 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 19:00:48.957 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 19:00:48.957 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 19:49:46.231 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 19:49:46.234 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 19:49:46.234 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 20:14:16.025 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 20:14:16.028 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 20:14:16.028 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 20:58:07.754 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 20:58:07.758 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 20:58:07.758 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 20:59:20.841 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 20:59:20.844 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 20:59:20.844 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 21:02:12.408 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 21:02:12.410 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 21:02:12.410 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 21:19:16.185 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 21:19:16.187 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 21:19:16.189 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 21:30:22.148 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 21:30:22.151 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 21:30:22.151 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 21:32:48.599 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 21:32:48.602 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 21:32:48.602 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 21:48:57.579 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 21:48:57.582 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 21:48:57.582 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 21:56:29.077 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 21:56:29.080 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 21:56:29.080 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 22:12:26.454 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 22:12:26.456 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 22:12:26.457 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 22:18:26.546 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 22:18:26.550 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 22:18:26.551 [JavaFX Application Thread] Main - Error Message Logged !!!
-java.lang.NullPointerException: NullError
-	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
-	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runAndWait$12(PlatformImpl.java:483) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$10(PlatformImpl.java:456) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.security.AccessController.doPrivileged(AccessController.java:400) ~[?:?]
-	at javafx.graphics/com.sun.javafx.application.PlatformImpl.lambda$runLater$11(PlatformImpl.java:455) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.InvokeLaterDispatcher$Future.run(InvokeLaterDispatcher.java:95) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication._runLoop(Native Method) ~[javafx-graphics-23.0.1-win.jar:?]
-	at javafx.graphics/com.sun.glass.ui.win.WinApplication.lambda$runLoop$3(WinApplication.java:184) ~[javafx-graphics-23.0.1-win.jar:?]
-	at java.base/java.lang.Thread.run(Thread.java:1575) [?:?]
-[DEBUG] 2024-12-05 22:23:23.242 [JavaFX Application Thread] Main - Debug Message Logged !!!
-[INFO ] 2024-12-05 22:23:23.245 [JavaFX Application Thread] Main - Info Message Logged !!!
-[ERROR] 2024-12-05 22:23:23.245 [JavaFX Application Thread] Main - Error Message Logged !!!
+[DEBUG] 2024-12-06 10:17:25.816 [JavaFX Application Thread] Main - Debug Message Logged !!!
+[INFO ] 2024-12-06 10:17:25.818 [JavaFX Application Thread] Main - Info Message Logged !!!
+[ERROR] 2024-12-06 10:17:25.818 [JavaFX Application Thread] Main - Error Message Logged !!!
 java.lang.NullPointerException: NullError
 	at com.example.newsapplicationversion1/com.example.newsapplicationversion1.Main.start(Main.java:37) ~[classes/:?]
 	at javafx.graphics/com.sun.javafx.application.LauncherImpl.lambda$launchApplication1$9(LauncherImpl.java:839) ~[javafx-graphics-23.0.1-win.jar:?]

@@ -237,6 +237,12 @@ public class DashboardController implements Initializable {
         authorLabel.setStyle("-fx-text-fill: black; -fx-font-family: Arial; -fx-alignment: CENTER-LEFT");
         authorLabel.setMaxWidth(650);
 
+        // Article category
+        Label categoryLabel = new Label(article.getCategory().toUpperCase());
+        categoryLabel.setWrapText(true);
+        categoryLabel.setStyle("-fx-text-fill: black; -fx-font-family: Arial; -fx-alignment: CENTER-LEFT");
+        categoryLabel.setMaxWidth(650);
+
         // Article Description
         Label descriptionLabel = new Label(article.getDescription());
         descriptionLabel.setWrapText(true);
@@ -295,7 +301,7 @@ public class DashboardController implements Initializable {
         contentLabel.setWrapText(true);
         contentLabel.setMaxWidth(650);
 
-        articleDetailsPane.getChildren().addAll(titleLabel, authorLabel, likeButton, dateLabel, descriptionLabel, contentLabel);
+        articleDetailsPane.getChildren().addAll(titleLabel, authorLabel,categoryLabel, likeButton, dateLabel, descriptionLabel, contentLabel);
 
         // Wrap the details pane in a ScrollPane
         ScrollPane scrollPane = new ScrollPane(articleDetailsPane);
@@ -385,7 +391,7 @@ public class DashboardController implements Initializable {
 
     private void recommendArticlesOnInteract() {
         RecommendationEngine recommendationEngine = new RecommendationEngine();
-        Future<List<Article>> recArticles = recommendationEngine.recommendArticles(30, currentUser);
+        Future<List<Article>> recArticles = recommendationEngine.recommendArticles(10, currentUser);
 
         try {
             List<Article> articles = recArticles.get();  // Blocking call to fetch results
@@ -399,13 +405,20 @@ public class DashboardController implements Initializable {
     public void onHomeClicked(ActionEvent event) {
         try {
             List<Article> articlesToShow;
+            ArticleDAO articleDAO1 = new ArticleDAOImpl();
+            UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
+            List<String> categories = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredCategories();
 
             // Fetch history or recommended articles
-            List<Article> historyArticles = articleDAO.getArticleHistory(currentUser.getUserId()); // This will never return null
-            if (historyArticles.isEmpty()) {
-                articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
+            List<Article> historyArticles = articleDAO1.getArticleHistory(currentUser.getUserId()); // This will never return null
+            if (articleDAO.getArticleHistory(currentUser.getUserId()).isEmpty() || articleDAO.getArticleHistory(currentUser.getUserId()).size()<5) {
+                List<Article> articlesShowHelper = new ArrayList<>();
+                for (String category : categories) {
+                    articlesShowHelper.addAll(articleDAO1.getArticlesByCategory(category));
+                }
+                articlesToShow = articlesShowHelper; // No history, fetch all articles
             } else {
-                articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
+                articlesToShow = articleDAO1.getRecommendedArticles(recArticleIds());
             }
 
             // Update UI in a safe way
@@ -427,6 +440,7 @@ public class DashboardController implements Initializable {
     }
 
     public void onReadingHistoryClicked(ActionEvent event) {
+        ArticleDAO articleDAO = new ArticleDAOImpl();
         List<Article> historyArticles = articleDAO.getArticleHistory(currentUser.getUserId());
 
         // Update UI in a safe way
@@ -441,7 +455,8 @@ public class DashboardController implements Initializable {
         readingHistory.setStyle("-fx-background-color:linear-gradient(to bottom right, #b6b6b6, #e1e1e1);-fx-alignment: CENTER-LEFT");
     }
     public void onExploreClicked(ActionEvent event) {
-        List<Article> allArticles = articleDAO.getAllArticles();
+        ArticleDAO articleDAO1 = new ArticleDAOImpl();
+        List<Article> allArticles = articleDAO1.getAllArticles();
         // Update UI in a safe way
         Platform.runLater(() -> {
             newsTiles.getChildren().clear();
@@ -465,14 +480,21 @@ public class DashboardController implements Initializable {
 
     public void setUI() {
         setDateTime(dateTime);
+        ArticleDAO articleDAO = new ArticleDAOImpl();
+        UserPreferencesDAO userPreferencesDAO = new UserPreferencesDAOImpl();
+        List<String> categories = userPreferencesDAO.getUserPreferences(currentUser.getUserId()).getPreferredCategories();
 
         executorService.submit(() -> {
             try {
                 List<Article> articlesToShow;
 
-                // Fetch history and recommended articles in parallel if necessary
+                // Fetch history and recommended articles in parallel
                 if (articleDAO.getArticleHistory(currentUser.getUserId()).isEmpty()) {
-                    articlesToShow = articleDAO.getAllArticles(); // No history, fetch all articles
+                    List<Article> articlesShowHelper = new ArrayList<>();
+                    for (String category : categories) {
+                        articlesShowHelper.addAll(articleDAO.getArticlesByCategory(category));
+                    }
+                    articlesToShow = articlesShowHelper; // No history, fetch all articles
                 } else {
                     articlesToShow = articleDAO.getRecommendedArticles(recArticleIds());
                 }

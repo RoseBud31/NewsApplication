@@ -81,6 +81,7 @@ public class CreateAccountController implements Initializable {
                 alert.setContentText("Email already exists");
                 alert.showAndWait();
                 loginAccountLink();
+                return null;
             }
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -165,25 +166,25 @@ public class CreateAccountController implements Initializable {
     private List<String> getCategories() {
         List<String> preferredCategories = new ArrayList<>();
         if (health.isSelected()) {
-            preferredCategories.add("Health");
+            preferredCategories.add("health");
         }
         if (business.isSelected()) {
-            preferredCategories.add("Business");
+            preferredCategories.add("business");
         }
         if (science.isSelected()) {
-            preferredCategories.add("Science");
+            preferredCategories.add("science");
         }
         if (technology.isSelected()) {
-            preferredCategories.add("Technology");
+            preferredCategories.add("technology");
         }
         if (sports.isSelected()) {
-            preferredCategories.add("Sports");
+            preferredCategories.add("sports");
         }
         if (general.isSelected()) {
-            preferredCategories.add("General");
+            preferredCategories.add("general");
         }
         if (entertainment.isSelected()) {
-            preferredCategories.add("Entertainment");
+            preferredCategories.add("entertainment");
         }
         return preferredCategories;
     }

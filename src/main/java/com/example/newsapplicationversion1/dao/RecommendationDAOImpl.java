@@ -49,7 +49,7 @@ public class RecommendationDAOImpl implements RecommendationDAO {
             long millis=System.currentTimeMillis();
             Date date=new Date(millis);
             if (checkForDuplicate(currentUser.getUserId(), article.getArticleId())) {
-                System.err.println("duplicate article id: " + article.getArticleId());
+                //System.err.println("duplicate article id: " + article.getArticleId());
                 continue;
             }
             recordRecommendation(currentUser.getUserId(), article.getArticleId(), date);
